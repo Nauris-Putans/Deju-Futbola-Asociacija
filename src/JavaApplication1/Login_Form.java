@@ -15,9 +15,11 @@ import java.util.logging.Logger;
 //----------------------------------------//
 
 public class Login_Form extends javax.swing.JFrame {
-Connection conn=null;
-ResultSet rs = null;
-PreparedStatement pst = null;
+	
+	Connection conn=null;
+	ResultSet rs = null;
+	PreparedStatement pst = null;
+	
 	/**
 	 * Creates new form Login_JFrame
 	 */
@@ -215,27 +217,27 @@ PreparedStatement pst = null;
     private void cmd_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_loginActionPerformed
 
 		
-		String sql = "select * from users where username=? and password=?";	// Selects from database username and password
-		try {
-			pst = conn.prepareStatement(sql);     
-			pst.setString(1, txt_username.getText());      // Checks if inputed username is correct with database username
-			pst.setString(2, txt_password.getText());	     // Checks if inputed password is correct with database password
+	String sql = "select * from users where Lietotajvards=? and Parole=?";	// Selects from database username and password
+	try {
+		pst = conn.prepareStatement(sql);     
+		pst.setString(1, txt_username.getText());      // Checks if inputed username is correct with database username
+		pst.setString(2, txt_password.getText());	     // Checks if inputed password is correct with database password
 			
-			rs = pst.executeQuery();
-			if(rs.next()){
-				JOptionPane.showMessageDialog(null, "Username and Password is correct");
-				Player_Info_Form s = new Player_Info_Form();	// Shows new Form - Player_info
-				s.setVisible(true);
-			}
-			
-			else {
-				JOptionPane.showMessageDialog(null, "Username and Password is incorrect");
-			}
+		rs = pst.executeQuery();
+		if(rs.next()){
+			JOptionPane.showMessageDialog(null, "Veiksmiga pieslegsanas!");
+			Player_Info_Form s = new Player_Info_Form();	// Shows new Form - Player_info
+			s.setVisible(true);
 		}
+			
+		else {
+			JOptionPane.showMessageDialog(null, "Lietotajvards vai parole ir nepareiza");
+		}
+	}
 		
-		catch(Exception e) {
-			JOptionPane.showMessageDialog(null, "Error!");
-		}
+	catch(Exception e) {
+		JOptionPane.showMessageDialog(null, "Error!");
+	}
     }//GEN-LAST:event_cmd_loginActionPerformed
 
     private void close_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_close_buttonMouseClicked

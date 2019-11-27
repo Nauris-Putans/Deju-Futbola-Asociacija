@@ -1,23 +1,53 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package JavaApplication1;
 
-/**
- *
- * @author user
- */
+import static JavaApplication1.javaConnect.DB_URL;
+import static JavaApplication1.javaConnect.PASS;
+import static JavaApplication1.javaConnect.USER;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.*;
+import net.proteanit.sql.DbUtils;
+
 public class Main_Form extends javax.swing.JFrame {
+	
+	Connection conn=null;
+	ResultSet rs = null;
+	PreparedStatement pst = null;
 
 	/**
 	 * Creates new form Main_Form
 	 */
 	public Main_Form() {
 		initComponents();
+		
+		this.setLocationRelativeTo(null);
+		
+		try 
+		{	
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		} 
+		
+		catch (SQLException ex) 
+		{
+			Logger.getLogger(Login_Form.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		
+		Update_table();	
 	}
-
+private void Update_table() {
+	
+	String sql = "select * from speletaji";
+	try {
+		pst = conn.prepareStatement(sql);   
+		rs = pst.executeQuery();
+		Table_Players.setModel(DbUtils.resultSetToTableModel(rs));
+	}
+	
+	catch(Exception e) {
+		JOptionPane.showMessageDialog(null, e);
+	}
+}
 	/**
 	 * This method is called from within the constructor to initialize the form.
 	 * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,27 +57,39 @@ public class Main_Form extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Table_Players = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        Table_Players.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(Table_Players);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(245, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(114, 114, 114))
+                .addContainerGap(426, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(136, 136, 136))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jLabel1)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addGap(90, 90, 90)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
@@ -89,6 +131,7 @@ public class Main_Form extends javax.swing.JFrame {
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTable Table_Players;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
