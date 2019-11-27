@@ -28,7 +28,7 @@ public class Main_Form extends javax.swing.JFrame {
 		Table_Players.setDefaultEditor(Object.class, null);	// Disables edit in table
 		Table_Players.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
 		Table_Players.getTableHeader().setOpaque(false);
-		Table_Players.getTableHeader().setBackground(new Color(192, 57, 43));
+		Table_Players.getTableHeader().setBackground(Color.blue);
 		Table_Players.getTableHeader().setForeground(new Color(255, 255, 255));
 		Table_Players.setRowHeight(25);
 		
@@ -95,6 +95,7 @@ private void Update_table() {
         Table_Players.setShowHorizontalLines(false);
         Table_Players.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(Table_Players);
+        Table_Players.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

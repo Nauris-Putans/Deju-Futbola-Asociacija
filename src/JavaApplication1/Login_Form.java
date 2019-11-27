@@ -63,7 +63,7 @@ public class Login_Form extends javax.swing.JFrame {
 
         lbl_LoginForm.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
         lbl_LoginForm.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_LoginForm.setText("Login Form ");
+        lbl_LoginForm.setText("Pieslegšanas logs");
 
         close_button.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
         close_button.setForeground(new java.awt.Color(255, 255, 255));
@@ -121,11 +121,11 @@ public class Login_Form extends javax.swing.JFrame {
 
         lbl_username.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         lbl_username.setForeground(new java.awt.Color(204, 255, 255));
-        lbl_username.setText("Username:");
+        lbl_username.setText("Lietotajvards:");
 
         lbl_password.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         lbl_password.setForeground(new java.awt.Color(204, 255, 255));
-        lbl_password.setText("Password:");
+        lbl_password.setText("Parole:");
 
         txt_password.setBackground(new java.awt.Color(108, 122, 137));
         txt_password.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -134,13 +134,18 @@ public class Login_Form extends javax.swing.JFrame {
         cmd_cancel.setBackground(new java.awt.Color(231, 76, 60));
         cmd_cancel.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         cmd_cancel.setForeground(new java.awt.Color(255, 255, 255));
-        cmd_cancel.setText("Cancel");
+        cmd_cancel.setText("Atcelt");
         cmd_cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmd_cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmd_cancelActionPerformed(evt);
+            }
+        });
 
         cmd_login.setBackground(new java.awt.Color(52, 152, 219));
         cmd_login.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         cmd_login.setForeground(new java.awt.Color(255, 255, 255));
-        cmd_login.setText("Login");
+        cmd_login.setText("Pieslegties");
         cmd_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmd_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,22 +158,22 @@ public class Login_Form extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lbl_password)
                             .addComponent(lbl_username))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_username)
-                            .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
                         .addComponent(cmd_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmd_login, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64))))
+                        .addComponent(cmd_login, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(42, 42, 42))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +214,7 @@ public class Login_Form extends javax.swing.JFrame {
 
     private void cmd_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_loginActionPerformed
 
-	String sql = "select * from users where Lietotajvards=? and Parole=?";	// Selects from database username and password
+	String sql = "select * from lietotaji where Lietotajvards=? and Parole=?";	// Selects from database username and password
 	
 	try {
 		pst = conn.prepareStatement(sql);     
@@ -220,7 +225,7 @@ public class Login_Form extends javax.swing.JFrame {
 		if(rs.next())
 		{
 			JOptionPane.showMessageDialog(null, "Veiksmiga pieslegsanas!");
-			Player_Info_Form s = new Player_Info_Form();	// Shows new Form - Player_info
+			Player_Info_Form s = new Player_Info_Form();		// Shows new Form - Player_info
 			s.setVisible(true);
 		}
 			
@@ -231,7 +236,7 @@ public class Login_Form extends javax.swing.JFrame {
 	}
 		
 	catch(Exception e) {
-		JOptionPane.showMessageDialog(null, "Error!");
+		JOptionPane.showMessageDialog(null, "Something wrong with sql syntax!");
 	}
     }//GEN-LAST:event_cmd_loginActionPerformed
 
@@ -242,6 +247,10 @@ public class Login_Form extends javax.swing.JFrame {
     private void minimize_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseClicked
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimize_buttonMouseClicked
+
+    private void cmd_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_cancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmd_cancelActionPerformed
 
 	/**
 	 * @param args the command line arguments
