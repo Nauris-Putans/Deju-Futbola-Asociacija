@@ -1,15 +1,7 @@
 package JavaApplication1;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//---------------Imports---------------//
 
-/**
- *
- * @author user
- */
 import static JavaApplication1.javaConnect.DB_URL;
 import static JavaApplication1.javaConnect.PASS;
 import static JavaApplication1.javaConnect.USER;
@@ -19,6 +11,9 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+//----------------------------------------//
+
 public class Login extends javax.swing.JFrame {
 Connection conn=null;
 ResultSet rs = null;
@@ -125,24 +120,24 @@ PreparedStatement pst = null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmd_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_loginActionPerformed
-        // TODO add your handling code here:
+
 		
-		String sql = "select * from users where username=? and password=?";
+		String sql = "select * from users where username=? and password=?";	// Selects from database username and password
 		try {
-			pst = conn.prepareStatement(sql);
-			pst.setString(1, txt_username.getText());
-			pst.setString(2, txt_password.getText());
+			pst = conn.prepareStatement(sql);     
+			pst.setString(1, txt_username.getText());      // Checks if inputed username is correct with database username
+			pst.setString(2, txt_password.getText());	     // Checks if inputed password is correct with database password
 			
 			rs = pst.executeQuery();
 			if(rs.next()){
 				JOptionPane.showMessageDialog(null, "Username and Password is correct");
-				Player_info s = new Player_info();
+				Player_info s = new Player_info();	// Shows new Form - Player_info
 				s.setVisible(true);
 			}
 		}
 		
 		catch(HeadlessException | SQLException e) {
-			JOptionPane.showMessageDialog(null, "Username and Password is correct");
+			JOptionPane.showMessageDialog(null, "Username and Password is incorrect");
 		}
     }//GEN-LAST:event_cmd_loginActionPerformed
 
