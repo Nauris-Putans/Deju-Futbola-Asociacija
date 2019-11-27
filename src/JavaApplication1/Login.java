@@ -49,13 +49,13 @@ PreparedStatement pst = null;
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lbl_LoginForm = new javax.swing.JLabel();
         close_button = new javax.swing.JLabel();
         minimize_button = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         txt_username = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbl_username = new javax.swing.JLabel();
+        lbl_password = new javax.swing.JLabel();
         txt_password = new javax.swing.JPasswordField();
         cmd_cancel = new javax.swing.JButton();
         cmd_login = new javax.swing.JButton();
@@ -66,9 +66,9 @@ PreparedStatement pst = null;
 
         jPanel3.setBackground(new java.awt.Color(230, 126, 34));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Login Form ");
+        lbl_LoginForm.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
+        lbl_LoginForm.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_LoginForm.setText("Login Form ");
 
         close_button.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
         close_button.setForeground(new java.awt.Color(255, 255, 255));
@@ -82,7 +82,8 @@ PreparedStatement pst = null;
 
         minimize_button.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         minimize_button.setForeground(new java.awt.Color(255, 255, 255));
-        minimize_button.setText("-");
+        minimize_button.setText("_");
+        minimize_button.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         minimize_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         minimize_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -96,7 +97,7 @@ PreparedStatement pst = null;
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel3)
+                .addComponent(lbl_LoginForm)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(minimize_button)
                 .addGap(18, 18, 18)
@@ -106,12 +107,14 @@ PreparedStatement pst = null;
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lbl_LoginForm)
                     .addComponent(close_button)
-                    .addComponent(minimize_button))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(minimize_button, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(52, 73, 94));
@@ -120,13 +123,13 @@ PreparedStatement pst = null;
         txt_username.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txt_username.setForeground(new java.awt.Color(228, 241, 254));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel1.setText("Username:");
+        lbl_username.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        lbl_username.setForeground(new java.awt.Color(204, 255, 255));
+        lbl_username.setText("Username:");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 255, 255));
-        jLabel2.setText("Password:");
+        lbl_password.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        lbl_password.setForeground(new java.awt.Color(204, 255, 255));
+        lbl_password.setText("Password:");
 
         txt_password.setBackground(new java.awt.Color(108, 122, 137));
         txt_password.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -158,8 +161,8 @@ PreparedStatement pst = null;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
+                            .addComponent(lbl_password)
+                            .addComponent(lbl_username))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txt_username)
@@ -177,11 +180,11 @@ PreparedStatement pst = null;
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(lbl_username))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(lbl_password))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmd_cancel)
@@ -280,11 +283,11 @@ PreparedStatement pst = null;
     private javax.swing.JLabel close_button;
     private javax.swing.JButton cmd_cancel;
     private javax.swing.JButton cmd_login;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lbl_LoginForm;
+    private javax.swing.JLabel lbl_password;
+    private javax.swing.JLabel lbl_username;
     private javax.swing.JLabel minimize_button;
     private javax.swing.JPasswordField txt_password;
     private javax.swing.JTextField txt_username;
