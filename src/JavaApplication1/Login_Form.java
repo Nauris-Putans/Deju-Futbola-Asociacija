@@ -20,23 +20,16 @@ public class Login_Form extends javax.swing.JFrame {
 	ResultSet rs = null;
 	PreparedStatement pst = null;
 	
-	/**
-	 * Creates new form Login_JFrame
-	 */
-	public Login_Form() {
+	public Login_Form() {	// Creates new form Login_JFrame
 		initComponents();
 		
 		this.setLocationRelativeTo(null);	// Centers Login_Form form in the screen
-		
-		
-		
-		try 
-		{	
+
+		try {	
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
 		} 
 		
-		catch (SQLException ex) 
-		{
+		catch (SQLException ex) {
 			Logger.getLogger(Login_Form.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
@@ -216,21 +209,23 @@ public class Login_Form extends javax.swing.JFrame {
 
     private void cmd_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_loginActionPerformed
 
-		
 	String sql = "select * from users where Lietotajvards=? and Parole=?";	// Selects from database username and password
+	
 	try {
 		pst = conn.prepareStatement(sql);     
 		pst.setString(1, txt_username.getText());      // Checks if inputed username is correct with database username
-		pst.setString(2, txt_password.getText());	     // Checks if inputed password is correct with database password
-			
+		pst.setString(2, txt_password.getText());	     // Checks if inputed password is correct with database password	
 		rs = pst.executeQuery();
-		if(rs.next()){
+		
+		if(rs.next())
+		{
 			JOptionPane.showMessageDialog(null, "Veiksmiga pieslegsanas!");
 			Player_Info_Form s = new Player_Info_Form();	// Shows new Form - Player_info
 			s.setVisible(true);
 		}
 			
-		else {
+		else 
+		{
 			JOptionPane.showMessageDialog(null, "Lietotajvards vai parole ir nepareiza");
 		}
 	}

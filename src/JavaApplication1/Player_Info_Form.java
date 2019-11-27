@@ -1,11 +1,13 @@
 package JavaApplication1;
 
+//---------------Imports---------------//
+
+
+//----------------------------------------//
+
 public class Player_Info_Form extends javax.swing.JFrame {
 
-	/**
-	 * Creates new form Player_info_JFrame
-	 */
-	public Player_Info_Form() {
+	public Player_Info_Form() {	// Creates new form Player_info_JFrame
 		initComponents();
 	}
 

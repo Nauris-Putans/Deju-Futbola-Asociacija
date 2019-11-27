@@ -1,25 +1,36 @@
 package JavaApplication1;
 
+//---------------Imports---------------//
+
 import static JavaApplication1.javaConnect.DB_URL;
 import static JavaApplication1.javaConnect.PASS;
 import static JavaApplication1.javaConnect.USER;
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import net.proteanit.sql.DbUtils;
 
+//----------------------------------------//
+
 public class Main_Form extends javax.swing.JFrame {
-	
+		
 	Connection conn=null;
 	ResultSet rs = null;
 	PreparedStatement pst = null;
 
-	/**
-	 * Creates new form Main_Form
-	 */
-	public Main_Form() {
+	public Main_Form() {	// Creates new form Main_Form
 		initComponents();
+		
+		setExtendedState(JFrame.MAXIMIZED_BOTH);	    // Sets the JFrame to maximize by default on opening
+		Table_Players.setDefaultEditor(Object.class, null);	// Disables edit in table
+		Table_Players.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
+		Table_Players.getTableHeader().setOpaque(false);
+		Table_Players.getTableHeader().setBackground(new Color(192, 57, 43));
+		Table_Players.getTableHeader().setForeground(new Color(255, 255, 255));
+		Table_Players.setRowHeight(25);
 		
 		this.setLocationRelativeTo(null);
 		
@@ -35,11 +46,13 @@ public class Main_Form extends javax.swing.JFrame {
 		
 		Update_table();	
 	}
+	
 private void Update_table() {
 	
-	String sql = "select * from speletaji";
+	String insert = "select * from speletaji";
+	
 	try {
-		pst = conn.prepareStatement(sql);   
+		pst = conn.prepareStatement(insert);   
 		rs = pst.executeQuery();
 		Table_Players.setModel(DbUtils.resultSetToTableModel(rs));
 	}
@@ -62,6 +75,8 @@ private void Update_table() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        Table_Players.setAutoCreateRowSorter(true);
+        Table_Players.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Table_Players.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -73,6 +88,12 @@ private void Update_table() {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Table_Players.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        Table_Players.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        Table_Players.setRowHeight(25);
+        Table_Players.setSelectionBackground(new java.awt.Color(46, 204, 113));
+        Table_Players.setShowHorizontalLines(false);
+        Table_Players.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(Table_Players);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -80,16 +101,16 @@ private void Update_table() {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(426, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(136, 136, 136))
+                .addContainerGap(754, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(288, 288, 288))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(377, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(282, 282, 282))
         );
 
         pack();
@@ -126,12 +147,13 @@ private void Update_table() {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new Main_Form().setVisible(true);
+				
 			}
 		});
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Table_Players;
-    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable Table_Players;
+    public javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
