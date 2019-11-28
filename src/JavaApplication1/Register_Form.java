@@ -46,6 +46,8 @@ public class Register_Form extends javax.swing.JFrame {
         txt_username2 = new javax.swing.JTextField();
         txt_password1 = new javax.swing.JPasswordField();
         lbl_password1 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        lbl_username3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -167,6 +169,14 @@ public class Register_Form extends javax.swing.JFrame {
         lbl_password1.setForeground(new java.awt.Color(204, 255, 255));
         lbl_password1.setText("Atkartota parole:");
 
+        jDateChooser1.setBackground(new java.awt.Color(52, 73, 94));
+        jDateChooser1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        jDateChooser1.setMinSelectableDate(new java.util.Date(-5364665896000L));
+
+        lbl_username3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_username3.setForeground(new java.awt.Color(204, 255, 255));
+        lbl_username3.setText("Dzimšanas datums:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -191,10 +201,14 @@ public class Register_Form extends javax.swing.JFrame {
                             .addComponent(txt_username, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txt_password, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbl_password1)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbl_password1)
+                            .addComponent(lbl_username3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_password1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(104, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_password1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,7 +233,11 @@ public class Register_Form extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_password1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_password1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_username3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmd_cancel)
                     .addComponent(cmd_login))
@@ -299,6 +317,7 @@ public class Register_Form extends javax.swing.JFrame {
     private javax.swing.JLabel close_button;
     private javax.swing.JButton cmd_cancel;
     private javax.swing.JButton cmd_login;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel lbl_LoginForm;
@@ -307,6 +326,7 @@ public class Register_Form extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_username;
     private javax.swing.JLabel lbl_username1;
     private javax.swing.JLabel lbl_username2;
+    private javax.swing.JLabel lbl_username3;
     private javax.swing.JLabel minimize_button;
     private javax.swing.JPasswordField txt_password;
     private javax.swing.JPasswordField txt_password1;
