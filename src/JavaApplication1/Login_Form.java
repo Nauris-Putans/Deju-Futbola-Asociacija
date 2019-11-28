@@ -61,7 +61,7 @@ public class Login_Form extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(230, 126, 34));
 
-        lbl_LoginForm.setFont(new java.awt.Font("Tahoma", 1, 19)); // NOI18N
+        lbl_LoginForm.setFont(new java.awt.Font("Segoe UI", 1, 19)); // NOI18N
         lbl_LoginForm.setForeground(new java.awt.Color(255, 255, 255));
         lbl_LoginForm.setText("Pieslegšanas logs");
 
@@ -116,23 +116,23 @@ public class Login_Form extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(52, 73, 94));
 
         txt_username.setBackground(new java.awt.Color(108, 122, 137));
-        txt_username.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txt_username.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         txt_username.setForeground(new java.awt.Color(228, 241, 254));
 
-        lbl_username.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        lbl_username.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         lbl_username.setForeground(new java.awt.Color(204, 255, 255));
         lbl_username.setText("Lietotajvards:");
 
-        lbl_password.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        lbl_password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         lbl_password.setForeground(new java.awt.Color(204, 255, 255));
         lbl_password.setText("Parole:");
 
         txt_password.setBackground(new java.awt.Color(108, 122, 137));
-        txt_password.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txt_password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         txt_password.setForeground(new java.awt.Color(228, 241, 254));
 
         cmd_cancel.setBackground(new java.awt.Color(231, 76, 60));
-        cmd_cancel.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        cmd_cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         cmd_cancel.setForeground(new java.awt.Color(255, 255, 255));
         cmd_cancel.setText("Atcelt");
         cmd_cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -143,7 +143,7 @@ public class Login_Form extends javax.swing.JFrame {
         });
 
         cmd_login.setBackground(new java.awt.Color(52, 152, 219));
-        cmd_login.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        cmd_login.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         cmd_login.setForeground(new java.awt.Color(255, 255, 255));
         cmd_login.setText("Pieslegties");
         cmd_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -158,22 +158,21 @@ public class Login_Form extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbl_password)
-                            .addComponent(lbl_username))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_username)
-                            .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(cmd_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmd_login, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cmd_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(cmd_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(42, 42, 42))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_password)
+                    .addComponent(lbl_username))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txt_username)
+                    .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +185,7 @@ public class Login_Form extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_password))
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmd_cancel)
                     .addComponent(cmd_login))
