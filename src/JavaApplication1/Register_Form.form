@@ -157,43 +157,35 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabel1" alignment="0" pref="263" max="32767" attributes="0"/>
+                              <Component id="lbl_surname" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_name" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_username" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabel3" alignment="0" pref="263" max="32767" attributes="0"/>
+                              <Component id="txt_surname" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" pref="263" max="32767" attributes="0"/>
+                              <Component id="lbl_username" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_password" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="txt_again_password" alignment="0" pref="263" max="32767" attributes="0"/>
+                              <Component id="lbl_again_password" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="0" pref="263" max="32767" attributes="0"/>
+                              <Component id="txt_password" alignment="0" pref="263" max="32767" attributes="0"/>
+                              <Component id="txt_name" alignment="0" pref="263" max="32767" attributes="0"/>
+                              <Component id="lbl_date" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="0" pref="263" max="32767" attributes="0"/>
+                              <Component id="date_chooser" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="96" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="cmd_cancel" min="-2" pref="93" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                           <Component id="cmd_register" min="-2" pref="210" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="jLabel1" alignment="1" min="-2" pref="263" max="-2" attributes="0"/>
-                                  <Component id="lbl_surname" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lbl_name" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txt_username" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txt_surname" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel2" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="lbl_username" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbl_password" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txt_again_password" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
-                              <Component id="lbl_again_password" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
-                              <Component id="txt_password" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
-                              <Component id="txt_name" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
-                              <Component id="lbl_date" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="date_chooser" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" pref="263" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="96" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
@@ -206,7 +198,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                   <Component id="lbl_name" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txt_name" min="-2" max="-2" attributes="0"/>
@@ -508,22 +500,6 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="date_chooser">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="5e" green="49" red="34" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Semibold" size="12" style="0"/>
-            </Property>
-            <Property name="minSelectableDate" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
-              <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,-1,-1,-5,30,-16,-2,-77,-64,120"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JButton" name="cmd_cancel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -611,6 +587,11 @@
             </DimensionLayout>
           </Layout>
         </Container>
+        <Component class="com.toedter.calendar.JDateChooser" name="date_chooser">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
