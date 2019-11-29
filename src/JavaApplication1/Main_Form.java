@@ -373,13 +373,13 @@ private void Update_table() {
         Side_PanelLayout.setVerticalGroup(
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Side_PanelLayout.createSequentialGroup()
-                .addGap(145, 145, 145)
+                .addGap(139, 139, 139)
                 .addComponent(button_SakumaEkrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_SpeletajuInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_Administrators, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_Drizuma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(DFA_Logo)
@@ -441,6 +441,13 @@ private void Update_table() {
 		resetColor(button_SpeletajuInfo);
 			resetColor(button_Administrators);
 				resetColor(button_Drizuma);
+				
+				// Indicators
+				
+				ind_SakumaEkrans.setOpaque(true);
+				ind_SpeletajuInfo.setOpaque(false);
+				ind_Administrators.setOpaque(false);
+				ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_SakumaEkransMousePressed
 
     private void button_SpeletajuInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_SpeletajuInfoMousePressed
@@ -448,6 +455,13 @@ private void Update_table() {
 		resetColor(button_SakumaEkrans);
 			resetColor(button_Administrators);
 				resetColor(button_Drizuma);
+				
+				// Indicators
+				
+				ind_SpeletajuInfo.setOpaque(true);
+				ind_SakumaEkrans.setOpaque(false);
+				ind_Administrators.setOpaque(false);
+				ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_SpeletajuInfoMousePressed
 
     private void button_AdministratorsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_AdministratorsMousePressed
@@ -455,6 +469,13 @@ private void Update_table() {
 		resetColor(button_SakumaEkrans);
 			resetColor(button_SpeletajuInfo);
 				resetColor(button_Drizuma);
+				
+				// Indicators
+				
+				ind_Administrators.setOpaque(true);
+				ind_SakumaEkrans.setOpaque(false);
+				ind_SpeletajuInfo.setOpaque(false);
+				ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_AdministratorsMousePressed
 
     private void button_DrizumaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_DrizumaMousePressed
@@ -462,6 +483,13 @@ private void Update_table() {
 		resetColor(button_SakumaEkrans);
 			resetColor(button_SpeletajuInfo);
 				resetColor(button_Administrators);
+				
+				// Indicators
+				
+				ind_Drizuma.setOpaque(true);
+				ind_SakumaEkrans.setOpaque(false);
+				ind_SpeletajuInfo.setOpaque(false);
+				ind_Administrators.setOpaque(false);
     }//GEN-LAST:event_button_DrizumaMousePressed
 
 	/**
