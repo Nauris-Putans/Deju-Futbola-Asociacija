@@ -75,22 +75,26 @@ private void Update_table() {
         Table_Players = new javax.swing.JTable();
         Side_Panel = new javax.swing.JPanel();
         DFA_Logo = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        button_SakumaEkrans = new javax.swing.JPanel();
+        ind_SakumaEkrans = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        button_SpeletajuInfo = new javax.swing.JPanel();
+        ind_SpeletajuInfo = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        button_Administrators = new javax.swing.JPanel();
+        ind_Administrators = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        button_Drizuma = new javax.swing.JPanel();
+        ind_Drizuma = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
         WhiteBar_Panel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
 
         Background_Panel.setBackground(new java.awt.Color(52, 73, 94));
 
@@ -125,161 +129,261 @@ private void Update_table() {
         DFA_Logo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         DFA_Logo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jPanel2.setBackground(new java.awt.Color(211, 84, 0));
-        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_SakumaEkrans.setBackground(new java.awt.Color(230, 126, 34));
+        button_SakumaEkrans.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_SakumaEkrans.setPreferredSize(new java.awt.Dimension(157, 50));
+        button_SakumaEkrans.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                button_SakumaEkransMousePressed(evt);
+            }
+        });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\home-5-24.png")); // NOI18N
+        ind_SakumaEkrans.setBackground(new java.awt.Color(255, 255, 255));
+        ind_SakumaEkrans.setOpaque(false);
+        ind_SakumaEkrans.setPreferredSize(new java.awt.Dimension(7, 0));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Sākuma ekrāns");
+        javax.swing.GroupLayout ind_SakumaEkransLayout = new javax.swing.GroupLayout(ind_SakumaEkrans);
+        ind_SakumaEkrans.setLayout(ind_SakumaEkransLayout);
+        ind_SakumaEkransLayout.setHorizontalGroup(
+            ind_SakumaEkransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 7, Short.MAX_VALUE)
+        );
+        ind_SakumaEkransLayout.setVerticalGroup(
+            ind_SakumaEkransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1)
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Sākuma ekrāns");
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\home-5-24.png")); // NOI18N
+
+        javax.swing.GroupLayout button_SakumaEkransLayout = new javax.swing.GroupLayout(button_SakumaEkrans);
+        button_SakumaEkrans.setLayout(button_SakumaEkransLayout);
+        button_SakumaEkransLayout.setHorizontalGroup(
+            button_SakumaEkransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(button_SakumaEkransLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(ind_SakumaEkrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        button_SakumaEkransLayout.setVerticalGroup(
+            button_SakumaEkransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ind_SakumaEkrans, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addGroup(button_SakumaEkransLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(button_SakumaEkransLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(button_SakumaEkransLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel5)
+                        .addGap(9, 9, 9)))
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel2)
-                .addGap(15, 15, 15))
         );
 
-        jPanel3.setBackground(new java.awt.Color(211, 84, 0));
-        jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_SpeletajuInfo.setBackground(new java.awt.Color(230, 126, 34));
+        button_SpeletajuInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_SpeletajuInfo.setPreferredSize(new java.awt.Dimension(157, 50));
+        button_SpeletajuInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                button_SpeletajuInfoMousePressed(evt);
+            }
+        });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\info-24.png")); // NOI18N
+        ind_SpeletajuInfo.setBackground(new java.awt.Color(255, 255, 255));
+        ind_SpeletajuInfo.setOpaque(false);
+        ind_SpeletajuInfo.setPreferredSize(new java.awt.Dimension(7, 0));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Speletāju info");
+        javax.swing.GroupLayout ind_SpeletajuInfoLayout = new javax.swing.GroupLayout(ind_SpeletajuInfo);
+        ind_SpeletajuInfo.setLayout(ind_SpeletajuInfoLayout);
+        ind_SpeletajuInfoLayout.setHorizontalGroup(
+            ind_SpeletajuInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 7, Short.MAX_VALUE)
+        );
+        ind_SpeletajuInfoLayout.setVerticalGroup(
+            ind_SpeletajuInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel3)
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Speletāju info");
+
+        jLabel8.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\info-24.png")); // NOI18N
+
+        javax.swing.GroupLayout button_SpeletajuInfoLayout = new javax.swing.GroupLayout(button_SpeletajuInfo);
+        button_SpeletajuInfo.setLayout(button_SpeletajuInfoLayout);
+        button_SpeletajuInfoLayout.setHorizontalGroup(
+            button_SpeletajuInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(button_SpeletajuInfoLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(ind_SpeletajuInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        button_SpeletajuInfoLayout.setVerticalGroup(
+            button_SpeletajuInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ind_SpeletajuInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addGroup(button_SpeletajuInfoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(button_SpeletajuInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(button_SpeletajuInfoLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel7)
+                        .addGap(9, 9, 9)))
                 .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel4)
-                .addGap(15, 15, 15))
         );
 
-        jPanel7.setBackground(new java.awt.Color(211, 84, 0));
-        jPanel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_Administrators.setBackground(new java.awt.Color(230, 126, 34));
+        button_Administrators.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_Administrators.setPreferredSize(new java.awt.Dimension(157, 50));
+        button_Administrators.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                button_AdministratorsMousePressed(evt);
+            }
+        });
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\administrator-2-24.png")); // NOI18N
+        ind_Administrators.setBackground(new java.awt.Color(255, 255, 255));
+        ind_Administrators.setOpaque(false);
+        ind_Administrators.setPreferredSize(new java.awt.Dimension(7, 0));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Administrātors");
+        javax.swing.GroupLayout ind_AdministratorsLayout = new javax.swing.GroupLayout(ind_Administrators);
+        ind_Administrators.setLayout(ind_AdministratorsLayout);
+        ind_AdministratorsLayout.setHorizontalGroup(
+            ind_AdministratorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 7, Short.MAX_VALUE)
+        );
+        ind_AdministratorsLayout.setVerticalGroup(
+            ind_AdministratorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel11)
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Administrātors");
+
+        jLabel10.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\administrator-2-24.png")); // NOI18N
+
+        javax.swing.GroupLayout button_AdministratorsLayout = new javax.swing.GroupLayout(button_Administrators);
+        button_Administrators.setLayout(button_AdministratorsLayout);
+        button_AdministratorsLayout.setHorizontalGroup(
+            button_AdministratorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(button_AdministratorsLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(ind_Administrators, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel12)
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addContainerGap(106, Short.MAX_VALUE))
+        );
+        button_AdministratorsLayout.setVerticalGroup(
+            button_AdministratorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ind_Administrators, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addGroup(button_AdministratorsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(button_AdministratorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(button_AdministratorsLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel9)
+                        .addGap(9, 9, 9)))
+                .addContainerGap())
+        );
+
+        button_Drizuma.setBackground(new java.awt.Color(230, 126, 34));
+        button_Drizuma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_Drizuma.setPreferredSize(new java.awt.Dimension(157, 50));
+        button_Drizuma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                button_DrizumaMousePressed(evt);
+            }
+        });
+
+        ind_Drizuma.setBackground(new java.awt.Color(255, 255, 255));
+        ind_Drizuma.setOpaque(false);
+        ind_Drizuma.setPreferredSize(new java.awt.Dimension(7, 0));
+
+        javax.swing.GroupLayout ind_DrizumaLayout = new javax.swing.GroupLayout(ind_Drizuma);
+        ind_Drizuma.setLayout(ind_DrizumaLayout);
+        ind_DrizumaLayout.setHorizontalGroup(
+            ind_DrizumaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 7, Short.MAX_VALUE)
+        );
+        ind_DrizumaLayout.setVerticalGroup(
+            ind_DrizumaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Drīzumā");
+
+        jLabel16.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\plus-8-24.png")); // NOI18N
+
+        javax.swing.GroupLayout button_DrizumaLayout = new javax.swing.GroupLayout(button_Drizuma);
+        button_Drizuma.setLayout(button_DrizumaLayout);
+        button_DrizumaLayout.setHorizontalGroup(
+            button_DrizumaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(button_DrizumaLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(ind_Drizuma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel15)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        button_DrizumaLayout.setVerticalGroup(
+            button_DrizumaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ind_Drizuma, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addGroup(button_DrizumaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(button_DrizumaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(button_DrizumaLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel15)
+                        .addGap(9, 9, 9)))
                 .addContainerGap())
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel12)
-                .addGap(15, 15, 15))
-        );
-
-        jPanel8.setBackground(new java.awt.Color(211, 84, 0));
-        jPanel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel13.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\plus-8-24.png")); // NOI18N
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Drīzumā");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel14)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel14)
-                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout Side_PanelLayout = new javax.swing.GroupLayout(Side_Panel);
         Side_Panel.setLayout(Side_PanelLayout);
         Side_PanelLayout.setHorizontalGroup(
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(button_SakumaEkrans, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
             .addGroup(Side_PanelLayout.createSequentialGroup()
-                .addGap(76, 76, 76)
+                .addGap(65, 65, 65)
                 .addComponent(DFA_Logo)
-                .addGap(76, 76, 76))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(77, Short.MAX_VALUE))
+            .addComponent(button_SpeletajuInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+            .addComponent(button_Administrators, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+            .addComponent(button_Drizuma, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
         );
         Side_PanelLayout.setVerticalGroup(
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Side_PanelLayout.createSequentialGroup()
                 .addGap(145, 145, 145)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(button_SakumaEkrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(button_SpeletajuInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(button_Administrators, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1102, Short.MAX_VALUE)
+                .addComponent(button_Drizuma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(DFA_Logo)
-                .addGap(23, 23, 23))
+                .addGap(26, 26, 26))
         );
 
         WhiteBar_Panel.setBackground(new java.awt.Color(255, 255, 255));
@@ -296,19 +400,6 @@ private void Update_table() {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.setBackground(new java.awt.Color(41, 128, 185));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 137, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout Background_PanelLayout = new javax.swing.GroupLayout(Background_Panel);
         Background_Panel.setLayout(Background_PanelLayout);
         Background_PanelLayout.setHorizontalGroup(
@@ -317,25 +408,18 @@ private void Update_table() {
                 .addComponent(Side_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(WhiteBar_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(Background_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Background_PanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 379, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))
-                    .addGroup(Background_PanelLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(0, 361, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
         Background_PanelLayout.setVerticalGroup(
             Background_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Background_PanelLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 865, Short.MAX_VALUE)
+                .addGap(91, 1122, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
             .addComponent(Side_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(WhiteBar_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1650, Short.MAX_VALUE)
+            .addComponent(WhiteBar_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1679, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -351,6 +435,34 @@ private void Update_table() {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void button_SakumaEkransMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_SakumaEkransMousePressed
+         setColor(button_SakumaEkrans);
+		resetColor(button_SpeletajuInfo);
+			resetColor(button_Administrators);
+				resetColor(button_Drizuma);
+    }//GEN-LAST:event_button_SakumaEkransMousePressed
+
+    private void button_SpeletajuInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_SpeletajuInfoMousePressed
+         setColor(button_SpeletajuInfo);
+		resetColor(button_SakumaEkrans);
+			resetColor(button_Administrators);
+				resetColor(button_Drizuma);
+    }//GEN-LAST:event_button_SpeletajuInfoMousePressed
+
+    private void button_AdministratorsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_AdministratorsMousePressed
+         setColor(button_Administrators);
+		resetColor(button_SakumaEkrans);
+			resetColor(button_SpeletajuInfo);
+				resetColor(button_Drizuma);
+    }//GEN-LAST:event_button_AdministratorsMousePressed
+
+    private void button_DrizumaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_DrizumaMousePressed
+         setColor(button_Drizuma);
+		resetColor(button_SakumaEkrans);
+			resetColor(button_SpeletajuInfo);
+				resetColor(button_Administrators);
+    }//GEN-LAST:event_button_DrizumaMousePressed
 
 	/**
 	 * @param args the command line arguments
@@ -388,34 +500,48 @@ private void Update_table() {
 		});
 	}
 
+	void setColor(JPanel panel) {
+		panel.setBackground(new Color(86,65,118));
+	}
+	
+	void resetColor(JPanel panel) {
+		panel.setBackground(new Color(230,126,34));
+	}
+	
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background_Panel;
     private javax.swing.JLabel DFA_Logo;
+    private javax.swing.JPanel SakumaEkrana_Panelis1;
+    private javax.swing.JPanel SakumaEkrana_Panelis2;
+    private javax.swing.JPanel SakumaEkrana_Panelis3;
+    private javax.swing.JPanel SakumaEkrana_Panelis4;
+    private javax.swing.JPanel SakumaEkrana_Panelis6;
+    private javax.swing.JPanel SakumaEkrana_Panelis7;
     private javax.swing.JPanel Side_Panel;
     public javax.swing.JTable Table_Players;
     private javax.swing.JPanel WhiteBar_Panel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel button_Administrators;
+    private javax.swing.JPanel button_Drizuma;
+    private javax.swing.JPanel button_SakumaEkrans;
+    private javax.swing.JPanel button_SpeletajuInfo;
+    private javax.swing.JPanel ind_Administrators;
+    private javax.swing.JPanel ind_Drizuma;
+    private javax.swing.JPanel ind_SakumaEkrans;
+    private javax.swing.JPanel ind_SpeletajuInfo;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     public javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
