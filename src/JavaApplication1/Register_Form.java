@@ -23,6 +23,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import java.sql.*;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -417,37 +419,109 @@ public class Register_Form extends javax.swing.JFrame {
 	String Lietotajvards = txt_username.getText();
 	String Parole = String.valueOf(txt_password.getPassword());
 	String Atkal_parole = String.valueOf(txt_again_password.getPassword());
+	String Dzimsanas_Datums = null;
 	
-	SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
-	String Dzimsanas_Datums = date_format.format(date_chooser.getDate());
-		
-	PreparedStatement st;
-	String sql = "insert into dfa.lietotaji (Vards, Uzvards, Lietotajvards, Parole, Dzimsanas_Datums)" + " values (?, ?, ?, ?, ?)";
+	if (Vards.equals("")) 
+	{
+		JOptionPane.showMessageDialog(null, "Pievieno vārdu");
+	}
 	
-	try {
-		pst = conn.prepareStatement(sql);
+	else if (Uzvards.equals("")) 
+	{
+		JOptionPane.showMessageDialog(null, "Pievieno uzvārdu");
+	}
+	
+	else if (Lietotajvards.equals("")) 
+	{
+		JOptionPane.showMessageDialog(null, "Pievieno lietotajvārdu");
+	}
+	
+	else if (checkUsername (Lietotajvards)) 
+	{
+			JOptionPane.showMessageDialog(null, "Šāds lietotajvards jau pastāv");
+	}
+	
+	else if (Parole.equals("")) 
+	{
+		JOptionPane.showMessageDialog(null, "Pievieno paroli");
+	}
+	
+	else if (!Parole.equals(Atkal_parole)) 
+	{
+		JOptionPane.showMessageDialog(null, "Atkartoti parole nav vienada ar paroli");
+	}
+	
+	else if (date_chooser.getDate() == null)
+	{
+		JOptionPane.showMessageDialog(null, "Pievieno dzimšanas datumu");
+	}
+	
+	else 
+	{
 		
-		pst.setString(1, Vards);
-		pst.setString(2, Uzvards);
-		pst.setString(3, Lietotajvards);
-		pst.setString(4, Parole);
-		pst.setString(5, Dzimsanas_Datums);
+		if (date_chooser.getDate() != null) 
+		{
+			SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
+			Dzimsanas_Datums = date_format.format(date_chooser.getDate());
+		}
 		
-		if(pst.executeUpdate() > 0) {
-			JOptionPane.showMessageDialog(null, "Veiksmīga reģistrēšanās!");
+		PreparedStatement st;
+		String sql = "insert into dfa.lietotaji (Vards, Uzvards, Lietotajvards, Parole, Dzimsanas_Datums)" + " values (?, ?, ?, ?, ?)";
+
+		try {
+			pst = conn.prepareStatement(sql);
+
+			pst.setString(1, Vards);
+			pst.setString(2, Uzvards);
+			pst.setString(3, Lietotajvards);
+			pst.setString(4, Parole);
+
+			if(Dzimsanas_Datums != null)
+			{
+				pst.setString(5, Dzimsanas_Datums);
+			}
+
+			if(pst.executeUpdate() > 0) {
+				JOptionPane.showMessageDialog(null, "Veiksmīga reģistrēšanās!");
+			}
+		}
+
+		catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "Something wrong with sql syntax!");
 		}
 	}
-	
-	catch(Exception e) {
-		JOptionPane.showMessageDialog(null, "Something wrong with sql syntax!");
-	}
-	
-	
 	
 	
 	
     }//GEN-LAST:event_cmd_registerActionPerformed
 
+	public boolean checkUsername(String username) {		// Function to check if the username already exist
+		ResultSet rs = null;
+		PreparedStatement pst = null;
+		boolean checkUser = false;
+		
+		String sql = "select * from lietotaji where Lietotajvards=?";	// Selects from database username and password
+		
+		try 
+		{
+			pst = conn.prepareStatement(sql);     
+			pst.setString(1, username);
+			
+			rs = pst.executeQuery();
+		
+			if(rs.next())
+			{
+				checkUser = true;
+			}
+		}
+		
+		catch(Exception e) {
+		JOptionPane.showMessageDialog(null, "Something wrong with sql syntax!");
+		}
+		
+		return checkUser;
+	}
+	
     private void cmd_registerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_registerMouseEntered
 	cmd_register.setBackground(new Color(0, 148, 96));
     }//GEN-LAST:event_cmd_registerMouseEntered
