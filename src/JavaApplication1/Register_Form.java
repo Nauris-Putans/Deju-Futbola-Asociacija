@@ -5,23 +5,47 @@
  */
 package JavaApplication1;
 
+import static JavaApplication1.javaConnect.DB_URL;
+import static JavaApplication1.javaConnect.PASS;
+import static JavaApplication1.javaConnect.USER;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
+import java.text.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.*;
+import java.sql.*;
 
 /**
  *
  * @author user
  */
 public class Register_Form extends javax.swing.JFrame {
-
-	/**
-	 * Creates new form Register_Form
-	 */
-	public Register_Form() {
+	
+	Connection conn=null;
+	ResultSet rs = null;
+	PreparedStatement pst = null;
+	
+	public Register_Form() {	// Creates new form Register_Form
 		initComponents();
 		
 		this.setLocationRelativeTo(null);	// Centers Login_Form form in the screen
+		
+		try {	
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		} 
+		
+		catch (SQLException ex) {
+			Logger.getLogger(Login_Form.class.getName()).log(Level.SEVERE, null, ex);
+		}
 	}
 
 	/**
@@ -38,28 +62,28 @@ public class Register_Form extends javax.swing.JFrame {
         close_button = new javax.swing.JLabel();
         minimize_button = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        lbl_name = new javax.swing.JLabel();
+        txt_name = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        lbl_surname = new javax.swing.JLabel();
+        txt_surname = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         lbl_username = new javax.swing.JLabel();
+        txt_username = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
         lbl_password = new javax.swing.JLabel();
+        txt_password = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
+        lbl_again_password = new javax.swing.JLabel();
+        txt_again_password = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        lbl_date = new javax.swing.JLabel();
+        date_chooser = new com.toedter.calendar.JDateChooser();
         cmd_cancel = new javax.swing.JButton();
         cmd_register = new javax.swing.JButton();
-        lbl_username1 = new javax.swing.JLabel();
-        lbl_username2 = new javax.swing.JLabel();
-        lbl_password1 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        lbl_username3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        txt_username3 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        txt_username4 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txt_username5 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txt_password = new javax.swing.JPasswordField();
-        jLabel4 = new javax.swing.JLabel();
-        txt_password2 = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -121,13 +145,71 @@ public class Register_Form extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(52, 73, 94));
 
+        lbl_name.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_name.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_name.setText("Vārds");
+
+        txt_name.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_name.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_name.setForeground(new java.awt.Color(204, 204, 204));
+        txt_name.setBorder(null);
+        txt_name.setOpaque(false);
+
+        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        lbl_surname.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_surname.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_surname.setText("Uzvārds");
+
+        txt_surname.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_surname.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_surname.setForeground(new java.awt.Color(204, 204, 204));
+        txt_surname.setBorder(null);
+        txt_surname.setOpaque(false);
+
+        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
         lbl_username.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         lbl_username.setForeground(new java.awt.Color(255, 255, 255));
         lbl_username.setText("Lietotajvards");
 
+        txt_username.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_username.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_username.setForeground(new java.awt.Color(204, 204, 204));
+        txt_username.setBorder(null);
+        txt_username.setOpaque(false);
+
+        jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
         lbl_password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         lbl_password.setForeground(new java.awt.Color(255, 255, 255));
         lbl_password.setText("Parole");
+
+        txt_password.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_password.setForeground(new java.awt.Color(204, 204, 204));
+        txt_password.setBorder(null);
+
+        jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        lbl_again_password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_again_password.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_again_password.setText("Atkartota parole");
+
+        txt_again_password.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_again_password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_again_password.setForeground(new java.awt.Color(204, 204, 204));
+        txt_again_password.setBorder(null);
+
+        jLabel5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        lbl_date.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_date.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_date.setText("Dzimšanas datums");
+
+        date_chooser.setBackground(new java.awt.Color(52, 73, 94));
+        date_chooser.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
+        date_chooser.setMinSelectableDate(new java.util.Date(-5364665896000L));
 
         cmd_cancel.setBackground(new java.awt.Color(192, 57, 43));
         cmd_cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
@@ -177,26 +259,6 @@ public class Register_Form extends javax.swing.JFrame {
             }
         });
 
-        lbl_username1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        lbl_username1.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_username1.setText("Vārds");
-
-        lbl_username2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        lbl_username2.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_username2.setText("Uzvārds");
-
-        lbl_password1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        lbl_password1.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_password1.setText("Atkartota parole");
-
-        jDateChooser1.setBackground(new java.awt.Color(52, 73, 94));
-        jDateChooser1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 12)); // NOI18N
-        jDateChooser1.setMinSelectableDate(new java.util.Date(-5364665896000L));
-
-        lbl_username3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        lbl_username3.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_username3.setText("Dzimšanas datums");
-
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel8.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\blue-orange-black-green-white-adidas-soccer-ball-on-green-47354.png")); // NOI18N
@@ -233,44 +295,6 @@ public class Register_Form extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        txt_username3.setBackground(new java.awt.Color(255, 255, 255, 0));
-        txt_username3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        txt_username3.setForeground(new java.awt.Color(204, 204, 204));
-        txt_username3.setBorder(null);
-        txt_username3.setOpaque(false);
-
-        jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-
-        txt_username4.setBackground(new java.awt.Color(255, 255, 255, 0));
-        txt_username4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        txt_username4.setForeground(new java.awt.Color(204, 204, 204));
-        txt_username4.setBorder(null);
-        txt_username4.setOpaque(false);
-
-        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-
-        txt_username5.setBackground(new java.awt.Color(255, 255, 255, 0));
-        txt_username5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        txt_username5.setForeground(new java.awt.Color(204, 204, 204));
-        txt_username5.setBorder(null);
-        txt_username5.setOpaque(false);
-
-        jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-
-        txt_password.setBackground(new java.awt.Color(255, 255, 255, 0));
-        txt_password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        txt_password.setForeground(new java.awt.Color(204, 204, 204));
-        txt_password.setBorder(null);
-
-        jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-
-        txt_password2.setBackground(new java.awt.Color(255, 255, 255, 0));
-        txt_password2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        txt_password2.setForeground(new java.awt.Color(204, 204, 204));
-        txt_password2.setBorder(null);
-
-        jLabel5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -288,24 +312,24 @@ public class Register_Form extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lbl_username2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lbl_username1, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(lbl_surname, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_name, javax.swing.GroupLayout.Alignment.LEADING))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txt_username5)
+                                .addComponent(txt_username)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txt_username4)
+                                .addComponent(txt_surname)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbl_username)
                             .addComponent(lbl_password)
-                            .addComponent(txt_password2, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_password1)
+                            .addComponent(txt_again_password, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_again_password)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_username3, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_username3)
+                            .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_date)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(date_chooser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(94, 94, 94)))
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,21 +340,21 @@ public class Register_Form extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(43, Short.MAX_VALUE)
-                .addComponent(lbl_username1)
+                .addComponent(lbl_name)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_username3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(lbl_username2)
+                .addComponent(lbl_surname)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_username4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_surname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(lbl_username)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_username5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
@@ -340,15 +364,15 @@ public class Register_Form extends javax.swing.JFrame {
                 .addGap(3, 3, 3)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(lbl_password1)
+                .addComponent(lbl_again_password)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_password2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_again_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(3, 3, 3)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(lbl_username3)
+                .addComponent(lbl_date)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(date_chooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmd_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -387,7 +411,41 @@ public class Register_Form extends javax.swing.JFrame {
     }//GEN-LAST:event_cmd_cancelActionPerformed
 
     private void cmd_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_registerActionPerformed
-
+	
+	String Vards = txt_name.getText();
+	String Uzvards = txt_surname.getText();
+	String Lietotajvards = txt_username.getText();
+	String Parole = String.valueOf(txt_password.getPassword());
+	String Atkal_parole = String.valueOf(txt_again_password.getPassword());
+	
+	SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
+	String Dzimsanas_Datums = date_format.format(date_chooser.getDate());
+		
+	PreparedStatement st;
+	String sql = "insert into dfa.lietotaji (Vards, Uzvards, Lietotajvards, Parole, Dzimsanas_Datums)" + " values (?, ?, ?, ?, ?)";
+	
+	try {
+		pst = conn.prepareStatement(sql);
+		
+		pst.setString(1, Vards);
+		pst.setString(2, Uzvards);
+		pst.setString(3, Lietotajvards);
+		pst.setString(4, Parole);
+		pst.setString(5, Dzimsanas_Datums);
+		
+		if(pst.executeUpdate() > 0) {
+			JOptionPane.showMessageDialog(null, "Veiksmīga reģistrēšanās!");
+		}
+	}
+	
+	catch(Exception e) {
+		JOptionPane.showMessageDialog(null, "Something wrong with sql syntax!");
+	}
+	
+	
+	
+	
+	
     }//GEN-LAST:event_cmd_registerActionPerformed
 
     private void cmd_registerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_registerMouseEntered
@@ -453,7 +511,7 @@ public class Register_Form extends javax.swing.JFrame {
     public javax.swing.JLabel close_button;
     public javax.swing.JButton cmd_cancel;
     public javax.swing.JButton cmd_register;
-    public com.toedter.calendar.JDateChooser jDateChooser1;
+    public com.toedter.calendar.JDateChooser date_chooser;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
@@ -465,17 +523,17 @@ public class Register_Form extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     public javax.swing.JLabel lbl_LoginForm;
+    public javax.swing.JLabel lbl_again_password;
+    public javax.swing.JLabel lbl_date;
+    public javax.swing.JLabel lbl_name;
     public javax.swing.JLabel lbl_password;
-    public javax.swing.JLabel lbl_password1;
+    public javax.swing.JLabel lbl_surname;
     public javax.swing.JLabel lbl_username;
-    public javax.swing.JLabel lbl_username1;
-    public javax.swing.JLabel lbl_username2;
-    public javax.swing.JLabel lbl_username3;
     public javax.swing.JLabel minimize_button;
+    public javax.swing.JPasswordField txt_again_password;
+    public javax.swing.JTextField txt_name;
     public javax.swing.JPasswordField txt_password;
-    public javax.swing.JPasswordField txt_password2;
-    public javax.swing.JTextField txt_username3;
-    public javax.swing.JTextField txt_username4;
-    public javax.swing.JTextField txt_username5;
+    public javax.swing.JTextField txt_surname;
+    public javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables
 }
