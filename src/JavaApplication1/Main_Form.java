@@ -6,7 +6,9 @@ import static JavaApplication1.javaConnect.DB_URL;
 import static JavaApplication1.javaConnect.PASS;
 import static JavaApplication1.javaConnect.USER;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Font;
+import java.net.URI;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -99,6 +101,12 @@ private void Update_table() {
         SpeletajuInfo_Panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Players = new javax.swing.JTable();
+        Administrators_Panel = new javax.swing.JPanel();
+        Drizuma_Panel = new javax.swing.JPanel();
+        ProgrammasInfo_Panel = new javax.swing.JPanel();
+        Instagram_icon = new javax.swing.JLabel();
+        Facebook_icon = new javax.swing.JLabel();
+        GitHub_icon = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -437,7 +445,7 @@ private void Update_table() {
                 .addComponent(button_Drizuma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(137, 137, 137)
                 .addComponent(button_ProgrammasInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 544, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 556, Short.MAX_VALUE)
                 .addComponent(DFA_Logo)
                 .addGap(24, 24, 24))
         );
@@ -448,11 +456,11 @@ private void Update_table() {
         SakumaEkrans_Panel.setLayout(SakumaEkrans_PanelLayout);
         SakumaEkrans_PanelLayout.setHorizontalGroup(
             SakumaEkrans_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2156, Short.MAX_VALUE)
+            .addGap(0, 2375, Short.MAX_VALUE)
         );
         SakumaEkrans_PanelLayout.setVerticalGroup(
             SakumaEkrans_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1311, Short.MAX_VALUE)
+            .addGap(0, 1323, Short.MAX_VALUE)
         );
 
         SpeletajuInfo_Panel.setBackground(new java.awt.Color(51, 255, 102));
@@ -488,36 +496,125 @@ private void Update_table() {
             .addGroup(SpeletajuInfo_PanelLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1287, Short.MAX_VALUE))
+                .addContainerGap(1323, Short.MAX_VALUE))
         );
         SpeletajuInfo_PanelLayout.setVerticalGroup(
             SpeletajuInfo_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SpeletajuInfo_PanelLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(725, Short.MAX_VALUE))
+        );
+
+        Administrators_Panel.setBackground(new java.awt.Color(102, 102, 0));
+
+        javax.swing.GroupLayout Administrators_PanelLayout = new javax.swing.GroupLayout(Administrators_Panel);
+        Administrators_Panel.setLayout(Administrators_PanelLayout);
+        Administrators_PanelLayout.setHorizontalGroup(
+            Administrators_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2375, Short.MAX_VALUE)
+        );
+        Administrators_PanelLayout.setVerticalGroup(
+            Administrators_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1323, Short.MAX_VALUE)
+        );
+
+        Drizuma_Panel.setBackground(new java.awt.Color(153, 102, 255));
+
+        javax.swing.GroupLayout Drizuma_PanelLayout = new javax.swing.GroupLayout(Drizuma_Panel);
+        Drizuma_Panel.setLayout(Drizuma_PanelLayout);
+        Drizuma_PanelLayout.setHorizontalGroup(
+            Drizuma_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2375, Short.MAX_VALUE)
+        );
+        Drizuma_PanelLayout.setVerticalGroup(
+            Drizuma_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1323, Short.MAX_VALUE)
+        );
+
+        ProgrammasInfo_Panel.setBackground(new java.awt.Color(0, 204, 204));
+
+        Instagram_icon.setIcon(new javax.swing.ImageIcon("D:\\Users\\user\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\instagram (2).png")); // NOI18N
+        Instagram_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Instagram_icon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Instagram_iconMousePressed(evt);
+            }
+        });
+
+        Facebook_icon.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\facebook (2).png")); // NOI18N
+        Facebook_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Facebook_icon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Facebook_iconMousePressed(evt);
+            }
+        });
+
+        GitHub_icon.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\github (2).png")); // NOI18N
+        GitHub_icon.setText("jLabel4");
+        GitHub_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        GitHub_icon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                GitHub_iconMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ProgrammasInfo_PanelLayout = new javax.swing.GroupLayout(ProgrammasInfo_Panel);
+        ProgrammasInfo_Panel.setLayout(ProgrammasInfo_PanelLayout);
+        ProgrammasInfo_PanelLayout.setHorizontalGroup(
+            ProgrammasInfo_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProgrammasInfo_PanelLayout.createSequentialGroup()
+                .addContainerGap(2094, Short.MAX_VALUE)
+                .addComponent(Instagram_icon)
+                .addGap(18, 18, 18)
+                .addComponent(Facebook_icon)
+                .addGap(18, 18, 18)
+                .addComponent(GitHub_icon, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52))
+        );
+        ProgrammasInfo_PanelLayout.setVerticalGroup(
+            ProgrammasInfo_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProgrammasInfo_PanelLayout.createSequentialGroup()
+                .addContainerGap(1231, Short.MAX_VALUE)
+                .addGroup(ProgrammasInfo_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(GitHub_icon, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ProgrammasInfo_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(Facebook_icon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Instagram_icon)))
+                .addGap(28, 28, 28))
         );
 
         jLayeredPane1.setLayer(SakumaEkrans_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(SpeletajuInfo_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(Administrators_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(Drizuma_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ProgrammasInfo_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(SpeletajuInfo_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(SakumaEkrans_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(SakumaEkrans_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(SpeletajuInfo_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Administrators_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Drizuma_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(ProgrammasInfo_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SpeletajuInfo_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(SakumaEkrans_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(SakumaEkrans_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(SpeletajuInfo_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Administrators_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Drizuma_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(ProgrammasInfo_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Background_PanelLayout = new javax.swing.GroupLayout(Background_Panel);
@@ -535,10 +632,8 @@ private void Update_table() {
         Background_PanelLayout.setVerticalGroup(
             Background_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Side_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(WhiteBar_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1311, Short.MAX_VALUE)
-            .addGroup(Background_PanelLayout.createSequentialGroup()
-                .addComponent(jLayeredPane1)
-                .addGap(0, 0, 0))
+            .addComponent(WhiteBar_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1323, Short.MAX_VALUE)
+            .addComponent(jLayeredPane1)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -559,6 +654,9 @@ private void Update_table() {
          
 	SakumaEkrans_Panel.show();
 	SpeletajuInfo_Panel.hide();
+	Administrators_Panel.hide();
+	Drizuma_Panel.hide();
+	ProgrammasInfo_Panel.hide();
 		
 	setColor(button_SakumaEkrans);
 		resetColor(button_SpeletajuInfo);
@@ -579,6 +677,9 @@ private void Update_table() {
         
 	SakumaEkrans_Panel.hide();
 	SpeletajuInfo_Panel.show();
+	Administrators_Panel.hide();
+	Drizuma_Panel.hide();
+	ProgrammasInfo_Panel.hide();
 		
 	setColor(button_SpeletajuInfo);
 		resetColor(button_SakumaEkrans);
@@ -596,7 +697,14 @@ private void Update_table() {
     }//GEN-LAST:event_button_SpeletajuInfoMousePressed
 
     private void button_AdministratorsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_AdministratorsMousePressed
-         setColor(button_Administrators);
+        
+	SakumaEkrans_Panel.hide();
+	SpeletajuInfo_Panel.hide();
+	Administrators_Panel.show();
+	Drizuma_Panel.hide();
+	ProgrammasInfo_Panel.hide();
+	
+	setColor(button_Administrators);
 		resetColor(button_SakumaEkrans);
 			resetColor(button_SpeletajuInfo);
 				resetColor(button_Drizuma);
@@ -612,7 +720,14 @@ private void Update_table() {
     }//GEN-LAST:event_button_AdministratorsMousePressed
 
     private void button_DrizumaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_DrizumaMousePressed
-         setColor(button_Drizuma);
+         
+	SakumaEkrans_Panel.hide();
+	SpeletajuInfo_Panel.hide();
+	Administrators_Panel.hide();
+	Drizuma_Panel.show();
+	ProgrammasInfo_Panel.hide();
+		
+	setColor(button_Drizuma);
 		resetColor(button_SakumaEkrans);
 			resetColor(button_SpeletajuInfo);
 				resetColor(button_Administrators);
@@ -628,7 +743,14 @@ private void Update_table() {
     }//GEN-LAST:event_button_DrizumaMousePressed
 
     private void button_ProgrammasInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_ProgrammasInfoMousePressed
-         setColor(button_ProgrammasInfo);
+         
+	SakumaEkrans_Panel.hide();
+	SpeletajuInfo_Panel.hide();
+	Administrators_Panel.hide();
+	Drizuma_Panel.hide();
+	ProgrammasInfo_Panel.show();
+		
+	setColor(button_ProgrammasInfo);
 		resetColor(button_SakumaEkrans);
 			resetColor(button_SpeletajuInfo);
 				resetColor(button_Administrators);
@@ -643,6 +765,42 @@ private void Update_table() {
 				ind_ProgrammasInfo.setOpaque(true);
 				
     }//GEN-LAST:event_button_ProgrammasInfoMousePressed
+
+    private void Instagram_iconMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Instagram_iconMousePressed
+        try 
+	{
+		Desktop.getDesktop().browse(new URI("https://www.instagram.com/nawris_p/"));
+	} 
+	
+	catch(Exception e) 
+	{
+		JOptionPane.showMessageDialog(null, "Something wrong with URI link!");
+	}
+    }//GEN-LAST:event_Instagram_iconMousePressed
+
+    private void Facebook_iconMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Facebook_iconMousePressed
+         try 
+	{
+		Desktop.getDesktop().browse(new URI("https://www.facebook.com/nauris.putans.7"));
+	} 
+	
+	catch(Exception e) 
+	{
+		JOptionPane.showMessageDialog(null, "Something wrong with URI link!");
+	}
+    }//GEN-LAST:event_Facebook_iconMousePressed
+
+    private void GitHub_iconMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GitHub_iconMousePressed
+         try 
+	{
+		Desktop.getDesktop().browse(new URI("https://github.com/Nauris-Putans"));
+	} 
+	
+	catch(Exception e) 
+	{
+		JOptionPane.showMessageDialog(null, "Something wrong with URI link!");
+	}
+    }//GEN-LAST:event_GitHub_iconMousePressed
 
 	/**
 	 * @param args the command line arguments
@@ -689,9 +847,15 @@ private void Update_table() {
 	}
 	
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JPanel Administrators_Panel;
     private javax.swing.JPanel Background_Panel;
     private javax.swing.JLabel DFA_Logo;
-    private javax.swing.JPanel SakumaEkrans_Panel;
+    public javax.swing.JPanel Drizuma_Panel;
+    private javax.swing.JLabel Facebook_icon;
+    private javax.swing.JLabel GitHub_icon;
+    private javax.swing.JLabel Instagram_icon;
+    public javax.swing.JPanel ProgrammasInfo_Panel;
+    public javax.swing.JPanel SakumaEkrans_Panel;
     private javax.swing.JPanel Side_Panel;
     public javax.swing.JPanel SpeletajuInfo_Panel;
     public javax.swing.JTable Table_Players;
