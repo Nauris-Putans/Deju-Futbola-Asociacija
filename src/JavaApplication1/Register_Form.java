@@ -80,7 +80,6 @@ public class Register_Form extends javax.swing.JFrame {
         txt_again_password = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         lbl_date = new javax.swing.JLabel();
-        cmd_cancel = new javax.swing.JButton();
         cmd_register = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -233,30 +232,6 @@ public class Register_Form extends javax.swing.JFrame {
         lbl_date.setForeground(new java.awt.Color(255, 255, 255));
         lbl_date.setText("Dzimšanas datums");
 
-        cmd_cancel.setBackground(new java.awt.Color(192, 57, 43));
-        cmd_cancel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        cmd_cancel.setForeground(new java.awt.Color(255, 255, 255));
-        cmd_cancel.setText("Atcelt");
-        cmd_cancel.setBorder(null);
-        cmd_cancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cmd_cancel.setFocusPainted(false);
-        cmd_cancel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cmd_cancelMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                cmd_cancelMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                cmd_cancelMouseExited(evt);
-            }
-        });
-        cmd_cancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmd_cancelActionPerformed(evt);
-            }
-        });
-
         cmd_register.setBackground(new java.awt.Color(0, 179, 113));
         cmd_register.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         cmd_register.setForeground(new java.awt.Color(255, 255, 255));
@@ -321,14 +296,11 @@ public class Register_Form extends javax.swing.JFrame {
                             .addComponent(txt_name, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
                             .addComponent(lbl_date)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                            .addComponent(date_chooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cmd_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(cmd_register, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)))
+                            .addComponent(date_chooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(cmd_register, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(jLabel8)
@@ -371,11 +343,9 @@ public class Register_Form extends javax.swing.JFrame {
                 .addComponent(lbl_date)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(date_chooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmd_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmd_register, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46))
+                .addGap(49, 49, 49)
+                .addComponent(cmd_register, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel8)
@@ -401,16 +371,12 @@ public class Register_Form extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void close_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_close_buttonMouseClicked
-        System.exit(0);
+        dispose();
     }//GEN-LAST:event_close_buttonMouseClicked
 
     private void minimize_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseClicked
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimize_buttonMouseClicked
-
-    private void cmd_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_cancelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmd_cancelActionPerformed
 
     private void cmd_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_registerActionPerformed
 	
@@ -438,7 +404,7 @@ public class Register_Form extends javax.swing.JFrame {
 	
 	else if (checkUsername (Lietotajvards)) 
 	{
-			JOptionPane.showMessageDialog(null, "Šāds lietotajvards jau pastāv");
+		JOptionPane.showMessageDialog(null, "Šāds lietotajvards jau pastāv");
 	}
 	
 	else if (Parole.equals("")) 
@@ -540,18 +506,6 @@ public class Register_Form extends javax.swing.JFrame {
         cmd_register.setBackground(new Color(0, 138, 96));
     }//GEN-LAST:event_cmd_registerMouseClicked
 
-    private void cmd_cancelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_cancelMouseEntered
-        cmd_cancel.setBackground(new Color(165, 60, 43));
-    }//GEN-LAST:event_cmd_cancelMouseEntered
-
-    private void cmd_cancelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_cancelMouseExited
-        cmd_cancel.setBackground(new Color(192, 57, 43));
-    }//GEN-LAST:event_cmd_cancelMouseExited
-
-    private void cmd_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_cancelMouseClicked
-        cmd_cancel.setBackground(new Color(160, 57, 43));
-    }//GEN-LAST:event_cmd_cancelMouseClicked
-
     private void txt_nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nameKeyTyped
          if(txt_name.getText().length()>=30) 
 	{  
@@ -624,7 +578,6 @@ public class Register_Form extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel close_button;
-    public javax.swing.JButton cmd_cancel;
     public javax.swing.JButton cmd_register;
     public com.toedter.calendar.JDateChooser date_chooser;
     public javax.swing.JLabel jLabel1;
