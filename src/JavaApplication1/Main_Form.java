@@ -98,6 +98,7 @@ private void Update_table() {
         ind_ProgrammasInfo = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         SakumaEkrans_Panel = new javax.swing.JPanel();
         SpeletajuInfo_Panel = new javax.swing.JPanel();
@@ -423,6 +424,15 @@ private void Update_table() {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton1.setBackground(new java.awt.Color(52, 73, 94));
+        jButton1.setForeground(new java.awt.Color(230, 126, 34));
+        jButton1.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\wrench-24.png")); // NOI18N
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Side_PanelLayout = new javax.swing.GroupLayout(Side_Panel);
         Side_Panel.setLayout(Side_PanelLayout);
         Side_PanelLayout.setHorizontalGroup(
@@ -433,9 +443,11 @@ private void Update_table() {
             .addComponent(button_Drizuma, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
             .addComponent(button_ProgrammasInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
             .addGroup(Side_PanelLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
+                .addGap(44, 44, 44)
                 .addComponent(DFA_Logo)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(25, 25, 25))
         );
         Side_PanelLayout.setVerticalGroup(
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,8 +462,10 @@ private void Update_table() {
                 .addComponent(button_Drizuma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(137, 137, 137)
                 .addComponent(button_ProgrammasInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 556, Short.MAX_VALUE)
-                .addComponent(DFA_Logo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DFA_Logo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(24, 24, 24))
         );
 
@@ -819,6 +833,11 @@ private void Update_table() {
 	}
     }//GEN-LAST:event_GitHub_iconMousePressed
 
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+         Admin_Login_Form s = new Admin_Login_Form();		// Shows new Form - Player_info
+	s.setVisible(true);
+    }//GEN-LAST:event_jButton1MousePressed
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -887,6 +906,7 @@ private void Update_table() {
     private javax.swing.JPanel ind_ProgrammasInfo;
     private javax.swing.JPanel ind_SakumaEkrans;
     private javax.swing.JPanel ind_SpeletajuInfo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
