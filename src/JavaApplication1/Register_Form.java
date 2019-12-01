@@ -455,8 +455,14 @@ public class Register_Form extends javax.swing.JFrame {
 			{
 				pst.setString(5, Dzimsanas_Datums);
 			}
+			
+			else 
+			{
+				pst.setNull(5, 0);
+			}
 
 			if(pst.executeUpdate() > 0) {
+				this.dispose();
 				JOptionPane.showMessageDialog(null, "Veiksmīga reģistrēšanās!");
 			}
 		}
