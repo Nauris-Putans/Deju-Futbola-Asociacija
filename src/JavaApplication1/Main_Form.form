@@ -98,9 +98,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="button_SakumaEkrans" alignment="1" pref="293" max="32767" attributes="0"/>
                   <Component id="button_SpeletajuInfo" alignment="0" pref="293" max="32767" attributes="0"/>
-                  <Component id="button_Administrators" alignment="0" pref="293" max="32767" attributes="0"/>
+                  <Component id="button_MansProfils" alignment="0" pref="293" max="32767" attributes="0"/>
                   <Component id="button_Drizuma" alignment="0" pref="293" max="32767" attributes="0"/>
-                  <Component id="button_ProgrammasInfo" alignment="0" pref="293" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="DFA_Logo" min="-2" max="-2" attributes="0"/>
@@ -108,22 +107,23 @@
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="button_ProgrammasInfo" alignment="0" pref="293" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="button_SakumaEkrans" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="button_SpeletajuInfo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="button_Administrators" min="-2" max="-2" attributes="0"/>
+                      <Component id="button_MansProfils" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="button_Drizuma" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
                       <Component id="button_ProgrammasInfo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="DFA_Logo" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton1" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -330,7 +330,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="button_Administrators">
+            <Container class="javax.swing.JPanel" name="button_MansProfils">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="22" green="7e" red="e6" type="rgb"/>
@@ -343,7 +343,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_AdministratorsMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_MansProfilsMousePressed"/>
               </Events>
 
               <Layout>
@@ -351,7 +351,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Component id="ind_Administrators" min="-2" max="-2" attributes="0"/>
+                          <Component id="ind_MansProfils" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -362,7 +362,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ind_Administrators" alignment="0" pref="50" max="32767" attributes="0"/>
+                      <Component id="ind_MansProfils" alignment="0" pref="50" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -379,7 +379,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="ind_Administrators">
+                <Container class="javax.swing.JPanel" name="ind_MansProfils">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -411,13 +411,13 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Administr&#x101;tors"/>
+                    <Property name="text" type="java.lang.String" value="Mans profils"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel10">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="D:\Users\User\Documents\NetBeansProjects\JavaApplication1\images for project\administrator-2-24.png"/>
+                      <Image iconType="2" name="D:\Users\User\Documents\NetBeansProjects\JavaApplication1\images for project\user-4-24.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -619,6 +619,9 @@
                   <Image iconType="2" name="D:\Users\User\Documents\NetBeansProjects\JavaApplication1\images for project\wrench-24.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MousePressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -635,7 +638,7 @@
                       <Component id="SpeletajuInfo_Panel" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                      <Component id="Administrators_Panel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="MansProfils_Panel" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                       <Component id="Drizuma_Panel" alignment="0" max="32767" attributes="0"/>
@@ -652,7 +655,7 @@
                       <Component id="SpeletajuInfo_Panel" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                      <Component id="Administrators_Panel" alignment="0" max="32767" attributes="0"/>
+                      <Component id="MansProfils_Panel" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                       <Component id="Drizuma_Panel" alignment="0" max="32767" attributes="0"/>
@@ -794,10 +797,10 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="Administrators_Panel">
+            <Container class="javax.swing.JPanel" name="MansProfils_Panel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="66" red="66" type="rgb"/>
+                  <Color blue="99" green="99" red="0" type="rgb"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -807,15 +810,36 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="2375" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="558" max="-2" attributes="0"/>
+                          <Component id="jButton2" min="-2" pref="240" max="-2" attributes="0"/>
+                          <EmptySpace pref="1876" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="1323" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                          <Component id="jButton2" min="-2" pref="81" max="-2" attributes="0"/>
+                          <EmptySpace pref="1092" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="jButton2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="18" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ien&#x101;kt / Re&#x123;istr&#x113;ties"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MousePressed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="Drizuma_Panel">
               <Properties>

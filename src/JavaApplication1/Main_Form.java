@@ -29,12 +29,37 @@ public class Main_Form extends javax.swing.JFrame {
 		initComponents();
 		
 		setExtendedState(JFrame.MAXIMIZED_BOTH);	    // Sets the JFrame to maximize by default on opening
+		
 		Table_Players.setDefaultEditor(Object.class, null);	// Disables edit in table
 		Table_Players.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
 		Table_Players.getTableHeader().setOpaque(false);
 		Table_Players.getTableHeader().setBackground(Color.blue);
 		Table_Players.getTableHeader().setForeground(new Color(255, 255, 255));
 		Table_Players.setRowHeight(25);
+		
+		//---------------Main_form start button color set---------------//
+		
+		SakumaEkrans_Panel.show();
+		SpeletajuInfo_Panel.hide();
+		MansProfils_Panel.hide();
+		Drizuma_Panel.hide();
+		ProgrammasInfo_Panel.hide();
+
+		setColor(button_SakumaEkrans);
+		resetColor(button_SpeletajuInfo);
+		resetColor(button_MansProfils);
+		resetColor(button_Drizuma);
+		resetColor(button_ProgrammasInfo);
+				
+		// Indicators
+				
+		ind_Drizuma.setOpaque(false);
+		ind_SakumaEkrans.setOpaque(true);
+		ind_SpeletajuInfo.setOpaque(false);
+		ind_MansProfils.setOpaque(false);
+		ind_ProgrammasInfo.setOpaque(false);
+				
+		//-----------------------------------------------------------------------------//
 		
 		this.setLocationRelativeTo(null);
 		
@@ -86,8 +111,8 @@ private void Update_table() {
         ind_SpeletajuInfo = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        button_Administrators = new javax.swing.JPanel();
-        ind_Administrators = new javax.swing.JPanel();
+        button_MansProfils = new javax.swing.JPanel();
+        ind_MansProfils = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         button_Drizuma = new javax.swing.JPanel();
@@ -104,7 +129,8 @@ private void Update_table() {
         SpeletajuInfo_Panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Players = new javax.swing.JTable();
-        Administrators_Panel = new javax.swing.JPanel();
+        MansProfils_Panel = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         Drizuma_Panel = new javax.swing.JPanel();
         ProgrammasInfo_Panel = new javax.swing.JPanel();
         Programm_Info = new javax.swing.JLabel();
@@ -255,57 +281,57 @@ private void Update_table() {
                 .addContainerGap())
         );
 
-        button_Administrators.setBackground(new java.awt.Color(230, 126, 34));
-        button_Administrators.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        button_Administrators.setPreferredSize(new java.awt.Dimension(157, 50));
-        button_Administrators.addMouseListener(new java.awt.event.MouseAdapter() {
+        button_MansProfils.setBackground(new java.awt.Color(230, 126, 34));
+        button_MansProfils.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_MansProfils.setPreferredSize(new java.awt.Dimension(157, 50));
+        button_MansProfils.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                button_AdministratorsMousePressed(evt);
+                button_MansProfilsMousePressed(evt);
             }
         });
 
-        ind_Administrators.setBackground(new java.awt.Color(255, 255, 255));
-        ind_Administrators.setOpaque(false);
-        ind_Administrators.setPreferredSize(new java.awt.Dimension(7, 0));
+        ind_MansProfils.setBackground(new java.awt.Color(255, 255, 255));
+        ind_MansProfils.setOpaque(false);
+        ind_MansProfils.setPreferredSize(new java.awt.Dimension(7, 0));
 
-        javax.swing.GroupLayout ind_AdministratorsLayout = new javax.swing.GroupLayout(ind_Administrators);
-        ind_Administrators.setLayout(ind_AdministratorsLayout);
-        ind_AdministratorsLayout.setHorizontalGroup(
-            ind_AdministratorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ind_MansProfilsLayout = new javax.swing.GroupLayout(ind_MansProfils);
+        ind_MansProfils.setLayout(ind_MansProfilsLayout);
+        ind_MansProfilsLayout.setHorizontalGroup(
+            ind_MansProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 7, Short.MAX_VALUE)
         );
-        ind_AdministratorsLayout.setVerticalGroup(
-            ind_AdministratorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ind_MansProfilsLayout.setVerticalGroup(
+            ind_MansProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Administrātors");
+        jLabel9.setText("Mans profils");
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\administrator-2-24.png")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\user-4-24.png")); // NOI18N
 
-        javax.swing.GroupLayout button_AdministratorsLayout = new javax.swing.GroupLayout(button_Administrators);
-        button_Administrators.setLayout(button_AdministratorsLayout);
-        button_AdministratorsLayout.setHorizontalGroup(
-            button_AdministratorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(button_AdministratorsLayout.createSequentialGroup()
+        javax.swing.GroupLayout button_MansProfilsLayout = new javax.swing.GroupLayout(button_MansProfils);
+        button_MansProfils.setLayout(button_MansProfilsLayout);
+        button_MansProfilsLayout.setHorizontalGroup(
+            button_MansProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(button_MansProfilsLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(ind_Administrators, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ind_MansProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel9)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        button_AdministratorsLayout.setVerticalGroup(
-            button_AdministratorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ind_Administrators, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-            .addGroup(button_AdministratorsLayout.createSequentialGroup()
+        button_MansProfilsLayout.setVerticalGroup(
+            button_MansProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(ind_MansProfils, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+            .addGroup(button_MansProfilsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(button_AdministratorsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(button_MansProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(button_AdministratorsLayout.createSequentialGroup()
+                    .addGroup(button_MansProfilsLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jLabel9)
                         .addGap(9, 9, 9)))
@@ -428,6 +454,11 @@ private void Update_table() {
         jButton1.setBackground(new java.awt.Color(52, 73, 94));
         jButton1.setForeground(new java.awt.Color(230, 126, 34));
         jButton1.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\wrench-24.png")); // NOI18N
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Side_PanelLayout = new javax.swing.GroupLayout(Side_Panel);
         Side_Panel.setLayout(Side_PanelLayout);
@@ -435,30 +466,30 @@ private void Update_table() {
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(button_SakumaEkrans, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
             .addComponent(button_SpeletajuInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-            .addComponent(button_Administrators, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+            .addComponent(button_MansProfils, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
             .addComponent(button_Drizuma, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-            .addComponent(button_ProgrammasInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
             .addGroup(Side_PanelLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(DFA_Logo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(25, 25, 25))
+            .addComponent(button_ProgrammasInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
         );
         Side_PanelLayout.setVerticalGroup(
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Side_PanelLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(button_SakumaEkrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_SpeletajuInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(button_Administrators, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(button_MansProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_Drizuma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(137, 137, 137)
                 .addComponent(button_ProgrammasInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(141, 141, 141)
                 .addGroup(Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DFA_Logo, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -521,17 +552,31 @@ private void Update_table() {
                 .addContainerGap(725, Short.MAX_VALUE))
         );
 
-        Administrators_Panel.setBackground(new java.awt.Color(102, 102, 0));
+        MansProfils_Panel.setBackground(new java.awt.Color(0, 153, 153));
 
-        javax.swing.GroupLayout Administrators_PanelLayout = new javax.swing.GroupLayout(Administrators_Panel);
-        Administrators_Panel.setLayout(Administrators_PanelLayout);
-        Administrators_PanelLayout.setHorizontalGroup(
-            Administrators_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2375, Short.MAX_VALUE)
+        jButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton2.setText("Ienākt / Reģistrēties");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton2MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MansProfils_PanelLayout = new javax.swing.GroupLayout(MansProfils_Panel);
+        MansProfils_Panel.setLayout(MansProfils_PanelLayout);
+        MansProfils_PanelLayout.setHorizontalGroup(
+            MansProfils_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MansProfils_PanelLayout.createSequentialGroup()
+                .addGap(558, 558, 558)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1876, Short.MAX_VALUE))
         );
-        Administrators_PanelLayout.setVerticalGroup(
-            Administrators_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1323, Short.MAX_VALUE)
+        MansProfils_PanelLayout.setVerticalGroup(
+            MansProfils_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MansProfils_PanelLayout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(1092, Short.MAX_VALUE))
         );
 
         Drizuma_Panel.setBackground(new java.awt.Color(153, 102, 255));
@@ -620,7 +665,7 @@ private void Update_table() {
 
         jLayeredPane1.setLayer(SakumaEkrans_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(SpeletajuInfo_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(Administrators_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(MansProfils_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(Drizuma_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ProgrammasInfo_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -632,7 +677,7 @@ private void Update_table() {
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(SpeletajuInfo_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Administrators_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(MansProfils_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Drizuma_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -644,7 +689,7 @@ private void Update_table() {
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(SpeletajuInfo_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(Administrators_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(MansProfils_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Drizuma_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -688,83 +733,83 @@ private void Update_table() {
          
 	SakumaEkrans_Panel.show();
 	SpeletajuInfo_Panel.hide();
-	Administrators_Panel.hide();
+	MansProfils_Panel.hide();
 	Drizuma_Panel.hide();
 	ProgrammasInfo_Panel.hide();
 		
 	setColor(button_SakumaEkrans);
-		resetColor(button_SpeletajuInfo);
-			resetColor(button_Administrators);
-				resetColor(button_Drizuma);
-					resetColor(button_ProgrammasInfo);
+	resetColor(button_SpeletajuInfo);
+	resetColor(button_MansProfils);
+	resetColor(button_Drizuma);
+	resetColor(button_ProgrammasInfo);
 				
-				// Indicators
+	// Indicators
 				
-				ind_Drizuma.setOpaque(false);
-				ind_SakumaEkrans.setOpaque(true);
-				ind_SpeletajuInfo.setOpaque(false);
-				ind_Administrators.setOpaque(false);
-				ind_ProgrammasInfo.setOpaque(false);
+	ind_Drizuma.setOpaque(false);
+	ind_SakumaEkrans.setOpaque(true);
+	ind_SpeletajuInfo.setOpaque(false);
+	ind_MansProfils.setOpaque(false);
+	ind_ProgrammasInfo.setOpaque(false);
     }//GEN-LAST:event_button_SakumaEkransMousePressed
 
     private void button_SpeletajuInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_SpeletajuInfoMousePressed
         
 	SakumaEkrans_Panel.hide();
 	SpeletajuInfo_Panel.show();
-	Administrators_Panel.hide();
+	MansProfils_Panel.hide();
 	Drizuma_Panel.hide();
 	ProgrammasInfo_Panel.hide();
 		
 	setColor(button_SpeletajuInfo);
-		resetColor(button_SakumaEkrans);
-			resetColor(button_Administrators);
-				resetColor(button_Drizuma);
-					resetColor(button_ProgrammasInfo);
+	resetColor(button_SakumaEkrans);
+	resetColor(button_MansProfils);
+	resetColor(button_Drizuma);
+	resetColor(button_ProgrammasInfo);
 				
-				// Indicators
+	// Indicators
 				
-				ind_Drizuma.setOpaque(false);
-				ind_SakumaEkrans.setOpaque(false);
-				ind_SpeletajuInfo.setOpaque(true);
-				ind_Administrators.setOpaque(false);
-				ind_ProgrammasInfo.setOpaque(false);
+	ind_Drizuma.setOpaque(false);
+	ind_SakumaEkrans.setOpaque(false);
+	ind_SpeletajuInfo.setOpaque(true);
+	ind_MansProfils.setOpaque(false);
+	ind_ProgrammasInfo.setOpaque(false);
     }//GEN-LAST:event_button_SpeletajuInfoMousePressed
 
-    private void button_AdministratorsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_AdministratorsMousePressed
+    private void button_MansProfilsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_MansProfilsMousePressed
         
 	SakumaEkrans_Panel.hide();
 	SpeletajuInfo_Panel.hide();
-	Administrators_Panel.show();
+	MansProfils_Panel.show();
 	Drizuma_Panel.hide();
 	ProgrammasInfo_Panel.hide();
 	
-	setColor(button_Administrators);
-		resetColor(button_SakumaEkrans);
-			resetColor(button_SpeletajuInfo);
-				resetColor(button_Drizuma);
-					resetColor(button_ProgrammasInfo);
+	setColor(button_MansProfils);
+	resetColor(button_SakumaEkrans);
+	resetColor(button_SpeletajuInfo);
+	resetColor(button_Drizuma);
+	resetColor(button_ProgrammasInfo);
 				
-				// Indicators
+	// Indicators
 				
-				ind_Drizuma.setOpaque(false);
+	ind_Drizuma.setOpaque(false);
 				ind_SakumaEkrans.setOpaque(false);
 				ind_SpeletajuInfo.setOpaque(false);
-				ind_Administrators.setOpaque(true);
+				ind_MansProfils.setOpaque(true);
 				ind_ProgrammasInfo.setOpaque(false);
-    }//GEN-LAST:event_button_AdministratorsMousePressed
+    }//GEN-LAST:event_button_MansProfilsMousePressed
 
     private void button_DrizumaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_DrizumaMousePressed
          
 	SakumaEkrans_Panel.hide();
 	SpeletajuInfo_Panel.hide();
-	Administrators_Panel.hide();
+	MansProfils_Panel.hide();
 	Drizuma_Panel.show();
 	ProgrammasInfo_Panel.hide();
 		
 	setColor(button_Drizuma);
 		resetColor(button_SakumaEkrans);
 			resetColor(button_SpeletajuInfo);
-				resetColor(button_Administrators);
+				resetColor(button_MansProfils);
 					resetColor(button_ProgrammasInfo);
 				
 				// Indicators
@@ -772,7 +817,7 @@ private void Update_table() {
 				ind_Drizuma.setOpaque(true);
 				ind_SakumaEkrans.setOpaque(false);
 				ind_SpeletajuInfo.setOpaque(false);
-				ind_Administrators.setOpaque(false);
+				ind_MansProfils.setOpaque(false);
 				ind_ProgrammasInfo.setOpaque(false);
     }//GEN-LAST:event_button_DrizumaMousePressed
 
@@ -780,14 +825,14 @@ private void Update_table() {
          
 	SakumaEkrans_Panel.hide();
 	SpeletajuInfo_Panel.hide();
-	Administrators_Panel.hide();
+	MansProfils_Panel.hide();
 	Drizuma_Panel.hide();
 	ProgrammasInfo_Panel.show();
 		
 	setColor(button_ProgrammasInfo);
 		resetColor(button_SakumaEkrans);
 			resetColor(button_SpeletajuInfo);
-				resetColor(button_Administrators);
+				resetColor(button_MansProfils);
 					resetColor(button_Drizuma);
 				
 				// Indicators
@@ -795,7 +840,7 @@ private void Update_table() {
 				ind_Drizuma.setOpaque(false);
 				ind_SakumaEkrans.setOpaque(false);
 				ind_SpeletajuInfo.setOpaque(false);
-				ind_Administrators.setOpaque(false);
+				ind_MansProfils.setOpaque(false);
 				ind_ProgrammasInfo.setOpaque(true);
 				
     }//GEN-LAST:event_button_ProgrammasInfoMousePressed
@@ -840,6 +885,11 @@ private void Update_table() {
         Admin_Login_Form s = new Admin_Login_Form();		// Shows new Form - Player_info
         s.setVisible(true);
     }//GEN-LAST:event_jButton1MousePressed
+
+    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
+        Login_Form s = new Login_Form();		// Shows new Form - Player_info
+        s.setVisible(true);
+    }//GEN-LAST:event_jButton2MousePressed
 
 	/**
 	 * @param args the command line arguments
@@ -886,13 +936,13 @@ private void Update_table() {
 	}
 	
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JPanel Administrators_Panel;
     private javax.swing.JPanel Background_Panel;
     private javax.swing.JLabel DFA_Logo;
     public javax.swing.JPanel Drizuma_Panel;
     private javax.swing.JLabel Facebook_icon;
     private javax.swing.JLabel GitHub_icon;
     private javax.swing.JLabel Instagram_icon;
+    public javax.swing.JPanel MansProfils_Panel;
     private javax.swing.JLabel NP_picture;
     private javax.swing.JLabel Programm_Info;
     public javax.swing.JPanel ProgrammasInfo_Panel;
@@ -901,17 +951,18 @@ private void Update_table() {
     public javax.swing.JPanel SpeletajuInfo_Panel;
     public javax.swing.JTable Table_Players;
     private javax.swing.JPanel WhiteBar_Panel;
-    private javax.swing.JPanel button_Administrators;
     private javax.swing.JPanel button_Drizuma;
+    private javax.swing.JPanel button_MansProfils;
     private javax.swing.JPanel button_ProgrammasInfo;
     private javax.swing.JPanel button_SakumaEkrans;
     private javax.swing.JPanel button_SpeletajuInfo;
-    private javax.swing.JPanel ind_Administrators;
     private javax.swing.JPanel ind_Drizuma;
+    private javax.swing.JPanel ind_MansProfils;
     private javax.swing.JPanel ind_ProgrammasInfo;
     private javax.swing.JPanel ind_SakumaEkrans;
     private javax.swing.JPanel ind_SpeletajuInfo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

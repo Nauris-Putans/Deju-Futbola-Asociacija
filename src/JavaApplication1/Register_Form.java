@@ -155,6 +155,11 @@ public class Register_Form extends javax.swing.JFrame {
         txt_name.setForeground(new java.awt.Color(204, 204, 204));
         txt_name.setBorder(null);
         txt_name.setOpaque(false);
+        txt_name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nameKeyTyped(evt);
+            }
+        });
 
         jLabel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
@@ -167,6 +172,11 @@ public class Register_Form extends javax.swing.JFrame {
         txt_surname.setForeground(new java.awt.Color(204, 204, 204));
         txt_surname.setBorder(null);
         txt_surname.setOpaque(false);
+        txt_surname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_surnameKeyTyped(evt);
+            }
+        });
 
         jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
@@ -179,6 +189,11 @@ public class Register_Form extends javax.swing.JFrame {
         txt_username.setForeground(new java.awt.Color(204, 204, 204));
         txt_username.setBorder(null);
         txt_username.setOpaque(false);
+        txt_username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_usernameKeyTyped(evt);
+            }
+        });
 
         jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
@@ -190,6 +205,11 @@ public class Register_Form extends javax.swing.JFrame {
         txt_password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         txt_password.setForeground(new java.awt.Color(204, 204, 204));
         txt_password.setBorder(null);
+        txt_password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_passwordKeyTyped(evt);
+            }
+        });
 
         jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
@@ -201,6 +221,11 @@ public class Register_Form extends javax.swing.JFrame {
         txt_again_password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         txt_again_password.setForeground(new java.awt.Color(204, 204, 204));
         txt_again_password.setBorder(null);
+        txt_again_password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_again_passwordKeyTyped(evt);
+            }
+        });
 
         jLabel5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
@@ -526,6 +551,41 @@ public class Register_Form extends javax.swing.JFrame {
     private void cmd_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_cancelMouseClicked
         cmd_cancel.setBackground(new Color(160, 57, 43));
     }//GEN-LAST:event_cmd_cancelMouseClicked
+
+    private void txt_nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nameKeyTyped
+         if(txt_name.getText().length()>=30) 
+	{  
+		evt.consume();
+	}
+    }//GEN-LAST:event_txt_nameKeyTyped
+
+    private void txt_surnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_surnameKeyTyped
+         if(txt_surname.getText().length()>=30) 
+	{  
+		evt.consume();
+	}
+    }//GEN-LAST:event_txt_surnameKeyTyped
+
+    private void txt_usernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usernameKeyTyped
+         if(txt_username.getText().length()>=30) 
+	{  
+		evt.consume();
+	}
+    }//GEN-LAST:event_txt_usernameKeyTyped
+
+    private void txt_passwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passwordKeyTyped
+         if(txt_password.getText().length()>=30) 
+	{  
+		evt.consume();
+	}
+    }//GEN-LAST:event_txt_passwordKeyTyped
+
+    private void txt_again_passwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_again_passwordKeyTyped
+         if(txt_again_password.getText().length()>=30) 
+	{  
+		evt.consume();
+	}
+    }//GEN-LAST:event_txt_again_passwordKeyTyped
 
 	/**
 	 * @param args the command line arguments

@@ -83,6 +83,11 @@ public class Admin_Login_Form extends javax.swing.JFrame {
         txt_username.setForeground(new java.awt.Color(255, 255, 255));
         txt_username.setBorder(null);
         txt_username.setOpaque(false);
+        txt_username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_usernameKeyTyped(evt);
+            }
+        });
 
         lbl_username.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         lbl_username.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,6 +101,11 @@ public class Admin_Login_Form extends javax.swing.JFrame {
         txt_password.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         txt_password.setForeground(new java.awt.Color(255, 255, 255));
         txt_password.setBorder(null);
+        txt_password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_passwordKeyTyped(evt);
+            }
+        });
 
         cmd_login.setBackground(new java.awt.Color(52, 152, 219));
         cmd_login.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
@@ -264,6 +274,20 @@ public class Admin_Login_Form extends javax.swing.JFrame {
     private void minimize_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimize_buttonMouseClicked
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_minimize_buttonMouseClicked
+
+    private void txt_usernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usernameKeyTyped
+         if(txt_username.getText().length()>=30) 
+	{  
+		evt.consume();
+	}
+    }//GEN-LAST:event_txt_usernameKeyTyped
+
+    private void txt_passwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passwordKeyTyped
+         if(txt_password.getText().length()>=30) 
+	{  
+		evt.consume();
+	}
+    }//GEN-LAST:event_txt_passwordKeyTyped
 
 	/**
 	 * @param args the command line arguments
