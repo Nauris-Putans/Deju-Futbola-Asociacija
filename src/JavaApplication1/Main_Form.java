@@ -8,12 +8,17 @@ import static JavaApplication1.javaConnect.USER;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.URI;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import net.proteanit.sql.DbUtils;
+import javax.swing.ImageIcon;
 
 //----------------------------------------//
 
@@ -22,6 +27,7 @@ public class Main_Form extends javax.swing.JFrame {
 	Connection conn=null;
 	ResultSet rs = null;
 	PreparedStatement pst = null;
+	String link = " ";
 
 	public Main_Form() {	// Creates new form Main_Form
 		initComponents();
@@ -135,6 +141,15 @@ private void Update_table() {
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Players = new javax.swing.JTable();
         KomandasInfo_Panel = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        MajasLapa_lbl = new javax.swing.JLabel();
+        KomandasInfo_Bilde = new javax.swing.JLabel();
+        button_Ligo = new javax.swing.JButton();
+        button_Danics = new javax.swing.JButton();
+        button_Teiksma = new javax.swing.JButton();
+        button_Rotala = new javax.swing.JButton();
+        button_Austris = new javax.swing.JButton();
+        button_Vektors = new javax.swing.JButton();
         SpeluInfo_Panel = new javax.swing.JPanel();
         MansProfils_Panel = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -605,7 +620,7 @@ private void Update_table() {
         Side_PanelLayout.setVerticalGroup(
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Side_PanelLayout.createSequentialGroup()
-                .addContainerGap(560, Short.MAX_VALUE)
+                .addContainerGap(584, Short.MAX_VALUE)
                 .addComponent(button_SakumaEkrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_SpeletajuInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -683,17 +698,145 @@ private void Update_table() {
                 .addContainerGap(725, Short.MAX_VALUE))
         );
 
-        KomandasInfo_Panel.setBackground(new java.awt.Color(255, 255, 102));
+        KomandasInfo_Panel.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
+
+        MajasLapa_lbl.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        MajasLapa_lbl.setForeground(new java.awt.Color(126, 161, 231));
+        MajasLapa_lbl.setText("https://www.jdkaustris.lv/");
+        MajasLapa_lbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        MajasLapa_lbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                MajasLapa_lblMousePressed(evt);
+            }
+        });
+        jPanel2.add(MajasLapa_lbl);
+        MajasLapa_lbl.setBounds(1060, 304, 300, 30);
+
+        KomandasInfo_Bilde.setBackground(new java.awt.Color(255, 255, 255));
+        KomandasInfo_Bilde.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Komandas Info\\Austris_Info.png")); // NOI18N
+        jPanel2.add(KomandasInfo_Bilde);
+        KomandasInfo_Bilde.setBounds(280, -30, 1251, 730);
+
+        button_Ligo.setBackground(new java.awt.Color(52, 73, 94));
+        button_Ligo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        button_Ligo.setForeground(new java.awt.Color(255, 255, 255));
+        button_Ligo.setText("Līgo");
+        button_Ligo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_Ligo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                button_LigoMousePressed(evt);
+            }
+        });
+        button_Ligo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_LigoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(button_Ligo);
+        button_Ligo.setBounds(20, 10, 147, 40);
+
+        button_Danics.setBackground(new java.awt.Color(52, 73, 94));
+        button_Danics.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        button_Danics.setForeground(new java.awt.Color(255, 255, 255));
+        button_Danics.setText("Dancis");
+        button_Danics.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_Danics.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                button_DanicsMousePressed(evt);
+            }
+        });
+        button_Danics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_DanicsActionPerformed(evt);
+            }
+        });
+        jPanel2.add(button_Danics);
+        button_Danics.setBounds(20, 60, 147, 40);
+
+        button_Teiksma.setBackground(new java.awt.Color(52, 73, 94));
+        button_Teiksma.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        button_Teiksma.setForeground(new java.awt.Color(255, 255, 255));
+        button_Teiksma.setText("Teiksma");
+        button_Teiksma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_Teiksma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                button_TeiksmaMousePressed(evt);
+            }
+        });
+        button_Teiksma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_TeiksmaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(button_Teiksma);
+        button_Teiksma.setBounds(20, 110, 147, 40);
+
+        button_Rotala.setBackground(new java.awt.Color(52, 73, 94));
+        button_Rotala.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        button_Rotala.setForeground(new java.awt.Color(255, 255, 255));
+        button_Rotala.setText("Rotaļa");
+        button_Rotala.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_Rotala.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                button_RotalaMousePressed(evt);
+            }
+        });
+        button_Rotala.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_RotalaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(button_Rotala);
+        button_Rotala.setBounds(20, 160, 147, 40);
+
+        button_Austris.setBackground(new java.awt.Color(52, 73, 94));
+        button_Austris.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        button_Austris.setForeground(new java.awt.Color(255, 255, 255));
+        button_Austris.setText("Austris");
+        button_Austris.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_Austris.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                button_AustrisMousePressed(evt);
+            }
+        });
+        button_Austris.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_AustrisActionPerformed(evt);
+            }
+        });
+        jPanel2.add(button_Austris);
+        button_Austris.setBounds(20, 210, 147, 40);
+
+        button_Vektors.setBackground(new java.awt.Color(52, 73, 94));
+        button_Vektors.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        button_Vektors.setForeground(new java.awt.Color(255, 255, 255));
+        button_Vektors.setText("Vektors");
+        button_Vektors.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_Vektors.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                button_VektorsMousePressed(evt);
+            }
+        });
+        button_Vektors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_VektorsActionPerformed(evt);
+            }
+        });
+        jPanel2.add(button_Vektors);
+        button_Vektors.setBounds(20, 260, 147, 40);
 
         javax.swing.GroupLayout KomandasInfo_PanelLayout = new javax.swing.GroupLayout(KomandasInfo_Panel);
         KomandasInfo_Panel.setLayout(KomandasInfo_PanelLayout);
         KomandasInfo_PanelLayout.setHorizontalGroup(
             KomandasInfo_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2674, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 2686, Short.MAX_VALUE)
         );
         KomandasInfo_PanelLayout.setVerticalGroup(
             KomandasInfo_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1335, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1347, Short.MAX_VALUE)
         );
 
         SpeluInfo_Panel.setBackground(new java.awt.Color(0, 0, 0));
@@ -1122,7 +1265,11 @@ private void Update_table() {
     }//GEN-LAST:event_button_SpeluInfoMousePressed
 
     private void button_KomandasInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_KomandasInfoMousePressed
-         SakumaEkrans_Panel.hide();
+         
+	KomandasInfo_Bilde.hide();
+	MajasLapa_lbl.hide();
+		
+	SakumaEkrans_Panel.hide();
 	SpeletajuInfo_Panel.hide();
 	KomandasInfo_Panel.show();
 	SpeluInfo_Panel.hide();
@@ -1148,6 +1295,109 @@ private void Update_table() {
 	ind_Drizuma.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
     }//GEN-LAST:event_button_KomandasInfoMousePressed
+
+    private void button_LigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_LigoActionPerformed
+
+    }//GEN-LAST:event_button_LigoActionPerformed
+
+    private void button_DanicsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_DanicsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_DanicsActionPerformed
+
+    private void button_TeiksmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_TeiksmaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_TeiksmaActionPerformed
+
+    private void button_RotalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_RotalaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_RotalaActionPerformed
+
+    private void button_AustrisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_AustrisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_AustrisActionPerformed
+
+    private void button_VektorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_VektorsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_button_VektorsActionPerformed
+
+    private void MajasLapa_lblMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MajasLapa_lblMousePressed
+         try 
+	{
+		Desktop.getDesktop().browse(new URI(link));
+	} 
+	
+	catch(Exception e) 
+	{
+		JOptionPane.showMessageDialog(null, "Something wrong with URI link!");
+	}
+    }//GEN-LAST:event_MajasLapa_lblMousePressed
+
+    private void button_LigoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_LigoMousePressed
+	
+	KomandasInfo_Bilde.show();
+	MajasLapa_lbl.show();
+		
+	ImageIcon image = new ImageIcon("D:\\Users\\user\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Komandas Info\\Ligo_Info_Panel.png");
+	KomandasInfo_Bilde.setIcon(image);
+	MajasLapa_lbl.setText("ligo.lv");
+	link = "http://ligo.lv/lv/";
+    }//GEN-LAST:event_button_LigoMousePressed
+
+    private void button_DanicsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_DanicsMousePressed
+        
+	KomandasInfo_Bilde.show();
+	MajasLapa_lbl.show();	
+		
+	ImageIcon image = new ImageIcon("D:\\Users\\user\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Komandas Info\\Dancis_Info_Panel.png");
+	KomandasInfo_Bilde.setIcon(image);
+	MajasLapa_lbl.setText("dancis.lv");
+	link = "http://www.dancis.lv/";
+    }//GEN-LAST:event_button_DanicsMousePressed
+
+    private void button_TeiksmaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_TeiksmaMousePressed
+	
+	KomandasInfo_Bilde.show();
+	MajasLapa_lbl.show();	
+		
+	ImageIcon image = new ImageIcon("D:\\Users\\user\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Komandas Info\\Teiksma_Info_Panel.png");
+	KomandasInfo_Bilde.setIcon(image);
+	MajasLapa_lbl.setText("teiksma.lv");
+	link = "http://www.teiksma.lv/";
+    }//GEN-LAST:event_button_TeiksmaMousePressed
+
+    private void button_RotalaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_RotalaMousePressed
+       
+	KomandasInfo_Bilde.show();
+	MajasLapa_lbl.show();	
+		
+	ImageIcon image = new ImageIcon("D:\\Users\\user\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Komandas Info\\Rotala_Info_Panel.png");
+	KomandasInfo_Bilde.setIcon(image);
+	MajasLapa_lbl.setText("rotala.lv");
+	link = "http://rotala.lv/";
+    }//GEN-LAST:event_button_RotalaMousePressed
+
+    private void button_AustrisMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_AustrisMousePressed
+	
+	KomandasInfo_Bilde.show();
+	MajasLapa_lbl.show();	
+		
+	ImageIcon image = new ImageIcon("D:\\Users\\user\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Komandas Info\\Austris_Info_Panel.png");
+	KomandasInfo_Bilde.setIcon(image);
+	MajasLapa_lbl.setText("jdkaustris.lv");
+	link = "https://www.jdkaustris.lv/";
+    }//GEN-LAST:event_button_AustrisMousePressed
+
+    private void button_VektorsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_VektorsMousePressed
+        
+	KomandasInfo_Bilde.show();
+	MajasLapa_lbl.show();	
+		
+	ImageIcon image = new ImageIcon("D:\\Users\\user\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Komandas Info\\Vektors_Info_Panel.png");
+	KomandasInfo_Bilde.setIcon(image);
+	MajasLapa_lbl.setText("tdavektors.lv");
+	link = "https://www.tdavektors.lv/";
+		
+    }//GEN-LAST:event_button_VektorsMousePressed
 
 	/**
 	 * @param args the command line arguments
@@ -1200,7 +1450,9 @@ private void Update_table() {
     private javax.swing.JLabel Facebook_icon;
     private javax.swing.JLabel GitHub_icon;
     private javax.swing.JLabel Instagram_icon;
+    public javax.swing.JLabel KomandasInfo_Bilde;
     public javax.swing.JPanel KomandasInfo_Panel;
+    private javax.swing.JLabel MajasLapa_lbl;
     public javax.swing.JPanel MansProfils_Panel;
     private javax.swing.JLabel NP_picture;
     private javax.swing.JLabel Programm_Info;
@@ -1211,13 +1463,19 @@ private void Update_table() {
     public javax.swing.JPanel SpeluInfo_Panel;
     public javax.swing.JTable Table_Players;
     private javax.swing.JPanel WhiteBar_Panel;
+    private javax.swing.JButton button_Austris;
+    private javax.swing.JButton button_Danics;
     private javax.swing.JPanel button_Drizuma;
     private javax.swing.JPanel button_KomandasInfo;
+    private javax.swing.JButton button_Ligo;
     private javax.swing.JPanel button_MansProfils;
     private javax.swing.JPanel button_ProgrammasInfo;
+    private javax.swing.JButton button_Rotala;
     private javax.swing.JPanel button_SakumaEkrans;
     private javax.swing.JPanel button_SpeletajuInfo;
     private javax.swing.JPanel button_SpeluInfo;
+    private javax.swing.JButton button_Teiksma;
+    private javax.swing.JButton button_Vektors;
     private javax.swing.JPanel ind_Drizuma;
     private javax.swing.JPanel ind_KomandasInfo;
     private javax.swing.JPanel ind_MansProfils;
@@ -1244,6 +1502,7 @@ private void Update_table() {
     private javax.swing.JLabel jLabel9;
     public javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel2;
     public javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
