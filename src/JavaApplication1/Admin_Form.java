@@ -152,7 +152,13 @@ private void Update_table() {
         SpeletajuInfo_Panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Players = new javax.swing.JTable();
+        SpeletajuInfo_Pievienot_Panel = new javax.swing.JPanel();
+        SpeletajuInfo_Rediget_Panel = new javax.swing.JPanel();
+        SpeletajuInfo_Dzest_Panel = new javax.swing.JPanel();
         SpeluInfo_Panel = new javax.swing.JPanel();
+        SpeluInfo_Pievienot_Panel = new javax.swing.JPanel();
+        SpeluInfo_Rediget_Panel = new javax.swing.JPanel();
+        SpeluInfo_Dzest_Panel = new javax.swing.JPanel();
         MansProfils_Panel = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         Drizuma_Panel = new javax.swing.JPanel();
@@ -782,7 +788,7 @@ private void Update_table() {
         Side_PanelLayout.setVerticalGroup(
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Side_PanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(402, Short.MAX_VALUE)
                 .addComponent(button_SakumaEkrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_SpeletajuInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -800,11 +806,11 @@ private void Update_table() {
                 .addComponent(button_RedigetSpeles, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_DzestSpeles, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_MansProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_Drizuma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addGap(127, 127, 127)
                 .addComponent(button_ProgrammasInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -813,7 +819,7 @@ private void Update_table() {
                 .addGap(24, 24, 24))
         );
 
-        SakumaEkrans_Panel.setBackground(new java.awt.Color(153, 0, 255));
+        SakumaEkrans_Panel.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout SakumaEkrans_PanelLayout = new javax.swing.GroupLayout(SakumaEkrans_Panel);
         SakumaEkrans_Panel.setLayout(SakumaEkrans_PanelLayout);
@@ -826,7 +832,7 @@ private void Update_table() {
             .addGap(0, 1335, Short.MAX_VALUE)
         );
 
-        SpeletajuInfo_Panel.setBackground(new java.awt.Color(51, 255, 102));
+        SpeletajuInfo_Panel.setBackground(new java.awt.Color(204, 204, 255));
 
         Table_Players.setAutoCreateRowSorter(true);
         Table_Players.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -858,17 +864,59 @@ private void Update_table() {
             .addGroup(SpeletajuInfo_PanelLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1323, Short.MAX_VALUE))
+                .addContainerGap(1634, Short.MAX_VALUE))
         );
         SpeletajuInfo_PanelLayout.setVerticalGroup(
             SpeletajuInfo_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SpeletajuInfo_PanelLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(725, Short.MAX_VALUE))
+                .addContainerGap(737, Short.MAX_VALUE))
         );
 
-        SpeluInfo_Panel.setBackground(new java.awt.Color(255, 204, 204));
+        SpeletajuInfo_Pievienot_Panel.setBackground(new java.awt.Color(255, 204, 204));
+        SpeletajuInfo_Pievienot_Panel.setPreferredSize(new java.awt.Dimension(2375, 1323));
+
+        javax.swing.GroupLayout SpeletajuInfo_Pievienot_PanelLayout = new javax.swing.GroupLayout(SpeletajuInfo_Pievienot_Panel);
+        SpeletajuInfo_Pievienot_Panel.setLayout(SpeletajuInfo_Pievienot_PanelLayout);
+        SpeletajuInfo_Pievienot_PanelLayout.setHorizontalGroup(
+            SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2686, Short.MAX_VALUE)
+        );
+        SpeletajuInfo_Pievienot_PanelLayout.setVerticalGroup(
+            SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1335, Short.MAX_VALUE)
+        );
+
+        SpeletajuInfo_Rediget_Panel.setBackground(new java.awt.Color(255, 255, 204));
+        SpeletajuInfo_Rediget_Panel.setPreferredSize(new java.awt.Dimension(2375, 1323));
+
+        javax.swing.GroupLayout SpeletajuInfo_Rediget_PanelLayout = new javax.swing.GroupLayout(SpeletajuInfo_Rediget_Panel);
+        SpeletajuInfo_Rediget_Panel.setLayout(SpeletajuInfo_Rediget_PanelLayout);
+        SpeletajuInfo_Rediget_PanelLayout.setHorizontalGroup(
+            SpeletajuInfo_Rediget_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2686, Short.MAX_VALUE)
+        );
+        SpeletajuInfo_Rediget_PanelLayout.setVerticalGroup(
+            SpeletajuInfo_Rediget_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1335, Short.MAX_VALUE)
+        );
+
+        SpeletajuInfo_Dzest_Panel.setBackground(new java.awt.Color(153, 153, 255));
+        SpeletajuInfo_Dzest_Panel.setPreferredSize(new java.awt.Dimension(2375, 1323));
+
+        javax.swing.GroupLayout SpeletajuInfo_Dzest_PanelLayout = new javax.swing.GroupLayout(SpeletajuInfo_Dzest_Panel);
+        SpeletajuInfo_Dzest_Panel.setLayout(SpeletajuInfo_Dzest_PanelLayout);
+        SpeletajuInfo_Dzest_PanelLayout.setHorizontalGroup(
+            SpeletajuInfo_Dzest_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2686, Short.MAX_VALUE)
+        );
+        SpeletajuInfo_Dzest_PanelLayout.setVerticalGroup(
+            SpeletajuInfo_Dzest_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1335, Short.MAX_VALUE)
+        );
+
+        SpeluInfo_Panel.setBackground(new java.awt.Color(255, 153, 204));
         SpeluInfo_Panel.setPreferredSize(new java.awt.Dimension(2375, 1323));
 
         javax.swing.GroupLayout SpeluInfo_PanelLayout = new javax.swing.GroupLayout(SpeluInfo_Panel);
@@ -882,7 +930,49 @@ private void Update_table() {
             .addGap(0, 1335, Short.MAX_VALUE)
         );
 
-        MansProfils_Panel.setBackground(new java.awt.Color(0, 153, 153));
+        SpeluInfo_Pievienot_Panel.setBackground(new java.awt.Color(255, 255, 153));
+        SpeluInfo_Pievienot_Panel.setPreferredSize(new java.awt.Dimension(2375, 1323));
+
+        javax.swing.GroupLayout SpeluInfo_Pievienot_PanelLayout = new javax.swing.GroupLayout(SpeluInfo_Pievienot_Panel);
+        SpeluInfo_Pievienot_Panel.setLayout(SpeluInfo_Pievienot_PanelLayout);
+        SpeluInfo_Pievienot_PanelLayout.setHorizontalGroup(
+            SpeluInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2686, Short.MAX_VALUE)
+        );
+        SpeluInfo_Pievienot_PanelLayout.setVerticalGroup(
+            SpeluInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1335, Short.MAX_VALUE)
+        );
+
+        SpeluInfo_Rediget_Panel.setBackground(new java.awt.Color(102, 102, 255));
+        SpeluInfo_Rediget_Panel.setPreferredSize(new java.awt.Dimension(2375, 1323));
+
+        javax.swing.GroupLayout SpeluInfo_Rediget_PanelLayout = new javax.swing.GroupLayout(SpeluInfo_Rediget_Panel);
+        SpeluInfo_Rediget_Panel.setLayout(SpeluInfo_Rediget_PanelLayout);
+        SpeluInfo_Rediget_PanelLayout.setHorizontalGroup(
+            SpeluInfo_Rediget_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2674, Short.MAX_VALUE)
+        );
+        SpeluInfo_Rediget_PanelLayout.setVerticalGroup(
+            SpeluInfo_Rediget_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1323, Short.MAX_VALUE)
+        );
+
+        SpeluInfo_Dzest_Panel.setBackground(new java.awt.Color(255, 102, 204));
+        SpeluInfo_Dzest_Panel.setPreferredSize(new java.awt.Dimension(2375, 1323));
+
+        javax.swing.GroupLayout SpeluInfo_Dzest_PanelLayout = new javax.swing.GroupLayout(SpeluInfo_Dzest_Panel);
+        SpeluInfo_Dzest_Panel.setLayout(SpeluInfo_Dzest_PanelLayout);
+        SpeluInfo_Dzest_PanelLayout.setHorizontalGroup(
+            SpeluInfo_Dzest_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2668, Short.MAX_VALUE)
+        );
+        SpeluInfo_Dzest_PanelLayout.setVerticalGroup(
+            SpeluInfo_Dzest_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1317, Short.MAX_VALUE)
+        );
+
+        MansProfils_Panel.setBackground(new java.awt.Color(255, 255, 102));
 
         jButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButton2.setText("Ienākt / Reģistrēties");
@@ -909,7 +999,7 @@ private void Update_table() {
                 .addContainerGap(1092, Short.MAX_VALUE))
         );
 
-        Drizuma_Panel.setBackground(new java.awt.Color(153, 102, 255));
+        Drizuma_Panel.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout Drizuma_PanelLayout = new javax.swing.GroupLayout(Drizuma_Panel);
         Drizuma_Panel.setLayout(Drizuma_PanelLayout);
@@ -995,7 +1085,13 @@ private void Update_table() {
 
         jLayeredPane1.setLayer(SakumaEkrans_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(SpeletajuInfo_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(SpeletajuInfo_Pievienot_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(SpeletajuInfo_Rediget_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(SpeletajuInfo_Dzest_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(SpeluInfo_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(SpeluInfo_Pievienot_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(SpeluInfo_Rediget_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(SpeluInfo_Dzest_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(MansProfils_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(Drizuma_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ProgrammasInfo_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1015,6 +1111,18 @@ private void Update_table() {
                 .addComponent(ProgrammasInfo_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(SpeluInfo_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 2686, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(SpeluInfo_Pievienot_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 2686, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(SpeluInfo_Rediget_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 2686, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(SpeluInfo_Dzest_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 2686, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(SpeletajuInfo_Pievienot_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 2686, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(SpeletajuInfo_Rediget_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 2686, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(SpeletajuInfo_Dzest_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 2686, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1029,6 +1137,18 @@ private void Update_table() {
                 .addComponent(ProgrammasInfo_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(SpeluInfo_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1335, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(SpeluInfo_Pievienot_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1335, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(SpeluInfo_Rediget_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1335, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(SpeluInfo_Dzest_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1335, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(SpeletajuInfo_Pievienot_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1335, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(SpeletajuInfo_Rediget_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1335, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(SpeletajuInfo_Dzest_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 1335, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Background_PanelLayout = new javax.swing.GroupLayout(Background_Panel);
@@ -1068,14 +1188,26 @@ private void Update_table() {
 
          SakumaEkrans_Panel.show();
          SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
 	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
          MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
-         setColor(button_SakumaEkrans);
+	setColor(button_SakumaEkrans);
          resetColor(button_SpeletajuInfo);
-	resetColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
+         resetColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
          resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
@@ -1086,22 +1218,34 @@ private void Update_table() {
          ind_SpeletajuInfo.setOpaque(false);
 	ind_SpeluInfo.setOpaque(false);
          ind_MansProfils.setOpaque(false);
-         ind_ProgrammasInfo.setOpaque(false);
-	ind_Drizuma.setOpaque(false);
+	ind_ProgrammasInfo.setOpaque(false);
+         ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_SakumaEkransMousePressed
 
     private void button_SpeletajuInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_SpeletajuInfoMousePressed
 
          SakumaEkrans_Panel.hide();
          SpeletajuInfo_Panel.show();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
 	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
          MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
 	resetColor(button_SakumaEkrans);
          setColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
          resetColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
          resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
@@ -1118,16 +1262,28 @@ private void Update_table() {
 
     private void button_MansProfilsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_MansProfilsMousePressed
 
-         SakumaEkrans_Panel.hide();
+	SakumaEkrans_Panel.hide();
          SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
 	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
          MansProfils_Panel.show();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
 	resetColor(button_SakumaEkrans);
          resetColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
          resetColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
          setColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
@@ -1144,16 +1300,28 @@ private void Update_table() {
 
     private void button_DrizumaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_DrizumaMousePressed
 
-         SakumaEkrans_Panel.hide();
+	SakumaEkrans_Panel.hide();
          SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
 	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
          MansProfils_Panel.hide();
          Drizuma_Panel.show();
          ProgrammasInfo_Panel.hide();
 	
 	resetColor(button_SakumaEkrans);
          resetColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
          resetColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
          resetColor(button_MansProfils);
          setColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
@@ -1170,16 +1338,28 @@ private void Update_table() {
 
     private void button_ProgrammasInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_ProgrammasInfoMousePressed
 
-         SakumaEkrans_Panel.hide();
+	SakumaEkrans_Panel.hide();
          SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
 	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
          MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.show();
 	
 	resetColor(button_SakumaEkrans);
          resetColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
          resetColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
          resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          setColor(button_ProgrammasInfo);
@@ -1192,7 +1372,6 @@ private void Update_table() {
          ind_MansProfils.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(true);
          ind_Drizuma.setOpaque(false);
-
     }//GEN-LAST:event_button_ProgrammasInfoMousePressed
 
     private void button_exitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_exitMousePressed
@@ -1241,29 +1420,143 @@ private void Update_table() {
     }//GEN-LAST:event_GitHub_iconMousePressed
 
     private void button_PievienotSpeletajusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_PievienotSpeletajusMousePressed
-		
+
+	SakumaEkrans_Panel.hide();
+         SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.show();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
+	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
+         MansProfils_Panel.hide();
+         Drizuma_Panel.hide();
+         ProgrammasInfo_Panel.hide();
+	
+	resetColor(button_SakumaEkrans);
+         setColor(button_SpeletajuInfo);
+		setColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
+         resetColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
+         resetColor(button_MansProfils);
+         resetColor(button_Drizuma);
+         resetColor(button_ProgrammasInfo);
+
+         // Indicators
+
+         ind_SakumaEkrans.setOpaque(false);
+         ind_SpeletajuInfo.setOpaque(true);
+	ind_SpeluInfo.setOpaque(false);
+         ind_MansProfils.setOpaque(false);
+	ind_ProgrammasInfo.setOpaque(false);
+         ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_PievienotSpeletajusMousePressed
 
     private void button_RedigetSpeletajusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_RedigetSpeletajusMousePressed
-        // TODO add your handling code here:
+	
+	SakumaEkrans_Panel.hide();
+         SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.show();
+		SpeletajuInfo_Dzest_Panel.hide();
+	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
+         MansProfils_Panel.hide();
+         Drizuma_Panel.hide();
+         ProgrammasInfo_Panel.hide();
+	
+	resetColor(button_SakumaEkrans);
+         setColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		setColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
+         resetColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
+         resetColor(button_MansProfils);
+         resetColor(button_Drizuma);
+         resetColor(button_ProgrammasInfo);
+
+         // Indicators
+
+         ind_SakumaEkrans.setOpaque(false);
+         ind_SpeletajuInfo.setOpaque(true);
+	ind_SpeluInfo.setOpaque(false);
+         ind_MansProfils.setOpaque(false);
+	ind_ProgrammasInfo.setOpaque(false);
+         ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_RedigetSpeletajusMousePressed
 
     private void button_DzestSpeletajusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_DzestSpeletajusMousePressed
-        // TODO add your handling code here:
+     
+	SakumaEkrans_Panel.hide();
+         SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.show();
+	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
+         MansProfils_Panel.hide();
+         Drizuma_Panel.hide();
+         ProgrammasInfo_Panel.hide();
+	
+	resetColor(button_SakumaEkrans);
+         setColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		setColor(button_DzestSpeletajus);
+         resetColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
+         resetColor(button_MansProfils);
+         resetColor(button_Drizuma);
+         resetColor(button_ProgrammasInfo);
+
+         // Indicators
+
+         ind_SakumaEkrans.setOpaque(false);
+         ind_SpeletajuInfo.setOpaque(true);
+	ind_SpeluInfo.setOpaque(false);
+         ind_MansProfils.setOpaque(false);
+	ind_ProgrammasInfo.setOpaque(false);
+         ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_DzestSpeletajusMousePressed
 
     private void button_SpeluInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_SpeluInfoMousePressed
         
 	SakumaEkrans_Panel.hide();
          SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
 	SpeluInfo_Panel.show();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
          MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
 	resetColor(button_SakumaEkrans);
          resetColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
          setColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
          resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
@@ -1279,15 +1572,117 @@ private void Update_table() {
     }//GEN-LAST:event_button_SpeluInfoMousePressed
 
     private void button_DzestSpelesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_DzestSpelesMousePressed
-        // TODO add your handling code here:
+        
+	SakumaEkrans_Panel.hide();
+         SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
+	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.show();
+         MansProfils_Panel.hide();
+         Drizuma_Panel.hide();
+         ProgrammasInfo_Panel.hide();
+	
+	resetColor(button_SakumaEkrans);
+         resetColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
+         setColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		setColor(button_DzestSpeles);
+         resetColor(button_MansProfils);
+         resetColor(button_Drizuma);
+         resetColor(button_ProgrammasInfo);
+
+         // Indicators
+
+         ind_SakumaEkrans.setOpaque(false);
+         ind_SpeletajuInfo.setOpaque(false);
+	ind_SpeluInfo.setOpaque(true);
+         ind_MansProfils.setOpaque(false);
+	ind_ProgrammasInfo.setOpaque(false);
+         ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_DzestSpelesMousePressed
 
     private void button_RedigetSpelesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_RedigetSpelesMousePressed
-        // TODO add your handling code here:
+        
+	SakumaEkrans_Panel.hide();
+         SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
+	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.show();
+		SpeluInfo_Dzest_Panel.hide();
+         MansProfils_Panel.hide();
+         Drizuma_Panel.hide();
+         ProgrammasInfo_Panel.hide();
+	
+	resetColor(button_SakumaEkrans);
+         resetColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
+         setColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		setColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
+         resetColor(button_MansProfils);
+         resetColor(button_Drizuma);
+         resetColor(button_ProgrammasInfo);
+
+         // Indicators
+
+         ind_SakumaEkrans.setOpaque(false);
+         ind_SpeletajuInfo.setOpaque(false);
+	ind_SpeluInfo.setOpaque(true);
+         ind_MansProfils.setOpaque(false);
+	ind_ProgrammasInfo.setOpaque(false);
+         ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_RedigetSpelesMousePressed
 
     private void button_PievienotSpelesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_PievienotSpelesMousePressed
-        // TODO add your handling code here:
+        
+	SakumaEkrans_Panel.hide();
+         SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
+	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.show();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
+         MansProfils_Panel.hide();
+         Drizuma_Panel.hide();
+         ProgrammasInfo_Panel.hide();
+	
+	resetColor(button_SakumaEkrans);
+         resetColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
+         setColor(button_SpeluInfo);
+		setColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
+         resetColor(button_MansProfils);
+         resetColor(button_Drizuma);
+         resetColor(button_ProgrammasInfo);
+
+         // Indicators
+
+         ind_SakumaEkrans.setOpaque(false);
+         ind_SpeletajuInfo.setOpaque(false);
+	ind_SpeluInfo.setOpaque(true);
+         ind_MansProfils.setOpaque(false);
+	ind_ProgrammasInfo.setOpaque(false);
+         ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_PievienotSpelesMousePressed
 
 	/**
@@ -1346,8 +1741,14 @@ private void Update_table() {
     public javax.swing.JPanel ProgrammasInfo_Panel;
     public javax.swing.JPanel SakumaEkrans_Panel;
     private javax.swing.JPanel Side_Panel;
+    public javax.swing.JPanel SpeletajuInfo_Dzest_Panel;
     public javax.swing.JPanel SpeletajuInfo_Panel;
+    public javax.swing.JPanel SpeletajuInfo_Pievienot_Panel;
+    public javax.swing.JPanel SpeletajuInfo_Rediget_Panel;
+    public javax.swing.JPanel SpeluInfo_Dzest_Panel;
     public javax.swing.JPanel SpeluInfo_Panel;
+    public javax.swing.JPanel SpeluInfo_Pievienot_Panel;
+    public javax.swing.JPanel SpeluInfo_Rediget_Panel;
     public javax.swing.JTable Table_Players;
     private javax.swing.JPanel WhiteBar_Panel;
     private javax.swing.JPanel button_Drizuma;
