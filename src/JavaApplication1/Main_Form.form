@@ -1010,7 +1010,7 @@
             <Container class="javax.swing.JPanel" name="KomandasInfo_Panel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="5e" green="49" red="34" type="rgb"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -1033,7 +1033,7 @@
                 <Container class="javax.swing.JPanel" name="jPanel2">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                      <Color blue="5e" green="49" red="34" type="rgb"/>
                     </Property>
                   </Properties>
                   <AuxValues>
@@ -1052,7 +1052,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="e7" green="a1" red="7e" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="https://www.jdkaustris.lv/"/>
+                        <Property name="text" type="java.lang.String" value="ligo.lv"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                           <Color id="Hand Cursor"/>
                         </Property>
@@ -1062,7 +1062,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="1060" y="304" width="300" height="30"/>
+                          <AbsoluteConstraints x="1050" y="289" width="300" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1072,7 +1072,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="2" name="D:\Users\User\Documents\NetBeansProjects\JavaApplication1\images for project\Komandas Info\Austris_Info.png"/>
+                          <Image iconType="2" name="D:\Users\User\Documents\NetBeansProjects\JavaApplication1\images for project\Komandas Info\Ligo_Info_Panel.png"/>
                         </Property>
                       </Properties>
                       <AuxValues>
@@ -1080,7 +1080,7 @@
                       </AuxValues>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="280" y="-30" width="1251" height="730"/>
+                          <AbsoluteConstraints x="270" y="70" width="1251" height="930"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1110,7 +1110,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JButton" name="button_Danics">
+                    <Component class="javax.swing.JButton" name="button_Dancis">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="5e" green="49" red="34" type="rgb"/>
@@ -1127,8 +1127,8 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_DanicsMousePressed"/>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_DanicsActionPerformed"/>
+                        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="button_DancisMousePressed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button_DancisActionPerformed"/>
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

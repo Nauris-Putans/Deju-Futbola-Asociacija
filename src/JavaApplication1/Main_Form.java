@@ -66,6 +66,13 @@ public class Main_Form extends javax.swing.JFrame {
 		
 		this.setLocationRelativeTo(null);
 		
+		button_Ligo.hide();
+		button_Dancis.hide();
+		button_Teiksma.hide();
+		button_Rotala.hide();
+		button_Austris.hide();
+		button_Vektors.hide();
+		
 		try 
 		{	
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -145,7 +152,7 @@ private void Update_table() {
         MajasLapa_lbl = new javax.swing.JLabel();
         KomandasInfo_Bilde = new javax.swing.JLabel();
         button_Ligo = new javax.swing.JButton();
-        button_Danics = new javax.swing.JButton();
+        button_Dancis = new javax.swing.JButton();
         button_Teiksma = new javax.swing.JButton();
         button_Rotala = new javax.swing.JButton();
         button_Austris = new javax.swing.JButton();
@@ -698,14 +705,14 @@ private void Update_table() {
                 .addContainerGap(725, Short.MAX_VALUE))
         );
 
-        KomandasInfo_Panel.setBackground(new java.awt.Color(255, 255, 255));
+        KomandasInfo_Panel.setBackground(new java.awt.Color(52, 73, 94));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(52, 73, 94));
         jPanel2.setLayout(null);
 
         MajasLapa_lbl.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         MajasLapa_lbl.setForeground(new java.awt.Color(126, 161, 231));
-        MajasLapa_lbl.setText("https://www.jdkaustris.lv/");
+        MajasLapa_lbl.setText("ligo.lv");
         MajasLapa_lbl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         MajasLapa_lbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -713,12 +720,12 @@ private void Update_table() {
             }
         });
         jPanel2.add(MajasLapa_lbl);
-        MajasLapa_lbl.setBounds(1060, 304, 300, 30);
+        MajasLapa_lbl.setBounds(1050, 289, 300, 30);
 
         KomandasInfo_Bilde.setBackground(new java.awt.Color(255, 255, 255));
-        KomandasInfo_Bilde.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Komandas Info\\Austris_Info.png")); // NOI18N
+        KomandasInfo_Bilde.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Komandas Info\\Ligo_Info_Panel.png")); // NOI18N
         jPanel2.add(KomandasInfo_Bilde);
-        KomandasInfo_Bilde.setBounds(280, -30, 1251, 730);
+        KomandasInfo_Bilde.setBounds(270, 70, 1251, 930);
 
         button_Ligo.setBackground(new java.awt.Color(52, 73, 94));
         button_Ligo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
@@ -738,23 +745,23 @@ private void Update_table() {
         jPanel2.add(button_Ligo);
         button_Ligo.setBounds(20, 10, 147, 40);
 
-        button_Danics.setBackground(new java.awt.Color(52, 73, 94));
-        button_Danics.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        button_Danics.setForeground(new java.awt.Color(255, 255, 255));
-        button_Danics.setText("Dancis");
-        button_Danics.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        button_Danics.addMouseListener(new java.awt.event.MouseAdapter() {
+        button_Dancis.setBackground(new java.awt.Color(52, 73, 94));
+        button_Dancis.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        button_Dancis.setForeground(new java.awt.Color(255, 255, 255));
+        button_Dancis.setText("Dancis");
+        button_Dancis.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button_Dancis.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                button_DanicsMousePressed(evt);
+                button_DancisMousePressed(evt);
             }
         });
-        button_Danics.addActionListener(new java.awt.event.ActionListener() {
+        button_Dancis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button_DanicsActionPerformed(evt);
+                button_DancisActionPerformed(evt);
             }
         });
-        jPanel2.add(button_Danics);
-        button_Danics.setBounds(20, 60, 147, 40);
+        jPanel2.add(button_Dancis);
+        button_Dancis.setBounds(20, 60, 147, 40);
 
         button_Teiksma.setBackground(new java.awt.Color(52, 73, 94));
         button_Teiksma.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
@@ -1268,6 +1275,12 @@ private void Update_table() {
          
 	KomandasInfo_Bilde.hide();
 	MajasLapa_lbl.hide();
+	button_Ligo.show();
+	button_Dancis.show();
+	button_Teiksma.show();
+	button_Rotala.show();
+	button_Austris.show();
+	button_Vektors.show();
 		
 	SakumaEkrans_Panel.hide();
 	SpeletajuInfo_Panel.hide();
@@ -1300,9 +1313,9 @@ private void Update_table() {
 
     }//GEN-LAST:event_button_LigoActionPerformed
 
-    private void button_DanicsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_DanicsActionPerformed
+    private void button_DancisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_DancisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button_DanicsActionPerformed
+    }//GEN-LAST:event_button_DancisActionPerformed
 
     private void button_TeiksmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_TeiksmaActionPerformed
         // TODO add your handling code here:
@@ -1343,7 +1356,7 @@ private void Update_table() {
 	link = "http://ligo.lv/lv/";
     }//GEN-LAST:event_button_LigoMousePressed
 
-    private void button_DanicsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_DanicsMousePressed
+    private void button_DancisMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_DancisMousePressed
         
 	KomandasInfo_Bilde.show();
 	MajasLapa_lbl.show();	
@@ -1352,7 +1365,7 @@ private void Update_table() {
 	KomandasInfo_Bilde.setIcon(image);
 	MajasLapa_lbl.setText("dancis.lv");
 	link = "http://www.dancis.lv/";
-    }//GEN-LAST:event_button_DanicsMousePressed
+    }//GEN-LAST:event_button_DancisMousePressed
 
     private void button_TeiksmaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_TeiksmaMousePressed
 	
@@ -1464,7 +1477,7 @@ private void Update_table() {
     public javax.swing.JTable Table_Players;
     private javax.swing.JPanel WhiteBar_Panel;
     private javax.swing.JButton button_Austris;
-    private javax.swing.JButton button_Danics;
+    private javax.swing.JButton button_Dancis;
     private javax.swing.JPanel button_Drizuma;
     private javax.swing.JPanel button_KomandasInfo;
     private javax.swing.JButton button_Ligo;
