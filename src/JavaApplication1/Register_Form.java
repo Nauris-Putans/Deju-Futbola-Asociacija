@@ -9,6 +9,7 @@ import static JavaApplication1.javaConnect.DB_URL;
 import static JavaApplication1.javaConnect.PASS;
 import static JavaApplication1.javaConnect.USER;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -507,21 +508,29 @@ public class Register_Form extends javax.swing.JFrame {
     }//GEN-LAST:event_cmd_registerMouseClicked
 
     private void txt_nameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nameKeyTyped
-         if(txt_name.getText().length()>=30) 
+	if(!(Character.isLetter(evt.getKeyChar()))){
+		evt.consume();
+         }
+		
+	else if(txt_name.getText().length()>=30) 
 	{  
 		evt.consume();
 	}
     }//GEN-LAST:event_txt_nameKeyTyped
 
     private void txt_surnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_surnameKeyTyped
-         if(txt_surname.getText().length()>=30) 
+        if(!(Character.isLetter(evt.getKeyChar()))){
+		evt.consume();
+         }
+	
+	else if(txt_surname.getText().length()>=30) 
 	{  
 		evt.consume();
 	}
     }//GEN-LAST:event_txt_surnameKeyTyped
 
     private void txt_usernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usernameKeyTyped
-         if(txt_username.getText().length()>=30) 
+	if(txt_username.getText().length()>=30) 
 	{  
 		evt.consume();
 	}
