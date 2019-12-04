@@ -6,8 +6,12 @@ import static JavaApplication1.javaConnect.DB_URL;
 import static JavaApplication1.javaConnect.PASS;
 import static JavaApplication1.javaConnect.USER;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Desktop;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +23,8 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import net.proteanit.sql.DbUtils;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumnModel;
 
 //----------------------------------------//
 
@@ -28,17 +34,59 @@ public class Main_Form extends javax.swing.JFrame {
 	ResultSet rs = null;
 	PreparedStatement pst = null;
 	String link = " ";
-
+	
+	/*
+	Timer tm;
+	JLabel pic;
+	int x = 0;
+	String[] list = {
+				"D:/Users/User/Documents/NetBeansProjects/JavaApplication1/images for project/Image slideshowe/photo1.png",
+				"D:\\Users\\user\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Image slideshowe\\photo2.png",
+				"D:\\Users\\user\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Image slideshowe\\photo3.png",
+			};
+	*/
+	
 	public Main_Form() {	// Creates new form Main_Form
 		initComponents();
 		
+		
+		/*
+		pic = new JLabel();
+		pic.setBounds(40, 30, 700, 300);
+		pic.setBounds(40, 30, 700, 300);
+		tm = new Timer(500,new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			x += 1;
+			if(x >= list.length ) 
+			{
+				 x = 0; 
+			}
+			
+		}
+	 });
+		
+		add(pic);
+		tm.start();
+		
+		*/
+		
+		
+		
+		Table_Players.getTableHeader().setDefaultRenderer(new HeaderColor());
+
 		setExtendedState(JFrame.MAXIMIZED_BOTH);	    // Sets the JFrame to maximize by default on opening
+		
 		Table_Players.setDefaultEditor(Object.class, null);	// Disables edit in table
+		
+		/*
 		Table_Players.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 12));
 		Table_Players.getTableHeader().setOpaque(false);
 		Table_Players.getTableHeader().setBackground(Color.blue);
 		Table_Players.getTableHeader().setForeground(new Color(255, 255, 255));
 		Table_Players.setRowHeight(25);
+		*/
 		
 		//---------------Main_form start button color set---------------//
 		
@@ -85,15 +133,16 @@ public class Main_Form extends javax.swing.JFrame {
 		
 		Update_table();	
 	}
-	
+
 private void Update_table() {
 	
 	String insert = "select * from speletaji";
 	
-	try {
+	try {	
 		pst = conn.prepareStatement(insert);   
 		rs = pst.executeQuery();
 		Table_Players.setModel(DbUtils.resultSetToTableModel(rs));
+		Table_Players.getColumnModel().getColumn(0).setPreferredWidth(20);
 	}
 	
 	catch(Exception e) {
@@ -144,6 +193,7 @@ private void Update_table() {
         jButton1 = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         SakumaEkrans_Panel = new javax.swing.JPanel();
+        Image_Slideshow = new javax.swing.JLabel();
         SpeletajuInfo_Panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table_Players = new javax.swing.JTable();
@@ -627,7 +677,7 @@ private void Update_table() {
         Side_PanelLayout.setVerticalGroup(
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Side_PanelLayout.createSequentialGroup()
-                .addContainerGap(584, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(button_SakumaEkrans, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_SpeletajuInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -639,7 +689,7 @@ private void Update_table() {
                 .addComponent(button_MansProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_Drizuma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129)
+                .addGap(205, 205, 205)
                 .addComponent(button_ProgrammasInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -650,15 +700,23 @@ private void Update_table() {
 
         SakumaEkrans_Panel.setBackground(new java.awt.Color(51, 153, 255));
 
+        Image_Slideshow.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Image slideshowe\\photo1.png")); // NOI18N
+
         javax.swing.GroupLayout SakumaEkrans_PanelLayout = new javax.swing.GroupLayout(SakumaEkrans_Panel);
         SakumaEkrans_Panel.setLayout(SakumaEkrans_PanelLayout);
         SakumaEkrans_PanelLayout.setHorizontalGroup(
             SakumaEkrans_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2686, Short.MAX_VALUE)
+            .addGroup(SakumaEkrans_PanelLayout.createSequentialGroup()
+                .addGap(762, 762, 762)
+                .addComponent(Image_Slideshow)
+                .addContainerGap(1304, Short.MAX_VALUE))
         );
         SakumaEkrans_PanelLayout.setVerticalGroup(
             SakumaEkrans_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1347, Short.MAX_VALUE)
+            .addGroup(SakumaEkrans_PanelLayout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(Image_Slideshow)
+                .addContainerGap(835, Short.MAX_VALUE))
         );
 
         SpeletajuInfo_Panel.setBackground(new java.awt.Color(255, 102, 204));
@@ -743,7 +801,7 @@ private void Update_table() {
             }
         });
         jPanel2.add(button_Ligo);
-        button_Ligo.setBounds(20, 10, 147, 40);
+        button_Ligo.setBounds(30, 180, 147, 40);
 
         button_Dancis.setBackground(new java.awt.Color(52, 73, 94));
         button_Dancis.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
@@ -761,7 +819,7 @@ private void Update_table() {
             }
         });
         jPanel2.add(button_Dancis);
-        button_Dancis.setBounds(20, 60, 147, 40);
+        button_Dancis.setBounds(30, 230, 147, 40);
 
         button_Teiksma.setBackground(new java.awt.Color(52, 73, 94));
         button_Teiksma.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
@@ -779,7 +837,7 @@ private void Update_table() {
             }
         });
         jPanel2.add(button_Teiksma);
-        button_Teiksma.setBounds(20, 110, 147, 40);
+        button_Teiksma.setBounds(30, 280, 147, 40);
 
         button_Rotala.setBackground(new java.awt.Color(52, 73, 94));
         button_Rotala.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
@@ -797,7 +855,7 @@ private void Update_table() {
             }
         });
         jPanel2.add(button_Rotala);
-        button_Rotala.setBounds(20, 160, 147, 40);
+        button_Rotala.setBounds(30, 330, 147, 40);
 
         button_Austris.setBackground(new java.awt.Color(52, 73, 94));
         button_Austris.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
@@ -815,7 +873,7 @@ private void Update_table() {
             }
         });
         jPanel2.add(button_Austris);
-        button_Austris.setBounds(20, 210, 147, 40);
+        button_Austris.setBounds(30, 380, 147, 40);
 
         button_Vektors.setBackground(new java.awt.Color(52, 73, 94));
         button_Vektors.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
@@ -833,7 +891,7 @@ private void Update_table() {
             }
         });
         jPanel2.add(button_Vektors);
-        button_Vektors.setBounds(20, 260, 147, 40);
+        button_Vektors.setBounds(30, 430, 147, 40);
 
         javax.swing.GroupLayout KomandasInfo_PanelLayout = new javax.swing.GroupLayout(KomandasInfo_Panel);
         KomandasInfo_Panel.setLayout(KomandasInfo_PanelLayout);
@@ -1462,6 +1520,7 @@ private void Update_table() {
     public javax.swing.JPanel Drizuma_Panel;
     private javax.swing.JLabel Facebook_icon;
     private javax.swing.JLabel GitHub_icon;
+    private javax.swing.JLabel Image_Slideshow;
     private javax.swing.JLabel Instagram_icon;
     public javax.swing.JLabel KomandasInfo_Bilde;
     public javax.swing.JPanel KomandasInfo_Panel;
@@ -1474,7 +1533,7 @@ private void Update_table() {
     private javax.swing.JPanel Side_Panel;
     public javax.swing.JPanel SpeletajuInfo_Panel;
     public javax.swing.JPanel SpeluInfo_Panel;
-    public javax.swing.JTable Table_Players;
+    public static javax.swing.JTable Table_Players;
     private javax.swing.JPanel WhiteBar_Panel;
     private javax.swing.JButton button_Austris;
     private javax.swing.JButton button_Dancis;
@@ -1519,3 +1578,20 @@ private void Update_table() {
     public javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
+
+/**
+ *
+ * @author user
+ */
+	class HeaderColor extends DefaultTableCellRenderer {
+		public HeaderColor() {
+			setOpaque(true);
+		}
+		
+		public Component getTableCellRendererComponent(JTable Table_Players, Object value, boolean selected, boolean focused, int row, int column) {
+			super.getTableCellRendererComponent(Table_Players, value, selected, focused, row, column);
+			setBackground(new java.awt.Color(230,126,34));
+			return this;
+		}
+		
+	}
