@@ -14,6 +14,12 @@ import static JavaApplication1.javaConnect.USER;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.net.URI;
 import java.sql.*;
 import java.util.logging.Level;
@@ -21,6 +27,7 @@ import java.util.logging.Logger;
 import javax.swing.*;
 import net.proteanit.sql.DbUtils;
 import javax.swing.ImageIcon;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 //----------------------------------------//
@@ -29,6 +36,7 @@ public class Admin_Form extends javax.swing.JFrame {
 	Connection conn=null;
 	ResultSet rs = null;
 	PreparedStatement pst = null;
+	String k;
 	
 	public Admin_Form() {	// Creates new form Admin_Form
 		initComponents();
@@ -73,8 +81,6 @@ public class Admin_Form extends javax.swing.JFrame {
 		{
 			Logger.getLogger(Login_Form.class.getName()).log(Level.SEVERE, null, ex);
 		}
-		
-		Update_table();	
 	}
 	
 private void Update_table() {
@@ -82,6 +88,7 @@ private void Update_table() {
 	String insert = "select * from speletaji";
 	
 	try {
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
 		pst = conn.prepareStatement(insert);   
 		rs = pst.executeQuery();
 		Table_Players.setModel(DbUtils.resultSetToTableModel(rs));
@@ -98,6 +105,7 @@ private void Player_Add_Update_table() {
 	String insert = "select * from speletaji";
 	
 	try {
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
 		pst = conn.prepareStatement(insert);   
 		rs = pst.executeQuery();
 		Table_Players_Add.setModel(DbUtils.resultSetToTableModel(rs));
@@ -110,6 +118,12 @@ private void Player_Add_Update_table() {
 	
 	catch(Exception e) {
 		JOptionPane.showMessageDialog(null, e);
+	}
+	
+	finally {
+		try { rs.close(); } catch (Exception e) { /* ignored */ }
+		try { pst.close(); } catch (Exception e) { /* ignored */ }
+		try { conn.close(); } catch (Exception e) { /* ignored */ }
 	}
 }
 
@@ -174,35 +188,34 @@ private void Player_Add_Update_table() {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         SakumaEkrans_Panel = new javax.swing.JPanel();
         SpeletajuInfo_Panel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Table_Players = new javax.swing.JTable();
         SpeletajuInfo_Pievienot_Panel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         Table_Players_Add = new javax.swing.JTable();
-        txt_vards = new javax.swing.JTextField();
-        ind_vards = new javax.swing.JLabel();
-        lbl_vards = new javax.swing.JLabel();
-        lbl_uzvards = new javax.swing.JLabel();
-        txt_uzvards = new javax.swing.JTextField();
-        ind_uzvards = new javax.swing.JLabel();
-        txt_gadi = new javax.swing.JTextField();
-        lbl_gadi = new javax.swing.JLabel();
-        ind_gadi = new javax.swing.JLabel();
-        lbl_garums = new javax.swing.JLabel();
-        txt_garums = new javax.swing.JTextField();
-        ind_garums = new javax.swing.JLabel();
-        lbl_svars = new javax.swing.JLabel();
-        txt_svars = new javax.swing.JTextField();
-        ind_svars = new javax.swing.JLabel();
-        lbl_valsts = new javax.swing.JLabel();
-        txt_valsts = new javax.swing.JTextField();
-        ind_valsts = new javax.swing.JLabel();
-        cmd_addPlayer_save = new javax.swing.JButton();
-        lbl_komanda = new javax.swing.JLabel();
-        ComboBox_Komandas = new javax.swing.JComboBox<>();
-        lbl_komandasKrekls = new javax.swing.JLabel();
-        cmd_addPlayer_save1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         lbl_bilde = new javax.swing.JLabel();
+        lbl_garums = new javax.swing.JLabel();
+        ind_uzvards = new javax.swing.JLabel();
+        ComboBox_Komandas = new javax.swing.JComboBox<>();
+        txt_gadi = new javax.swing.JTextField();
+        cmd_addPlayer_save = new javax.swing.JButton();
+        txt_uzvards = new javax.swing.JTextField();
+        lbl_vards = new javax.swing.JLabel();
+        cmd_addPlayer_jersey = new javax.swing.JButton();
+        txt_svars = new javax.swing.JTextField();
+        lbl_svars = new javax.swing.JLabel();
+        ind_vards = new javax.swing.JLabel();
+        ind_garums = new javax.swing.JLabel();
+        lbl_komanda = new javax.swing.JLabel();
+        lbl_uzvards = new javax.swing.JLabel();
+        ind_svars = new javax.swing.JLabel();
+        ind_valsts = new javax.swing.JLabel();
+        txt_valsts = new javax.swing.JTextField();
+        lbl_gadi = new javax.swing.JLabel();
+        lbl_komandasKrekls = new javax.swing.JLabel();
+        txt_garums = new javax.swing.JTextField();
+        lbl_valsts = new javax.swing.JLabel();
+        ind_gadi = new javax.swing.JLabel();
+        txt_vards = new javax.swing.JTextField();
         SpeletajuInfo_Rediget_Panel = new javax.swing.JPanel();
         SpeletajuInfo_Dzest_Panel = new javax.swing.JPanel();
         SpeluInfo_Panel = new javax.swing.JPanel();
@@ -391,9 +404,9 @@ private void Player_Add_Update_table() {
             .addGroup(button_PievienotSpeletajusLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(button_PievienotSpeletajusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         button_RedigetSpeletajus.setBackground(new java.awt.Color(52, 152, 219));
@@ -884,44 +897,15 @@ private void Player_Add_Update_table() {
 
         SpeletajuInfo_Panel.setBackground(new java.awt.Color(204, 204, 255));
 
-        Table_Players.setAutoCreateRowSorter(true);
-        Table_Players.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Table_Players.setForeground(new java.awt.Color(44, 62, 80));
-        Table_Players.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        Table_Players.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        Table_Players.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        Table_Players.setRowHeight(25);
-        Table_Players.setSelectionBackground(new java.awt.Color(46, 204, 113));
-        Table_Players.setSelectionForeground(new java.awt.Color(44, 62, 80));
-        Table_Players.setShowHorizontalLines(false);
-        Table_Players.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(Table_Players);
-
         javax.swing.GroupLayout SpeletajuInfo_PanelLayout = new javax.swing.GroupLayout(SpeletajuInfo_Panel);
         SpeletajuInfo_Panel.setLayout(SpeletajuInfo_PanelLayout);
         SpeletajuInfo_PanelLayout.setHorizontalGroup(
             SpeletajuInfo_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SpeletajuInfo_PanelLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1008, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1634, Short.MAX_VALUE))
+            .addGap(0, 2686, Short.MAX_VALUE)
         );
         SpeletajuInfo_PanelLayout.setVerticalGroup(
             SpeletajuInfo_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SpeletajuInfo_PanelLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(737, Short.MAX_VALUE))
+            .addGap(0, 1335, Short.MAX_VALUE)
         );
 
         SpeletajuInfo_Pievienot_Panel.setBackground(new java.awt.Color(189, 195, 199));
@@ -950,44 +934,24 @@ private void Player_Add_Update_table() {
         Table_Players_Add.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(Table_Players_Add);
 
-        txt_vards.setBackground(new java.awt.Color(255, 255, 255, 0));
-        txt_vards.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        txt_vards.setForeground(new java.awt.Color(228, 241, 254));
-        txt_vards.setBorder(null);
-        txt_vards.setOpaque(false);
-        txt_vards.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_vardsKeyTyped(evt);
-            }
-        });
+        lbl_bilde.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Jerseys\\ligo0.png")); // NOI18N
+        lbl_bilde.setText("jLabel32");
 
-        ind_vards.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-
-        lbl_vards.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        lbl_vards.setForeground(new java.awt.Color(204, 255, 255));
-        lbl_vards.setText("Vārds:");
-
-        lbl_uzvards.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        lbl_uzvards.setForeground(new java.awt.Color(204, 255, 255));
-        lbl_uzvards.setText("Uzvārds:");
-
-        txt_uzvards.setBackground(new java.awt.Color(255, 255, 255, 0));
-        txt_uzvards.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        txt_uzvards.setForeground(new java.awt.Color(228, 241, 254));
-        txt_uzvards.setBorder(null);
-        txt_uzvards.setOpaque(false);
-        txt_uzvards.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_uzvardsKeyTyped(evt);
-            }
-        });
+        lbl_garums.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_garums.setForeground(new java.awt.Color(204, 255, 255));
+        lbl_garums.setText("Garums (cm):");
 
         ind_uzvards.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
+        ComboBox_Komandas.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        ComboBox_Komandas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Ligo", "Dancis", "Teiksma", "Rotala", "Austris", "Vektors" }));
+        ComboBox_Komandas.setNextFocusableComponent(cmd_addPlayer_jersey);
+
         txt_gadi.setBackground(new java.awt.Color(255, 255, 255, 0));
         txt_gadi.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        txt_gadi.setForeground(new java.awt.Color(228, 241, 254));
+        txt_gadi.setForeground(new java.awt.Color(0, 0, 0));
         txt_gadi.setBorder(null);
+        txt_gadi.setNextFocusableComponent(txt_valsts);
         txt_gadi.setOpaque(false);
         txt_gadi.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -995,37 +959,54 @@ private void Player_Add_Update_table() {
             }
         });
 
-        lbl_gadi.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        lbl_gadi.setForeground(new java.awt.Color(204, 255, 255));
-        lbl_gadi.setText("Gadi:");
-
-        ind_gadi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-
-        lbl_garums.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        lbl_garums.setForeground(new java.awt.Color(204, 255, 255));
-        lbl_garums.setText("Garums (cm):");
-
-        txt_garums.setBackground(new java.awt.Color(255, 255, 255, 0));
-        txt_garums.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        txt_garums.setForeground(new java.awt.Color(228, 241, 254));
-        txt_garums.setBorder(null);
-        txt_garums.setOpaque(false);
-        txt_garums.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_garumsKeyTyped(evt);
+        cmd_addPlayer_save.setBackground(new java.awt.Color(46, 204, 113));
+        cmd_addPlayer_save.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        cmd_addPlayer_save.setForeground(new java.awt.Color(255, 255, 255));
+        cmd_addPlayer_save.setText("Saglabāt");
+        cmd_addPlayer_save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmd_addPlayer_save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cmd_addPlayer_saveMousePressed(evt);
+            }
+        });
+        cmd_addPlayer_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmd_addPlayer_saveActionPerformed(evt);
             }
         });
 
-        ind_garums.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+        txt_uzvards.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_uzvards.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_uzvards.setForeground(new java.awt.Color(0, 0, 0));
+        txt_uzvards.setBorder(null);
+        txt_uzvards.setNextFocusableComponent(txt_garums);
+        txt_uzvards.setOpaque(false);
+        txt_uzvards.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_uzvardsKeyTyped(evt);
+            }
+        });
 
-        lbl_svars.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        lbl_svars.setForeground(new java.awt.Color(204, 255, 255));
-        lbl_svars.setText("Svars (kg):");
+        lbl_vards.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_vards.setForeground(new java.awt.Color(204, 255, 255));
+        lbl_vards.setText("Vārds:");
+
+        cmd_addPlayer_jersey.setBackground(new java.awt.Color(255, 255, 255));
+        cmd_addPlayer_jersey.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        cmd_addPlayer_jersey.setForeground(new java.awt.Color(0, 0, 0));
+        cmd_addPlayer_jersey.setText("Izvēlies failu");
+        cmd_addPlayer_jersey.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmd_addPlayer_jersey.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmd_addPlayer_jerseyActionPerformed(evt);
+            }
+        });
 
         txt_svars.setBackground(new java.awt.Color(255, 255, 255, 0));
         txt_svars.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        txt_svars.setForeground(new java.awt.Color(228, 241, 254));
+        txt_svars.setForeground(new java.awt.Color(0, 0, 0));
         txt_svars.setBorder(null);
+        txt_svars.setNextFocusableComponent(txt_gadi);
         txt_svars.setOpaque(false);
         txt_svars.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1033,16 +1014,31 @@ private void Player_Add_Update_table() {
             }
         });
 
+        lbl_svars.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_svars.setForeground(new java.awt.Color(204, 255, 255));
+        lbl_svars.setText("Svars (kg):");
+
+        ind_vards.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        ind_garums.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        lbl_komanda.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_komanda.setForeground(new java.awt.Color(204, 255, 255));
+        lbl_komanda.setText("Komanda:");
+
+        lbl_uzvards.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_uzvards.setForeground(new java.awt.Color(204, 255, 255));
+        lbl_uzvards.setText("Uzvārds:");
+
         ind_svars.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
-        lbl_valsts.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        lbl_valsts.setForeground(new java.awt.Color(204, 255, 255));
-        lbl_valsts.setText("Valsts:");
+        ind_valsts.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
 
         txt_valsts.setBackground(new java.awt.Color(255, 255, 255, 0));
         txt_valsts.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        txt_valsts.setForeground(new java.awt.Color(228, 241, 254));
+        txt_valsts.setForeground(new java.awt.Color(0, 0, 0));
         txt_valsts.setBorder(null);
+        txt_valsts.setNextFocusableComponent(ComboBox_Komandas);
         txt_valsts.setOpaque(false);
         txt_valsts.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1050,176 +1046,193 @@ private void Player_Add_Update_table() {
             }
         });
 
-        ind_valsts.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-
-        cmd_addPlayer_save.setBackground(new java.awt.Color(46, 204, 113));
-        cmd_addPlayer_save.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        cmd_addPlayer_save.setForeground(new java.awt.Color(255, 255, 255));
-        cmd_addPlayer_save.setText("Saglabāt");
-        cmd_addPlayer_save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cmd_addPlayer_save.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmd_addPlayer_saveActionPerformed(evt);
-            }
-        });
-
-        lbl_komanda.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        lbl_komanda.setForeground(new java.awt.Color(204, 255, 255));
-        lbl_komanda.setText("Komanda:");
-
-        ComboBox_Komandas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Ligo", "Dancis", "Teiksma", "Rotala", "Austris", "Vektors" }));
+        lbl_gadi.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_gadi.setForeground(new java.awt.Color(204, 255, 255));
+        lbl_gadi.setText("Gadi:");
 
         lbl_komandasKrekls.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         lbl_komandasKrekls.setForeground(new java.awt.Color(204, 255, 255));
         lbl_komandasKrekls.setText("Komandas krekls:");
 
-        cmd_addPlayer_save1.setBackground(new java.awt.Color(255, 255, 255));
-        cmd_addPlayer_save1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        cmd_addPlayer_save1.setForeground(new java.awt.Color(0, 0, 0));
-        cmd_addPlayer_save1.setText("Izvēlies failu");
-        cmd_addPlayer_save1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cmd_addPlayer_save1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmd_addPlayer_save1ActionPerformed(evt);
+        txt_garums.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_garums.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_garums.setForeground(new java.awt.Color(0, 0, 0));
+        txt_garums.setBorder(null);
+        txt_garums.setNextFocusableComponent(txt_svars);
+        txt_garums.setOpaque(false);
+        txt_garums.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_garumsKeyTyped(evt);
             }
         });
 
-        lbl_bilde.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Jerseys\\ligo0.png")); // NOI18N
-        lbl_bilde.setText("jLabel32");
+        lbl_valsts.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_valsts.setForeground(new java.awt.Color(204, 255, 255));
+        lbl_valsts.setText("Valsts:");
+
+        ind_gadi.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        txt_vards.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_vards.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_vards.setForeground(new java.awt.Color(0, 0, 0));
+        txt_vards.setBorder(null);
+        txt_vards.setNextFocusableComponent(txt_uzvards);
+        txt_vards.setOpaque(false);
+        txt_vards.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_vardsKeyTyped(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(508, 508, 508)
+                                .addComponent(lbl_gadi)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ind_gadi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txt_gadi, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(lbl_valsts)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_valsts)
+                                            .addComponent(ind_valsts, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(lbl_uzvards)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_uzvards)
+                                            .addComponent(ind_uzvards, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(lbl_vards)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_vards)
+                                            .addComponent(ind_vards, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(36, 36, 36)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addComponent(lbl_svars)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(ind_svars, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txt_svars, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(lbl_garums)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_garums)
+                                            .addComponent(ind_garums, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lbl_komanda)
+                                            .addComponent(lbl_komandasKrekls))
+                                        .addGap(29, 29, 29)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cmd_addPlayer_jersey, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(ComboBox_Komandas, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(238, 238, 238)
+                        .addComponent(cmd_addPlayer_save, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(lbl_bilde, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txt_vards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_vards))
+                                .addGap(1, 1, 1)
+                                .addComponent(ind_vards))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txt_gadi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_gadi))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(ind_gadi)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_uzvards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_uzvards))
+                        .addGap(1, 1, 1)
+                        .addComponent(ind_uzvards))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_garums, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_garums))
+                        .addGap(1, 1, 1)
+                        .addComponent(ind_garums)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_svars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_svars))
+                        .addGap(1, 1, 1)
+                        .addComponent(ind_svars)))
+                .addGap(46, 46, 46)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_valsts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_valsts))
+                        .addGap(1, 1, 1)
+                        .addComponent(ind_valsts))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_komanda)
+                            .addComponent(ComboBox_Komandas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lbl_komandasKrekls)
+                            .addComponent(cmd_addPlayer_jersey, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(lbl_bilde)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmd_addPlayer_save)
+                .addGap(27, 27, 27))
+        );
 
         javax.swing.GroupLayout SpeletajuInfo_Pievienot_PanelLayout = new javax.swing.GroupLayout(SpeletajuInfo_Pievienot_Panel);
         SpeletajuInfo_Pievienot_Panel.setLayout(SpeletajuInfo_Pievienot_PanelLayout);
         SpeletajuInfo_Pievienot_PanelLayout.setHorizontalGroup(
             SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                .addComponent(lbl_uzvards)
-                                .addGap(18, 18, 18)
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_uzvards)
-                                    .addComponent(ind_uzvards, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                .addComponent(lbl_vards)
-                                .addGap(18, 18, 18)
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_vards)
-                                    .addComponent(ind_vards, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(36, 36, 36)
-                        .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(lbl_svars)
-                                .addGap(18, 18, 18)
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ind_svars, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txt_svars, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                .addComponent(lbl_garums)
-                                .addGap(18, 18, 18)
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_garums)
-                                    .addComponent(ind_garums, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                        .addComponent(lbl_bilde, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(179, 179, 179))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                        .addComponent(lbl_gadi)
-                                        .addGap(18, 18, 18)
-                                        .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(ind_gadi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txt_gadi, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(27, 27, 27)))
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 935, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                .addGap(169, 169, 169)
-                                .addComponent(cmd_addPlayer_save, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(lbl_valsts)
-                                .addGap(18, 18, 18)
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_valsts)
-                                    .addComponent(ind_valsts, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(40, 40, 40)
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbl_komanda)
-                                    .addComponent(lbl_komandasKrekls))
-                                .addGap(29, 29, 29)
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cmd_addPlayer_save1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ComboBox_Komandas, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(768, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 935, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(742, Short.MAX_VALUE))
         );
         SpeletajuInfo_Pievienot_PanelLayout.setVerticalGroup(
             SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                .addGap(142, 142, 142)
                 .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                        .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                        .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txt_vards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbl_vards))
-                                        .addGap(1, 1, 1)
-                                        .addComponent(ind_vards))
-                                    .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                        .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txt_gadi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lbl_gadi))
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(ind_gadi)))
-                                .addGap(18, 18, 18)
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txt_uzvards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_uzvards))
-                                .addGap(1, 1, 1)
-                                .addComponent(ind_uzvards))
-                            .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txt_garums, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_garums))
-                                .addGap(1, 1, 1)
-                                .addComponent(ind_garums)
-                                .addGap(18, 18, 18)
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txt_svars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_svars))
-                                .addGap(1, 1, 1)
-                                .addComponent(ind_svars)))
-                        .addGap(46, 46, 46)
-                        .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txt_valsts, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lbl_valsts))
-                                .addGap(1, 1, 1)
-                                .addComponent(ind_valsts))
-                            .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbl_komanda)
-                                    .addComponent(ComboBox_Komandas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbl_komandasKrekls)
-                                    .addComponent(cmd_addPlayer_save1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(79, 79, 79)
-                        .addComponent(lbl_bilde))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addComponent(cmd_addPlayer_save)
-                .addContainerGap(358, Short.MAX_VALUE))
+                        .addGap(136, 136, 136)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SpeletajuInfo_Pievienot_PanelLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(386, Short.MAX_VALUE))
         );
 
         SpeletajuInfo_Rediget_Panel.setBackground(new java.awt.Color(255, 255, 204));
@@ -2049,22 +2062,85 @@ private void Player_Add_Update_table() {
     }//GEN-LAST:event_txt_vardsKeyTyped
 
     private void cmd_addPlayer_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_addPlayer_saveActionPerformed
+	
+	String Vards = txt_vards.getText();
+	String Uzvards = txt_uzvards.getText();	
+	String Gadi = txt_gadi.getText();
+	String Garums = txt_garums.getText();
+	String Svars = txt_svars.getText();
+	String Valsts = txt_valsts.getText();
+	String Komanda = ComboBox_Komandas.getSelectedItem().toString();
+		
+	String sql = "insert into dfa.speletaji (Vards, Uzvards, Gadi, Garums_cm, Svars_kg, Valsts_nosaukums, Komanda, Komandas_krekls)" + " values (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        String sql = "insert into speletaji (ID, Vards, Uzvards, Gadi, Garums_cm, Svars_kg, Valsts_nosaukums, Komanda, Komandas_krekls)" + "values (?, ?, ?, ?, ?, ?, ?, ?, ?,)";
+		try {
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			pst = conn.prepareStatement(sql);
+			InputStream is = new FileInputStream(new File(k));
+			
+			pst.setString(1, Vards);
+			pst.setString(2, Uzvards);
+			pst.setString(3, Gadi);
+			pst.setString(4, Garums);
+			pst.setString(5, Svars);
+			pst.setString(6, Valsts);
+			pst.setString(7, Komanda);
+			pst.setBlob(8, is);
+			
+			if(pst.executeUpdate() > 0) {
 
-        try {
+				JOptionPane.showMessageDialog(null, "Spēlētājs " + Vards + " " + Uzvards + " ir pievienots!");
+				Player_Add_Update_table();
+			}
+		}
 
-        }
-
-        catch(Exception e) {
-            JOptionPane.showMessageDialog(null, "Something wrong with sql syntax!");
-        }
+		catch(Exception ex) {
+			JOptionPane.showMessageDialog(null, "Kautkas nav pareizi sql syntaxe");
+			System.out.println("SQLException: " + ex.getMessage());
+		}
+		
+		finally {
+			try { rs.close(); } catch (Exception e) { /* ignored */ }
+			try { pst.close(); } catch (Exception e) { /* ignored */ }
+			try { conn.close(); } catch (Exception e) { /* ignored */ }
+		}
     }//GEN-LAST:event_cmd_addPlayer_saveActionPerformed
 
-    private void cmd_addPlayer_save1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_addPlayer_save1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmd_addPlayer_save1ActionPerformed
+    private void cmd_addPlayer_jerseyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_addPlayer_jerseyActionPerformed
 
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setCurrentDirectory(new File("D:\\Users\\user\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Jerseys"));
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg","gif","png");
+		fileChooser.addChoosableFileFilter(filter);
+		int result = fileChooser.showSaveDialog(null);
+			
+		if(result == JFileChooser.APPROVE_OPTION)
+		{
+			File selectedFile = fileChooser.getSelectedFile();
+			String path = selectedFile.getAbsolutePath();
+			lbl_bilde.setIcon(ResizeImage(path));
+			k = path;
+		}
+			
+		else if(result == JFileChooser.CANCEL_OPTION)
+		{
+			System.out.println("No Data");
+		}
+ 
+    }//GEN-LAST:event_cmd_addPlayer_jerseyActionPerformed
+
+    private void cmd_addPlayer_saveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_addPlayer_saveMousePressed
+
+    }//GEN-LAST:event_cmd_addPlayer_saveMousePressed
+
+	public ImageIcon ResizeImage(String imgPath){
+			ImageIcon MyImage = new ImageIcon(imgPath);
+			Image img = MyImage.getImage();
+			Image newImage = img.getScaledInstance(lbl_bilde.getWidth(), lbl_bilde.getHeight(),Image.SCALE_SMOOTH);
+			ImageIcon image = new ImageIcon(newImage);
+			return image;
+	}
+	
 	/**
 	 * @param args the command line arguments
 	 */
@@ -2110,7 +2186,7 @@ private void Player_Add_Update_table() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background_Panel;
-    private javax.swing.JComboBox<String> ComboBox_Komandas;
+    public javax.swing.JComboBox<String> ComboBox_Komandas;
     private javax.swing.JLabel DFA_Logo;
     public javax.swing.JPanel Drizuma_Panel;
     private javax.swing.JLabel Facebook_icon;
@@ -2124,14 +2200,13 @@ private void Player_Add_Update_table() {
     private javax.swing.JPanel Side_Panel;
     public javax.swing.JPanel SpeletajuInfo_Dzest_Panel;
     public javax.swing.JPanel SpeletajuInfo_Panel;
-    private javax.swing.JPanel SpeletajuInfo_Pievienot_Panel;
+    public javax.swing.JPanel SpeletajuInfo_Pievienot_Panel;
     public javax.swing.JPanel SpeletajuInfo_Rediget_Panel;
     public javax.swing.JPanel SpeluInfo_Dzest_Panel;
     public javax.swing.JPanel SpeluInfo_Panel;
     public javax.swing.JPanel SpeluInfo_Pievienot_Panel;
     public javax.swing.JPanel SpeluInfo_Rediget_Panel;
-    public javax.swing.JTable Table_Players;
-    private javax.swing.JTable Table_Players_Add;
+    public javax.swing.JTable Table_Players_Add;
     private javax.swing.JPanel WhiteBar_Panel;
     private javax.swing.JPanel button_Drizuma;
     private javax.swing.JPanel button_DzestSpeles;
@@ -2146,8 +2221,8 @@ private void Player_Add_Update_table() {
     private javax.swing.JPanel button_SpeletajuInfo;
     private javax.swing.JPanel button_SpeluInfo;
     private javax.swing.JButton button_exit;
-    private javax.swing.JButton cmd_addPlayer_save;
-    private javax.swing.JButton cmd_addPlayer_save1;
+    public javax.swing.JButton cmd_addPlayer_jersey;
+    public javax.swing.JButton cmd_addPlayer_save;
     private javax.swing.JPanel ind_Drizuma;
     private javax.swing.JPanel ind_MansProfils;
     private javax.swing.JPanel ind_ProgrammasInfo;
@@ -2188,8 +2263,8 @@ private void Player_Add_Update_table() {
     private javax.swing.JLabel jLabel9;
     public javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
-    public javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
+    public javax.swing.JPanel jPanel2;
+    public javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lbl_bilde;
     private javax.swing.JLabel lbl_gadi;
     private javax.swing.JLabel lbl_garums;
@@ -2199,11 +2274,11 @@ private void Player_Add_Update_table() {
     private javax.swing.JLabel lbl_uzvards;
     private javax.swing.JLabel lbl_valsts;
     private javax.swing.JLabel lbl_vards;
-    private javax.swing.JTextField txt_gadi;
-    private javax.swing.JTextField txt_garums;
-    private javax.swing.JTextField txt_svars;
-    private javax.swing.JTextField txt_uzvards;
-    private javax.swing.JTextField txt_valsts;
-    private javax.swing.JTextField txt_vards;
+    public javax.swing.JTextField txt_gadi;
+    public javax.swing.JTextField txt_garums;
+    public javax.swing.JTextField txt_svars;
+    public javax.swing.JTextField txt_uzvards;
+    public javax.swing.JTextField txt_valsts;
+    public javax.swing.JTextField txt_vards;
     // End of variables declaration//GEN-END:variables
 }
