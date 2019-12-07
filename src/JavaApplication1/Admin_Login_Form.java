@@ -26,6 +26,7 @@ import javax.swing.*;
 import java.sql.*;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -102,6 +103,9 @@ public class Admin_Login_Form extends javax.swing.JFrame {
         txt_password.setForeground(new java.awt.Color(255, 255, 255));
         txt_password.setBorder(null);
         txt_password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_passwordKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_passwordKeyTyped(evt);
             }
@@ -112,6 +116,11 @@ public class Admin_Login_Form extends javax.swing.JFrame {
         cmd_login.setForeground(new java.awt.Color(255, 255, 255));
         cmd_login.setText("Pieslegties");
         cmd_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmd_login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cmd_loginMousePressed(evt);
+            }
+        });
         cmd_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmd_loginActionPerformed(evt);
@@ -127,23 +136,22 @@ public class Admin_Login_Form extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_password)
+                    .addComponent(lbl_username))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(cmd_login, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lbl_password)
-                            .addComponent(lbl_username))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txt_username)
-                                .addComponent(txt_password, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txt_username)
+                        .addComponent(txt_password, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(44, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cmd_login, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,9 +170,9 @@ public class Admin_Login_Form extends javax.swing.JFrame {
                             .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(3, 3, 3)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addComponent(cmd_login)
-                .addGap(35, 35, 35))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(52, 152, 219));
@@ -251,8 +259,9 @@ public class Admin_Login_Form extends javax.swing.JFrame {
 
 		if(rs.next())
 		{
+			this.dispose();
 			JOptionPane.showMessageDialog(null, "Sveiks atpakaļ Nauri ;)");
-			Player_Info_Form s = new Player_Info_Form();		// Shows new Form - Player_info
+			Admin_Form s = new Admin_Form();		// Shows new Form - Admin_Form
 			s.setVisible(true);
 		}
 
@@ -288,6 +297,40 @@ public class Admin_Login_Form extends javax.swing.JFrame {
 		evt.consume();
 	}
     }//GEN-LAST:event_txt_passwordKeyTyped
+
+    private void cmd_loginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_loginMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmd_loginMousePressed
+
+    private void txt_passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passwordKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+		String sql = "select * from admini where Lietotajvards=? and Parole=?";	// Selects from database username and password
+
+	try {
+		pst = conn.prepareStatement(sql);
+		pst.setString(1, txt_username.getText());      // Checks if inputed username is correct with database username
+		pst.setString(2, txt_password.getText());	     // Checks if inputed password is correct with database password
+		rs = pst.executeQuery();
+
+		if(rs.next())
+		{
+			this.dispose();
+			JOptionPane.showMessageDialog(null, "Sveiks atpakaļ Nauri ;)");
+			Admin_Form s = new Admin_Form();		// Shows new Form - Admin_Form
+			s.setVisible(true);
+		}
+
+		else
+		{
+			JOptionPane.showMessageDialog(null, "Lietotajvards vai parole ir nepareiza");
+		}
+	}
+
+	catch(Exception e) {
+		JOptionPane.showMessageDialog(null, "Something wrong with sql syntax!");
+	}	
+	}
+    }//GEN-LAST:event_txt_passwordKeyPressed
 
 	/**
 	 * @param args the command line arguments
