@@ -49,14 +49,12 @@ public class Admin_Form extends javax.swing.JFrame {
 			SakumaEkrans_Panel.show();
 			SpeletajuInfo_Panel.hide();
 			SpeluInfo_Panel.hide();
-			MansProfils_Panel.hide();
 			Drizuma_Panel.hide();
 			ProgrammasInfo_Panel.hide();
 	
 			setColor(button_SakumaEkrans);
 			resetColor(button_SpeletajuInfo);
 			resetColor(button_SpeluInfo);
-			resetColor(button_MansProfils);
 			resetColor(button_Drizuma);
 			resetColor(button_ProgrammasInfo);
 
@@ -65,7 +63,6 @@ public class Admin_Form extends javax.swing.JFrame {
 			ind_SakumaEkrans.setOpaque(true);
 			ind_SpeletajuInfo.setOpaque(false);
 			ind_SpeluInfo.setOpaque(false);
-			ind_MansProfils.setOpaque(false);
 			ind_ProgrammasInfo.setOpaque(false);
 			ind_Drizuma.setOpaque(false);
 				
@@ -225,10 +222,6 @@ private void FillComboTeams() {
         button_DzestSpeles = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        button_MansProfils = new javax.swing.JPanel();
-        ind_MansProfils = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         button_Drizuma = new javax.swing.JPanel();
         ind_Drizuma = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -698,63 +691,6 @@ private void FillComboTeams() {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        button_MansProfils.setBackground(new java.awt.Color(52, 152, 219));
-        button_MansProfils.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        button_MansProfils.setPreferredSize(new java.awt.Dimension(157, 50));
-        button_MansProfils.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                button_MansProfilsMousePressed(evt);
-            }
-        });
-
-        ind_MansProfils.setBackground(new java.awt.Color(255, 255, 255));
-        ind_MansProfils.setOpaque(false);
-        ind_MansProfils.setPreferredSize(new java.awt.Dimension(7, 0));
-
-        javax.swing.GroupLayout ind_MansProfilsLayout = new javax.swing.GroupLayout(ind_MansProfils);
-        ind_MansProfils.setLayout(ind_MansProfilsLayout);
-        ind_MansProfilsLayout.setHorizontalGroup(
-            ind_MansProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 7, Short.MAX_VALUE)
-        );
-        ind_MansProfilsLayout.setVerticalGroup(
-            ind_MansProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Mans profils");
-
-        jLabel10.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\user-4-24.png")); // NOI18N
-
-        javax.swing.GroupLayout button_MansProfilsLayout = new javax.swing.GroupLayout(button_MansProfils);
-        button_MansProfils.setLayout(button_MansProfilsLayout);
-        button_MansProfilsLayout.setHorizontalGroup(
-            button_MansProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(button_MansProfilsLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(ind_MansProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel10)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        button_MansProfilsLayout.setVerticalGroup(
-            button_MansProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ind_MansProfils, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-            .addGroup(button_MansProfilsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(button_MansProfilsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(button_MansProfilsLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel9)
-                        .addGap(9, 9, 9)))
-                .addContainerGap())
-        );
-
         button_Drizuma.setBackground(new java.awt.Color(52, 152, 219));
         button_Drizuma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         button_Drizuma.setPreferredSize(new java.awt.Dimension(157, 50));
@@ -883,7 +819,6 @@ private void FillComboTeams() {
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(button_SakumaEkrans, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
             .addComponent(button_SpeletajuInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
-            .addComponent(button_MansProfils, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
             .addComponent(button_Drizuma, javax.swing.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
             .addGroup(Side_PanelLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
@@ -922,10 +857,8 @@ private void FillComboTeams() {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_DzestSpeles, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(button_MansProfils, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(button_Drizuma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(127, 127, 127)
+                .addGap(183, 183, 183)
                 .addComponent(button_ProgrammasInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1583,7 +1516,6 @@ private void FillComboTeams() {
 		SpeluInfo_Pievienot_Panel.hide();
 		SpeluInfo_Rediget_Panel.hide();
 		SpeluInfo_Dzest_Panel.hide();
-         MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
@@ -1596,7 +1528,6 @@ private void FillComboTeams() {
 		resetColor(button_PievienotSpeles);
 		resetColor(button_RedigetSpeles);
 		resetColor(button_DzestSpeles);
-         resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
 
@@ -1605,7 +1536,6 @@ private void FillComboTeams() {
          ind_SakumaEkrans.setOpaque(true);
          ind_SpeletajuInfo.setOpaque(false);
 	ind_SpeluInfo.setOpaque(false);
-         ind_MansProfils.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_SakumaEkransMousePressed
@@ -1621,7 +1551,6 @@ private void FillComboTeams() {
 		SpeluInfo_Pievienot_Panel.hide();
 		SpeluInfo_Rediget_Panel.hide();
 		SpeluInfo_Dzest_Panel.hide();
-         MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
@@ -1634,7 +1563,6 @@ private void FillComboTeams() {
 		resetColor(button_PievienotSpeles);
 		resetColor(button_RedigetSpeles);
 		resetColor(button_DzestSpeles);
-         resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
 
@@ -1643,48 +1571,9 @@ private void FillComboTeams() {
          ind_SakumaEkrans.setOpaque(false);
          ind_SpeletajuInfo.setOpaque(true);
 	ind_SpeluInfo.setOpaque(false);
-         ind_MansProfils.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_SpeletajuInfoMousePressed
-
-    private void button_MansProfilsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_MansProfilsMousePressed
-
-	SakumaEkrans_Panel.hide();
-         SpeletajuInfo_Panel.hide();
-		SpeletajuInfo_Pievienot_Panel.hide();
-		SpeletajuInfo_Rediget_Panel.hide();
-		SpeletajuInfo_Dzest_Panel.hide();
-	SpeluInfo_Panel.hide();
-		SpeluInfo_Pievienot_Panel.hide();
-		SpeluInfo_Rediget_Panel.hide();
-		SpeluInfo_Dzest_Panel.hide();
-         MansProfils_Panel.show();
-         Drizuma_Panel.hide();
-         ProgrammasInfo_Panel.hide();
-	
-	resetColor(button_SakumaEkrans);
-         resetColor(button_SpeletajuInfo);
-		resetColor(button_PievienotSpeletajus);
-		resetColor(button_RedigetSpeletajus);
-		resetColor(button_DzestSpeletajus);
-         resetColor(button_SpeluInfo);
-		resetColor(button_PievienotSpeles);
-		resetColor(button_RedigetSpeles);
-		resetColor(button_DzestSpeles);
-         setColor(button_MansProfils);
-         resetColor(button_Drizuma);
-         resetColor(button_ProgrammasInfo);
-
-         // Indicators
-
-         ind_SakumaEkrans.setOpaque(false);
-         ind_SpeletajuInfo.setOpaque(false);
-	ind_SpeluInfo.setOpaque(false);
-         ind_MansProfils.setOpaque(true);
-	ind_ProgrammasInfo.setOpaque(false);
-         ind_Drizuma.setOpaque(false);
-    }//GEN-LAST:event_button_MansProfilsMousePressed
 
     private void button_DrizumaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_DrizumaMousePressed
 
@@ -1697,7 +1586,6 @@ private void FillComboTeams() {
 		SpeluInfo_Pievienot_Panel.hide();
 		SpeluInfo_Rediget_Panel.hide();
 		SpeluInfo_Dzest_Panel.hide();
-         MansProfils_Panel.hide();
          Drizuma_Panel.show();
          ProgrammasInfo_Panel.hide();
 	
@@ -1710,7 +1598,6 @@ private void FillComboTeams() {
 		resetColor(button_PievienotSpeles);
 		resetColor(button_RedigetSpeles);
 		resetColor(button_DzestSpeles);
-         resetColor(button_MansProfils);
          setColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
 
@@ -1719,7 +1606,6 @@ private void FillComboTeams() {
          ind_SakumaEkrans.setOpaque(false);
          ind_SpeletajuInfo.setOpaque(false);
 	ind_SpeluInfo.setOpaque(false);
-         ind_MansProfils.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(true);
     }//GEN-LAST:event_button_DrizumaMousePressed
@@ -1735,7 +1621,6 @@ private void FillComboTeams() {
 		SpeluInfo_Pievienot_Panel.hide();
 		SpeluInfo_Rediget_Panel.hide();
 		SpeluInfo_Dzest_Panel.hide();
-         MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.show();
 	
@@ -1748,7 +1633,6 @@ private void FillComboTeams() {
 		resetColor(button_PievienotSpeles);
 		resetColor(button_RedigetSpeles);
 		resetColor(button_DzestSpeles);
-         resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          setColor(button_ProgrammasInfo);
 
@@ -1757,7 +1641,6 @@ private void FillComboTeams() {
          ind_SakumaEkrans.setOpaque(false);
          ind_SpeletajuInfo.setOpaque(false);
 	ind_SpeluInfo.setOpaque(false);
-         ind_MansProfils.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(true);
          ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_ProgrammasInfoMousePressed
@@ -1818,7 +1701,6 @@ private void FillComboTeams() {
 		SpeluInfo_Pievienot_Panel.hide();
 		SpeluInfo_Rediget_Panel.hide();
 		SpeluInfo_Dzest_Panel.hide();
-         MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
@@ -1831,7 +1713,6 @@ private void FillComboTeams() {
 		resetColor(button_PievienotSpeles);
 		resetColor(button_RedigetSpeles);
 		resetColor(button_DzestSpeles);
-         resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
 
@@ -1840,7 +1721,6 @@ private void FillComboTeams() {
          ind_SakumaEkrans.setOpaque(false);
          ind_SpeletajuInfo.setOpaque(true);
 	ind_SpeluInfo.setOpaque(false);
-         ind_MansProfils.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(false);
 		 
@@ -1860,7 +1740,6 @@ private void FillComboTeams() {
 		SpeluInfo_Pievienot_Panel.hide();
 		SpeluInfo_Rediget_Panel.hide();
 		SpeluInfo_Dzest_Panel.hide();
-         MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
@@ -1873,7 +1752,6 @@ private void FillComboTeams() {
 		resetColor(button_PievienotSpeles);
 		resetColor(button_RedigetSpeles);
 		resetColor(button_DzestSpeles);
-         resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
 
@@ -1882,7 +1760,6 @@ private void FillComboTeams() {
          ind_SakumaEkrans.setOpaque(false);
          ind_SpeletajuInfo.setOpaque(true);
 	ind_SpeluInfo.setOpaque(false);
-         ind_MansProfils.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_RedigetSpeletajusMousePressed
@@ -1898,7 +1775,6 @@ private void FillComboTeams() {
 		SpeluInfo_Pievienot_Panel.hide();
 		SpeluInfo_Rediget_Panel.hide();
 		SpeluInfo_Dzest_Panel.hide();
-         MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
@@ -1911,7 +1787,6 @@ private void FillComboTeams() {
 		resetColor(button_PievienotSpeles);
 		resetColor(button_RedigetSpeles);
 		resetColor(button_DzestSpeles);
-         resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
 
@@ -1920,7 +1795,6 @@ private void FillComboTeams() {
          ind_SakumaEkrans.setOpaque(false);
          ind_SpeletajuInfo.setOpaque(true);
 	ind_SpeluInfo.setOpaque(false);
-         ind_MansProfils.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_DzestSpeletajusMousePressed
@@ -1936,7 +1810,6 @@ private void FillComboTeams() {
 		SpeluInfo_Pievienot_Panel.hide();
 		SpeluInfo_Rediget_Panel.hide();
 		SpeluInfo_Dzest_Panel.hide();
-         MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
@@ -1949,7 +1822,6 @@ private void FillComboTeams() {
 		resetColor(button_PievienotSpeles);
 		resetColor(button_RedigetSpeles);
 		resetColor(button_DzestSpeles);
-         resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
 
@@ -1958,7 +1830,6 @@ private void FillComboTeams() {
          ind_SakumaEkrans.setOpaque(false);
          ind_SpeletajuInfo.setOpaque(false);
 	ind_SpeluInfo.setOpaque(true);
-         ind_MansProfils.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_SpeluInfoMousePressed
@@ -1974,7 +1845,6 @@ private void FillComboTeams() {
 		SpeluInfo_Pievienot_Panel.hide();
 		SpeluInfo_Rediget_Panel.hide();
 		SpeluInfo_Dzest_Panel.show();
-         MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
@@ -1987,7 +1857,6 @@ private void FillComboTeams() {
 		resetColor(button_PievienotSpeles);
 		resetColor(button_RedigetSpeles);
 		setColor(button_DzestSpeles);
-         resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
 
@@ -1996,7 +1865,6 @@ private void FillComboTeams() {
          ind_SakumaEkrans.setOpaque(false);
          ind_SpeletajuInfo.setOpaque(false);
 	ind_SpeluInfo.setOpaque(true);
-         ind_MansProfils.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_DzestSpelesMousePressed
@@ -2012,7 +1880,6 @@ private void FillComboTeams() {
 		SpeluInfo_Pievienot_Panel.hide();
 		SpeluInfo_Rediget_Panel.show();
 		SpeluInfo_Dzest_Panel.hide();
-         MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
@@ -2025,7 +1892,6 @@ private void FillComboTeams() {
 		resetColor(button_PievienotSpeles);
 		setColor(button_RedigetSpeles);
 		resetColor(button_DzestSpeles);
-         resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
 
@@ -2034,7 +1900,6 @@ private void FillComboTeams() {
          ind_SakumaEkrans.setOpaque(false);
          ind_SpeletajuInfo.setOpaque(false);
 	ind_SpeluInfo.setOpaque(true);
-         ind_MansProfils.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_RedigetSpelesMousePressed
@@ -2050,7 +1915,6 @@ private void FillComboTeams() {
 		SpeluInfo_Pievienot_Panel.show();
 		SpeluInfo_Rediget_Panel.hide();
 		SpeluInfo_Dzest_Panel.hide();
-         MansProfils_Panel.hide();
          Drizuma_Panel.hide();
          ProgrammasInfo_Panel.hide();
 	
@@ -2063,7 +1927,6 @@ private void FillComboTeams() {
 		setColor(button_PievienotSpeles);
 		resetColor(button_RedigetSpeles);
 		resetColor(button_DzestSpeles);
-         resetColor(button_MansProfils);
          resetColor(button_Drizuma);
          resetColor(button_ProgrammasInfo);
 
@@ -2072,7 +1935,6 @@ private void FillComboTeams() {
          ind_SakumaEkrans.setOpaque(false);
          ind_SpeletajuInfo.setOpaque(false);
 	ind_SpeluInfo.setOpaque(true);
-         ind_MansProfils.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_button_PievienotSpelesMousePressed
@@ -2341,7 +2203,6 @@ private void FillComboTeams() {
     private javax.swing.JPanel button_Drizuma;
     private javax.swing.JPanel button_DzestSpeles;
     private javax.swing.JPanel button_DzestSpeletajus;
-    private javax.swing.JPanel button_MansProfils;
     private javax.swing.JPanel button_PievienotSpeles;
     private javax.swing.JPanel button_PievienotSpeletajus;
     private javax.swing.JPanel button_ProgrammasInfo;
@@ -2354,7 +2215,6 @@ private void FillComboTeams() {
     public javax.swing.JButton cmd_addPlayer_jersey;
     public javax.swing.JButton cmd_addPlayer_save;
     private javax.swing.JPanel ind_Drizuma;
-    private javax.swing.JPanel ind_MansProfils;
     private javax.swing.JPanel ind_ProgrammasInfo;
     private javax.swing.JPanel ind_SakumaEkrans;
     private javax.swing.JPanel ind_SpeletajuInfo;
@@ -2365,7 +2225,6 @@ private void FillComboTeams() {
     private javax.swing.JLabel ind_uzvards;
     private javax.swing.JLabel ind_vards;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -2389,7 +2248,6 @@ private void FillComboTeams() {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     public javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel2;
