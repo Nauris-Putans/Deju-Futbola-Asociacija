@@ -125,6 +125,33 @@ private void Player_Add_Update_table() {
 	}
 }
 
+private void Player_Edit_Update_table() {
+	
+	String insert = "select * from speletaji";
+	
+	try {
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		pst = conn.prepareStatement(insert);   
+		rs = pst.executeQuery();
+		Table_Players_Edit.setModel(DbUtils.resultSetToTableModel(rs));
+		Table_Players_Edit.getColumnModel().getColumn(0).setPreferredWidth(10);
+		Table_Players_Edit.getColumnModel().getColumn(3).setPreferredWidth(10);
+		Table_Players_Edit.getColumnModel().getColumn(4).setPreferredWidth(30);
+		Table_Players_Edit.getColumnModel().getColumn(5).setPreferredWidth(30);
+		Table_Players_Edit.getColumnModel().getColumn(7).setPreferredWidth(30);
+	}
+	
+	catch(Exception e) {
+		JOptionPane.showMessageDialog(null, e);
+	}
+	
+	finally {
+		try { rs.close(); } catch (Exception e) { /* ignored */ }
+		try { pst.close(); } catch (Exception e) { /* ignored */ }
+		try { conn.close(); } catch (Exception e) { /* ignored */ }
+	}
+}
+
 private void FillComboCountry() {
 	
 	String insert = "select * from valstis";
@@ -151,6 +178,32 @@ private void FillComboCountry() {
 	}
 }
 
+private void FillComboCountryEdit() {
+	
+	String insert = "select * from valstis";
+	
+	try {
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		pst = conn.prepareStatement(insert);   
+		rs = pst.executeQuery();
+		
+		while (rs.next()) {
+			String valsts = rs.getString("country_name");
+			ComboBox_Valstis_rediget.addItem(valsts);
+		}
+	}
+	
+	catch(Exception e) {
+		JOptionPane.showMessageDialog(null, e);
+	}
+	
+	finally {
+		try { rs.close(); } catch (Exception e) { /* ignored */ }
+		try { pst.close(); } catch (Exception e) { /* ignored */ }
+		try { conn.close(); } catch (Exception e) { /* ignored */ }
+	}
+}
+
 private void FillComboTeams() {
 	
 	String insert = "select * from komandas";
@@ -163,6 +216,32 @@ private void FillComboTeams() {
 		while (rs.next()) {
 			String komanda = rs.getString("Komanda");
 			ComboBox_Komandas.addItem(komanda);
+		}
+	}
+	
+	catch(Exception e) {
+		JOptionPane.showMessageDialog(null, e);
+	}
+	
+	finally {
+		try { rs.close(); } catch (Exception e) { /* ignored */ }
+		try { pst.close(); } catch (Exception e) { /* ignored */ }
+		try { conn.close(); } catch (Exception e) { /* ignored */ }
+	}
+}
+
+private void FillComboTeamsEdit() {
+	
+	String insert = "select * from komandas";
+	
+	try {
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		pst = conn.prepareStatement(insert);   
+		rs = pst.executeQuery();
+		
+		while (rs.next()) {
+			String komanda = rs.getString("Komanda");
+			ComboBox_Komandas_rediget.addItem(komanda);
 		}
 	}
 	
@@ -262,13 +341,41 @@ private void FillComboTeams() {
         txt_vards = new javax.swing.JTextField();
         ComboBox_Valstis = new javax.swing.JComboBox<>();
         SpeletajuInfo_Rediget_Panel = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        Table_Players_Edit = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        lbl_bilde_rediget = new javax.swing.JLabel();
+        lbl_garums_rediget = new javax.swing.JLabel();
+        ind_uzvards_rediget = new javax.swing.JLabel();
+        ComboBox_Komandas_rediget = new javax.swing.JComboBox<>();
+        txt_gadi_rediget = new javax.swing.JTextField();
+        cmd_editPlayer_save = new javax.swing.JButton();
+        txt_uzvards_rediget = new javax.swing.JTextField();
+        lbl_vards_rediget = new javax.swing.JLabel();
+        cmd_editPlayer_jersey = new javax.swing.JButton();
+        txt_svars_rediget = new javax.swing.JTextField();
+        lbl_svars_rediget = new javax.swing.JLabel();
+        ind_vards_rediget = new javax.swing.JLabel();
+        ind_garums_rediget = new javax.swing.JLabel();
+        lbl_komanda_rediget = new javax.swing.JLabel();
+        lbl_uzvards_rediget = new javax.swing.JLabel();
+        ind_svars_rediget = new javax.swing.JLabel();
+        lbl_gadi_rediget = new javax.swing.JLabel();
+        lbl_komandasKrekls_rediget = new javax.swing.JLabel();
+        txt_garums_rediget = new javax.swing.JTextField();
+        lbl_valsts_rediget = new javax.swing.JLabel();
+        ind_gadi_rediget = new javax.swing.JLabel();
+        txt_vards_rediget = new javax.swing.JTextField();
+        ComboBox_Valstis_rediget = new javax.swing.JComboBox<>();
+        txt_id_rediget = new javax.swing.JTextField();
+        ind_id_rediget = new javax.swing.JLabel();
+        lbl_id_rediget = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         SpeletajuInfo_Dzest_Panel = new javax.swing.JPanel();
         SpeluInfo_Panel = new javax.swing.JPanel();
         SpeluInfo_Pievienot_Panel = new javax.swing.JPanel();
         SpeluInfo_Rediget_Panel = new javax.swing.JPanel();
         SpeluInfo_Dzest_Panel = new javax.swing.JPanel();
-        MansProfils_Panel = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
         Drizuma_Panel = new javax.swing.JPanel();
         ProgrammasInfo_Panel = new javax.swing.JPanel();
         Programm_Info = new javax.swing.JLabel();
@@ -1196,8 +1303,8 @@ private void FillComboTeams() {
                 .addGap(19, 19, 19)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 935, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(742, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(777, Short.MAX_VALUE))
         );
         SpeletajuInfo_Pievienot_PanelLayout.setVerticalGroup(
             SpeletajuInfo_Pievienot_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1212,15 +1319,366 @@ private void FillComboTeams() {
         SpeletajuInfo_Rediget_Panel.setBackground(new java.awt.Color(255, 255, 204));
         SpeletajuInfo_Rediget_Panel.setPreferredSize(new java.awt.Dimension(2375, 1323));
 
+        Table_Players_Edit.setAutoCreateRowSorter(true);
+        Table_Players_Edit.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Table_Players_Edit.setForeground(new java.awt.Color(44, 62, 80));
+        Table_Players_Edit.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        Table_Players_Edit.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        Table_Players_Edit.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        Table_Players_Edit.setRowHeight(25);
+        Table_Players_Edit.setSelectionBackground(new java.awt.Color(46, 204, 113));
+        Table_Players_Edit.setSelectionForeground(new java.awt.Color(44, 62, 80));
+        Table_Players_Edit.setShowHorizontalLines(false);
+        Table_Players_Edit.getTableHeader().setReorderingAllowed(false);
+        Table_Players_Edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Table_Players_EditMouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(Table_Players_Edit);
+
+        jPanel3.setBackground(new java.awt.Color(127, 140, 141));
+        jPanel3.setForeground(new java.awt.Color(60, 63, 65));
+
+        lbl_bilde_rediget.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Jerseys\\PSD\\default_jersey.png")); // NOI18N
+
+        lbl_garums_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_garums_rediget.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_garums_rediget.setText("Garums (cm):");
+
+        ind_uzvards_rediget.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        ComboBox_Komandas_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        ComboBox_Komandas_rediget.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
+        ComboBox_Komandas_rediget.setNextFocusableComponent(cmd_addPlayer_jersey);
+
+        txt_gadi_rediget.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_gadi_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_gadi_rediget.setForeground(new java.awt.Color(204, 255, 255));
+        txt_gadi_rediget.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_gadi_rediget.setBorder(null);
+        txt_gadi_rediget.setOpaque(false);
+        txt_gadi_rediget.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_gadi_redigetKeyTyped(evt);
+            }
+        });
+
+        cmd_editPlayer_save.setBackground(new java.awt.Color(46, 204, 113));
+        cmd_editPlayer_save.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        cmd_editPlayer_save.setForeground(new java.awt.Color(255, 255, 255));
+        cmd_editPlayer_save.setText("Saglabāt");
+        cmd_editPlayer_save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmd_editPlayer_save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cmd_editPlayer_saveMousePressed(evt);
+            }
+        });
+        cmd_editPlayer_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmd_editPlayer_saveActionPerformed(evt);
+            }
+        });
+
+        txt_uzvards_rediget.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_uzvards_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_uzvards_rediget.setForeground(new java.awt.Color(204, 255, 255));
+        txt_uzvards_rediget.setBorder(null);
+        txt_uzvards_rediget.setNextFocusableComponent(txt_garums);
+        txt_uzvards_rediget.setOpaque(false);
+        txt_uzvards_rediget.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_uzvards_redigetKeyTyped(evt);
+            }
+        });
+
+        lbl_vards_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_vards_rediget.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_vards_rediget.setText("Vārds:");
+
+        cmd_editPlayer_jersey.setBackground(new java.awt.Color(255, 255, 255));
+        cmd_editPlayer_jersey.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        cmd_editPlayer_jersey.setForeground(new java.awt.Color(0, 0, 0));
+        cmd_editPlayer_jersey.setText("Izvēlies failu");
+        cmd_editPlayer_jersey.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmd_editPlayer_jersey.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmd_editPlayer_jerseyActionPerformed(evt);
+            }
+        });
+
+        txt_svars_rediget.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_svars_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_svars_rediget.setForeground(new java.awt.Color(204, 255, 255));
+        txt_svars_rediget.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_svars_rediget.setBorder(null);
+        txt_svars_rediget.setNextFocusableComponent(txt_gadi);
+        txt_svars_rediget.setOpaque(false);
+        txt_svars_rediget.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_svars_redigetKeyTyped(evt);
+            }
+        });
+
+        lbl_svars_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_svars_rediget.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_svars_rediget.setText("Svars (kg):");
+
+        ind_vards_rediget.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        ind_garums_rediget.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        lbl_komanda_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_komanda_rediget.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_komanda_rediget.setText("Komanda:");
+
+        lbl_uzvards_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_uzvards_rediget.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_uzvards_rediget.setText("Uzvārds:");
+
+        ind_svars_rediget.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        lbl_gadi_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_gadi_rediget.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_gadi_rediget.setText("Gadi:");
+
+        lbl_komandasKrekls_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_komandasKrekls_rediget.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_komandasKrekls_rediget.setText("Komandas krekls:");
+
+        txt_garums_rediget.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_garums_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_garums_rediget.setForeground(new java.awt.Color(204, 255, 255));
+        txt_garums_rediget.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_garums_rediget.setBorder(null);
+        txt_garums_rediget.setNextFocusableComponent(txt_svars);
+        txt_garums_rediget.setOpaque(false);
+        txt_garums_rediget.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_garums_redigetKeyTyped(evt);
+            }
+        });
+
+        lbl_valsts_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_valsts_rediget.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_valsts_rediget.setText("Valsts:");
+
+        ind_gadi_rediget.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        txt_vards_rediget.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_vards_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_vards_rediget.setForeground(new java.awt.Color(204, 255, 255));
+        txt_vards_rediget.setBorder(null);
+        txt_vards_rediget.setNextFocusableComponent(txt_uzvards);
+        txt_vards_rediget.setOpaque(false);
+        txt_vards_rediget.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_vards_redigetKeyTyped(evt);
+            }
+        });
+
+        ComboBox_Valstis_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        ComboBox_Valstis_rediget.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
+        ComboBox_Valstis_rediget.setNextFocusableComponent(cmd_addPlayer_jersey);
+
+        txt_id_rediget.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_id_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_id_rediget.setForeground(new java.awt.Color(204, 255, 255));
+        txt_id_rediget.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_id_rediget.setBorder(null);
+        txt_id_rediget.setNextFocusableComponent(txt_uzvards);
+        txt_id_rediget.setOpaque(false);
+        txt_id_rediget.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_id_redigetKeyTyped(evt);
+            }
+        });
+
+        ind_id_rediget.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        lbl_id_rediget.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_id_rediget.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_id_rediget.setText("ID:");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel1.setText("Jaizvēlās velreiz krekls!");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(508, 508, 508)
+                                .addComponent(lbl_gadi_rediget)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ind_gadi_rediget, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txt_gadi_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(lbl_uzvards_rediget)
+                                                .addGap(18, 18, 18)
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txt_uzvards_rediget)
+                                                    .addComponent(ind_uzvards_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(lbl_vards_rediget)
+                                                .addGap(18, 18, 18)
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txt_vards_rediget)
+                                                    .addComponent(ind_vards_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(36, 36, 36))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lbl_valsts_rediget)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ComboBox_Valstis_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(8, 8, 8))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                        .addGap(45, 45, 45)
+                                        .addComponent(lbl_id_rediget)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_id_rediget, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                                            .addComponent(ind_id_rediget, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addComponent(lbl_svars_rediget)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(ind_svars_rediget, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txt_svars_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lbl_garums_rediget)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_garums_rediget)
+                                            .addComponent(ind_garums_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lbl_komanda_rediget)
+                                            .addComponent(lbl_komandasKrekls_rediget))
+                                        .addGap(29, 29, 29)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cmd_editPlayer_jersey, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(ComboBox_Komandas_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(61, 61, 61))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(161, 161, 161)
+                                .addComponent(cmd_editPlayer_save, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbl_bilde_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(29, 29, 29))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txt_vards_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_vards_rediget))
+                                .addGap(1, 1, 1)
+                                .addComponent(ind_vards_rediget))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txt_gadi_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_gadi_rediget))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(ind_gadi_rediget)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_uzvards_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_uzvards_rediget))
+                        .addGap(1, 1, 1)
+                        .addComponent(ind_uzvards_rediget))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_garums_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_garums_rediget))
+                        .addGap(1, 1, 1)
+                        .addComponent(ind_garums_rediget)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_svars_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_svars_rediget))
+                        .addGap(1, 1, 1)
+                        .addComponent(ind_svars_rediget)))
+                .addGap(42, 42, 42)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbl_komanda_rediget)
+                        .addComponent(ComboBox_Komandas_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbl_valsts_rediget)
+                        .addComponent(ComboBox_Valstis_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_id_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_id_rediget))
+                        .addGap(1, 1, 1)
+                        .addComponent(ind_id_rediget))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbl_komandasKrekls_rediget)
+                        .addComponent(cmd_editPlayer_jersey, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(1, 1, 1)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_bilde_rediget)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmd_editPlayer_save)
+                .addGap(16, 16, 16))
+        );
+
         javax.swing.GroupLayout SpeletajuInfo_Rediget_PanelLayout = new javax.swing.GroupLayout(SpeletajuInfo_Rediget_Panel);
         SpeletajuInfo_Rediget_Panel.setLayout(SpeletajuInfo_Rediget_PanelLayout);
         SpeletajuInfo_Rediget_PanelLayout.setHorizontalGroup(
             SpeletajuInfo_Rediget_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2686, Short.MAX_VALUE)
+            .addGroup(SpeletajuInfo_Rediget_PanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(756, Short.MAX_VALUE))
         );
         SpeletajuInfo_Rediget_PanelLayout.setVerticalGroup(
             SpeletajuInfo_Rediget_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1335, Short.MAX_VALUE)
+            .addGroup(SpeletajuInfo_Rediget_PanelLayout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addGroup(SpeletajuInfo_Rediget_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(395, Short.MAX_VALUE))
         );
 
         SpeletajuInfo_Dzest_Panel.setBackground(new java.awt.Color(153, 153, 255));
@@ -1291,33 +1749,6 @@ private void FillComboTeams() {
         SpeluInfo_Dzest_PanelLayout.setVerticalGroup(
             SpeluInfo_Dzest_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1317, Short.MAX_VALUE)
-        );
-
-        MansProfils_Panel.setBackground(new java.awt.Color(255, 255, 102));
-
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton2.setText("Ienākt / Reģistrēties");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton2MousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout MansProfils_PanelLayout = new javax.swing.GroupLayout(MansProfils_Panel);
-        MansProfils_Panel.setLayout(MansProfils_PanelLayout);
-        MansProfils_PanelLayout.setHorizontalGroup(
-            MansProfils_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MansProfils_PanelLayout.createSequentialGroup()
-                .addGap(558, 558, 558)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1876, Short.MAX_VALUE))
-        );
-        MansProfils_PanelLayout.setVerticalGroup(
-            MansProfils_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MansProfils_PanelLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1092, Short.MAX_VALUE))
         );
 
         Drizuma_Panel.setBackground(new java.awt.Color(0, 0, 0));
@@ -1413,7 +1844,6 @@ private void FillComboTeams() {
         jLayeredPane1.setLayer(SpeluInfo_Pievienot_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(SpeluInfo_Rediget_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(SpeluInfo_Dzest_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(MansProfils_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(Drizuma_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ProgrammasInfo_Panel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -1424,8 +1854,6 @@ private void FillComboTeams() {
             .addComponent(SakumaEkrans_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(SpeletajuInfo_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(MansProfils_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Drizuma_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1450,8 +1878,6 @@ private void FillComboTeams() {
             .addComponent(SakumaEkrans_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(SpeletajuInfo_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(MansProfils_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Drizuma_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1649,11 +2075,6 @@ private void FillComboTeams() {
         this.dispose();
     }//GEN-LAST:event_button_exitMousePressed
 
-    private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
-        Login_Form s = new Login_Form();		// Shows new Form - Player_info
-        s.setVisible(true);
-    }//GEN-LAST:event_jButton2MousePressed
-
     private void Instagram_iconMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Instagram_iconMousePressed
         try
         {
@@ -1762,6 +2183,10 @@ private void FillComboTeams() {
 	ind_SpeluInfo.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(false);
+		 
+	Player_Edit_Update_table();
+	FillComboCountryEdit();
+	FillComboTeamsEdit();
     }//GEN-LAST:event_button_RedigetSpeletajusMousePressed
 
     private void button_DzestSpeletajusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_DzestSpeletajusMousePressed
@@ -2124,6 +2549,205 @@ private void FillComboTeams() {
 
     }//GEN-LAST:event_cmd_addPlayer_saveMousePressed
 
+    private void txt_gadi_redigetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_gadi_redigetKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_gadi_redigetKeyTyped
+
+    private void cmd_editPlayer_saveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_editPlayer_saveMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmd_editPlayer_saveMousePressed
+
+    private void cmd_editPlayer_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_editPlayer_saveActionPerformed
+         
+	String ID = txt_id_rediget.getText();
+	String Vards = txt_vards_rediget.getText();
+	String Uzvards = txt_uzvards_rediget.getText();	
+	String Gadi = txt_gadi_rediget.getText();
+	String Garums = txt_garums_rediget.getText();
+	String Svars = txt_svars_rediget.getText();
+	String Valsts = ComboBox_Valstis_rediget.getSelectedItem().toString();
+	String Komanda = ComboBox_Komandas_rediget.getSelectedItem().toString();
+	
+	if (Vards.equals("")) 
+	{
+		JOptionPane.showMessageDialog(null, "Pievieno vārdu");
+	}
+	
+	else if (Uzvards.equals("")) 
+	{
+		JOptionPane.showMessageDialog(null, "Pievieno uzvārdu");
+	}
+	
+	else if (Garums.equals("")) 
+	{
+		JOptionPane.showMessageDialog(null, "Pievieno garumu");
+	}
+	
+	else if (Integer.valueOf(Garums) < 140 || Integer.valueOf(Garums) > 230)
+	{
+		JOptionPane.showMessageDialog(null, "Garums nav pieņemams");
+	}
+	
+	else if (Svars.equals("")) 
+	{
+		JOptionPane.showMessageDialog(null, "Pievieno svaru");
+	}
+	
+	else if (Integer.valueOf(Svars) < 60 || Integer.valueOf(Svars) > 150)
+	{
+		JOptionPane.showMessageDialog(null, "Svars nav pieņemams");
+	}
+	
+	else if (Gadi.equals(""))
+	{
+		JOptionPane.showMessageDialog(null, "Pievieno gadus");
+	}
+	
+	else if (Integer.valueOf(Gadi) < 1 || Integer.valueOf(Gadi) > 90)
+	{
+		JOptionPane.showMessageDialog(null, "Gadi nav pieņemami");
+	}
+	
+	else if (Komanda.equals("")) 
+	{
+		JOptionPane.showMessageDialog(null, "Pievieno komandu");
+	}
+	
+	else {
+		
+		String sql = "update dfa.speletaji set Vards=? ,Uzvards=? ,Gadi=? ,Garums_cm=? ,Svars_kg=? ,Valsts_nosaukums=? ,Komanda=? ,Komandas_krekls=? where ID=?";
+		
+		try {
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			pst = conn.prepareStatement(sql);
+			
+			InputStream Bilde = new FileInputStream(new File(k));
+		
+			
+			pst.setString(1, Vards);
+			pst.setString(2, Uzvards);
+			pst.setString(3, Gadi);
+			pst.setString(4, Garums);
+			pst.setString(5, Svars);
+			pst.setString(6, Valsts);
+			pst.setString(7, Komanda);
+			pst.setBlob(8, Bilde);
+			pst.setString(9, ID);
+
+			
+			if(pst.executeUpdate() > 0) {
+
+				txt_id_rediget.setText("");
+				txt_vards_rediget.setText("");
+				txt_uzvards_rediget.setText("");
+				txt_gadi_rediget.setText("");
+				txt_garums_rediget.setText("");
+				txt_svars_rediget.setText("");
+				ComboBox_Valstis_rediget.setSelectedIndex(0);
+				ComboBox_Komandas_rediget.setSelectedIndex(0);
+				lbl_bilde_rediget.setIcon(ResizeImage("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Jerseys\\PSD\\default_jersey.png"));
+
+				JOptionPane.showMessageDialog(null, "Spēlētājs " + Vards + " " + Uzvards + " ir rediģēts!");
+				Player_Edit_Update_table();
+			}
+			
+		}
+
+		catch(Exception ex) {
+			JOptionPane.showMessageDialog(null, "Kautkas nav pareizi sql syntaxe");
+			System.out.println("SQLException: " + ex.getMessage());
+		}
+		
+		finally {
+			try { rs.close(); } catch (Exception e) { /* ignored */ }
+			try { pst.close(); } catch (Exception e) { /* ignored */ }
+			try { conn.close(); } catch (Exception e) { /* ignored */ }
+		}
+	}
+    }//GEN-LAST:event_cmd_editPlayer_saveActionPerformed
+
+    private void txt_uzvards_redigetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_uzvards_redigetKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_uzvards_redigetKeyTyped
+
+    private void cmd_editPlayer_jerseyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_editPlayer_jerseyActionPerformed
+         
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setCurrentDirectory(new File("D:\\Users\\user\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Jerseys"));
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg","gif","png");
+		fileChooser.addChoosableFileFilter(filter);
+		int result = fileChooser.showSaveDialog(null);
+			
+		if(result == JFileChooser.APPROVE_OPTION)
+		{
+			File selectedFile = fileChooser.getSelectedFile();
+			String path = selectedFile.getAbsolutePath();
+			lbl_bilde_rediget.setIcon(ResizeImage(path));
+			k = path;
+		}
+			
+		else if(result == JFileChooser.CANCEL_OPTION)
+		{
+			System.out.println("No Data");
+		}
+    }//GEN-LAST:event_cmd_editPlayer_jerseyActionPerformed
+
+    private void txt_svars_redigetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_svars_redigetKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_svars_redigetKeyTyped
+
+    private void txt_garums_redigetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_garums_redigetKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_garums_redigetKeyTyped
+
+    private void txt_vards_redigetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_vards_redigetKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_vards_redigetKeyTyped
+
+    private void Table_Players_EditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_Players_EditMouseClicked
+        
+	try {
+		int row = Table_Players_Edit.getSelectedRow();
+		String Table_click = Table_Players_Edit.getModel().getValueAt(row, 0).toString();
+		
+		String insert = "select * from speletaji where ID = " + Table_click;
+		
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		pst = conn.prepareStatement(insert);   
+		rs = pst.executeQuery();
+		
+		if(rs.next()) {
+
+			byte[] img = rs.getBytes("Komandas_krekls");
+			ImageIcon image = new ImageIcon(img);
+			Image im = image.getImage();
+			Image myImg = im.getScaledInstance(lbl_bilde_rediget.getWidth(), lbl_bilde_rediget.getHeight(),Image.SCALE_SMOOTH);
+			ImageIcon newImage = new ImageIcon(myImg);
+			lbl_bilde_rediget.setIcon(newImage);
+			
+			txt_id_rediget.setText(rs.getString("ID"));
+			txt_vards_rediget.setText(rs.getString("Vards"));
+			txt_uzvards_rediget.setText(rs.getString("Uzvards"));
+			txt_gadi_rediget.setText(rs.getString("Gadi"));
+			txt_garums_rediget.setText(rs.getString("Garums_cm"));
+			txt_svars_rediget.setText(rs.getString("Svars_kg"));
+			ComboBox_Valstis_rediget.setSelectedItem(rs.getString("Valsts_nosaukums")); 
+			ComboBox_Komandas_rediget.setSelectedItem(rs.getString("Komanda")); 
+			
+		}
+	}
+	
+	catch(Exception e) {
+		JOptionPane.showMessageDialog(null, e);
+	}
+	
+		
+    }//GEN-LAST:event_Table_Players_EditMouseClicked
+
+    private void txt_id_redigetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_id_redigetKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_redigetKeyTyped
+
 	public ImageIcon ResizeImage(String imgPath){
 			ImageIcon MyImage = new ImageIcon(imgPath);
 			Image img = MyImage.getImage();
@@ -2178,13 +2802,14 @@ private void FillComboTeams() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background_Panel;
     public javax.swing.JComboBox<String> ComboBox_Komandas;
+    public javax.swing.JComboBox<String> ComboBox_Komandas_rediget;
     public javax.swing.JComboBox<String> ComboBox_Valstis;
+    public javax.swing.JComboBox<String> ComboBox_Valstis_rediget;
     private javax.swing.JLabel DFA_Logo;
     public javax.swing.JPanel Drizuma_Panel;
     private javax.swing.JLabel Facebook_icon;
     private javax.swing.JLabel GitHub_icon;
     private javax.swing.JLabel Instagram_icon;
-    public javax.swing.JPanel MansProfils_Panel;
     private javax.swing.JLabel NP_picture;
     private javax.swing.JLabel Programm_Info;
     public javax.swing.JPanel ProgrammasInfo_Panel;
@@ -2199,6 +2824,7 @@ private void FillComboTeams() {
     public javax.swing.JPanel SpeluInfo_Pievienot_Panel;
     public javax.swing.JPanel SpeluInfo_Rediget_Panel;
     public javax.swing.JTable Table_Players_Add;
+    public javax.swing.JTable Table_Players_Edit;
     private javax.swing.JPanel WhiteBar_Panel;
     private javax.swing.JPanel button_Drizuma;
     private javax.swing.JPanel button_DzestSpeles;
@@ -2214,17 +2840,25 @@ private void FillComboTeams() {
     private javax.swing.JButton button_exit;
     public javax.swing.JButton cmd_addPlayer_jersey;
     public javax.swing.JButton cmd_addPlayer_save;
+    public javax.swing.JButton cmd_editPlayer_jersey;
+    public javax.swing.JButton cmd_editPlayer_save;
     private javax.swing.JPanel ind_Drizuma;
     private javax.swing.JPanel ind_ProgrammasInfo;
     private javax.swing.JPanel ind_SakumaEkrans;
     private javax.swing.JPanel ind_SpeletajuInfo;
     private javax.swing.JPanel ind_SpeluInfo;
     private javax.swing.JLabel ind_gadi;
+    private javax.swing.JLabel ind_gadi_rediget;
     private javax.swing.JLabel ind_garums;
+    private javax.swing.JLabel ind_garums_rediget;
+    private javax.swing.JLabel ind_id_rediget;
     private javax.swing.JLabel ind_svars;
+    private javax.swing.JLabel ind_svars_rediget;
     private javax.swing.JLabel ind_uzvards;
+    private javax.swing.JLabel ind_uzvards_rediget;
     private javax.swing.JLabel ind_vards;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel ind_vards_rediget;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -2251,20 +2885,38 @@ private void FillComboTeams() {
     public javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel jPanel3;
     public javax.swing.JScrollPane jScrollPane3;
+    public javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lbl_bilde;
+    private javax.swing.JLabel lbl_bilde_rediget;
     private javax.swing.JLabel lbl_gadi;
+    private javax.swing.JLabel lbl_gadi_rediget;
     private javax.swing.JLabel lbl_garums;
+    private javax.swing.JLabel lbl_garums_rediget;
+    private javax.swing.JLabel lbl_id_rediget;
     private javax.swing.JLabel lbl_komanda;
+    private javax.swing.JLabel lbl_komanda_rediget;
     private javax.swing.JLabel lbl_komandasKrekls;
+    private javax.swing.JLabel lbl_komandasKrekls_rediget;
     private javax.swing.JLabel lbl_svars;
+    private javax.swing.JLabel lbl_svars_rediget;
     private javax.swing.JLabel lbl_uzvards;
+    private javax.swing.JLabel lbl_uzvards_rediget;
     private javax.swing.JLabel lbl_valsts;
+    private javax.swing.JLabel lbl_valsts_rediget;
     private javax.swing.JLabel lbl_vards;
+    private javax.swing.JLabel lbl_vards_rediget;
     public javax.swing.JTextField txt_gadi;
+    public javax.swing.JTextField txt_gadi_rediget;
     public javax.swing.JTextField txt_garums;
+    public javax.swing.JTextField txt_garums_rediget;
+    private javax.swing.JTextField txt_id_rediget;
     public javax.swing.JTextField txt_svars;
+    public javax.swing.JTextField txt_svars_rediget;
     public javax.swing.JTextField txt_uzvards;
+    public javax.swing.JTextField txt_uzvards_rediget;
     public javax.swing.JTextField txt_vards;
+    public javax.swing.JTextField txt_vards_rediget;
     // End of variables declaration//GEN-END:variables
 }
