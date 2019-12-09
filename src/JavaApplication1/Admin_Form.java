@@ -72,6 +72,9 @@ public class Admin_Form extends javax.swing.JFrame {
 		txt_id_rediget.setEditable(false);
 		txt_id_delete.setEditable(false);
 		
+		
+		
+		
 		try 
 		{	
 			conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -1134,7 +1137,9 @@ private void FillComboTeamsDelete() {
         SakumaEkrans_Panel.setLayout(SakumaEkrans_PanelLayout);
         SakumaEkrans_PanelLayout.setHorizontalGroup(
             SakumaEkrans_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 2686, Short.MAX_VALUE)
+            .addGroup(SakumaEkrans_PanelLayout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1611, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         SakumaEkrans_PanelLayout.setVerticalGroup(
             SakumaEkrans_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1499,6 +1504,14 @@ private void FillComboTeamsDelete() {
                 Table_Players_EditMouseClicked(evt);
             }
         });
+        Table_Players_Edit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Table_Players_EditKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Table_Players_EditKeyReleased(evt);
+            }
+        });
         jScrollPane4.setViewportView(Table_Players_Edit);
 
         jPanel3.setBackground(new java.awt.Color(127, 140, 141));
@@ -1861,6 +1874,14 @@ private void FillComboTeamsDelete() {
         Table_Players_Delete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Table_Players_DeleteMouseClicked(evt);
+            }
+        });
+        Table_Players_Delete.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Table_Players_DeleteKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Table_Players_DeleteKeyReleased(evt);
             }
         });
         jScrollPane5.setViewportView(Table_Players_Delete);
@@ -3493,6 +3514,92 @@ private void FillComboTeamsDelete() {
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(false);
     }//GEN-LAST:event_SpeluInfo_buttonMousePressed
+
+    private void Table_Players_EditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Table_Players_EditKeyPressed
+
+    }//GEN-LAST:event_Table_Players_EditKeyPressed
+
+    private void Table_Players_DeleteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Table_Players_DeleteKeyPressed
+       
+    }//GEN-LAST:event_Table_Players_DeleteKeyPressed
+
+    private void Table_Players_DeleteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Table_Players_DeleteKeyReleased
+         if (evt.getKeyCode() == KeyEvent.VK_DOWN || evt.getKeyCode() == KeyEvent.VK_UP) {
+			try {
+			int row = Table_Players_Delete.getSelectedRow();
+			String Table_click = Table_Players_Delete.getModel().getValueAt(row, 0).toString();
+
+			String insert = "select * from speletaji where ID = " + Table_click;
+
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			pst = conn.prepareStatement(insert);   
+			rs = pst.executeQuery();
+
+			if(rs.next()) {
+
+				byte[] img = rs.getBytes("Komandas_krekls");
+				ImageIcon image = new ImageIcon(img);
+				Image im = image.getImage();
+				Image myImg = im.getScaledInstance(lbl_bilde_delete.getWidth(), lbl_bilde_delete.getHeight(),Image.SCALE_SMOOTH);
+				ImageIcon newImage = new ImageIcon(myImg);
+				lbl_bilde_delete.setIcon(newImage);
+
+				txt_id_delete.setText(rs.getString("ID"));
+				txt_vards_delete.setText(rs.getString("Vards"));
+				txt_uzvards_delete.setText(rs.getString("Uzvards"));
+				txt_gadi_delete.setText(rs.getString("Gadi"));
+				txt_garums_delete.setText(rs.getString("Garums_cm"));
+				txt_svars_delete.setText(rs.getString("Svars_kg"));
+				ComboBox_Valstis_delete.setSelectedItem(rs.getString("Valsts_nosaukums")); 
+				ComboBox_Komandas_delete.setSelectedItem(rs.getString("Komanda")); 
+
+			}
+		}
+
+		catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}	 
+	}
+    }//GEN-LAST:event_Table_Players_DeleteKeyReleased
+
+    private void Table_Players_EditKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Table_Players_EditKeyReleased
+          if (evt.getKeyCode() == KeyEvent.VK_DOWN || evt.getKeyCode() == KeyEvent.VK_UP) {
+			try {
+			int row = Table_Players_Edit.getSelectedRow();
+			String Table_click = Table_Players_Edit.getModel().getValueAt(row, 0).toString();
+
+			String insert = "select * from speletaji where ID = " + Table_click;
+
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			pst = conn.prepareStatement(insert);   
+			rs = pst.executeQuery();
+
+			if(rs.next()) {
+
+				byte[] img = rs.getBytes("Komandas_krekls");
+				ImageIcon image = new ImageIcon(img);
+				Image im = image.getImage();
+				Image myImg = im.getScaledInstance(lbl_bilde_rediget.getWidth(), lbl_bilde_rediget.getHeight(),Image.SCALE_SMOOTH);
+				ImageIcon newImage = new ImageIcon(myImg);
+				lbl_bilde_rediget.setIcon(newImage);
+
+				txt_id_rediget.setText(rs.getString("ID"));
+				txt_vards_rediget.setText(rs.getString("Vards"));
+				txt_uzvards_rediget.setText(rs.getString("Uzvards"));
+				txt_gadi_rediget.setText(rs.getString("Gadi"));
+				txt_garums_rediget.setText(rs.getString("Garums_cm"));
+				txt_svars_rediget.setText(rs.getString("Svars_kg"));
+				ComboBox_Valstis_rediget.setSelectedItem(rs.getString("Valsts_nosaukums")); 
+				ComboBox_Komandas_rediget.setSelectedItem(rs.getString("Komanda")); 
+
+			}
+		}
+
+		catch(Exception e) {
+			JOptionPane.showMessageDialog(null, e);
+		}	 
+	}
+    }//GEN-LAST:event_Table_Players_EditKeyReleased
 
 	public ImageIcon ResizeImage(String imgPath){
 			ImageIcon MyImage = new ImageIcon(imgPath);
