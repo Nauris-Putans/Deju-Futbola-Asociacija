@@ -69,6 +69,8 @@ public class Admin_Form extends javax.swing.JFrame {
 		//-----------------------------------------------------------------------------//
 		
 		this.setLocationRelativeTo(null);
+		txt_id_rediget.setEditable(false);
+		txt_id_delete.setEditable(false);
 		
 		try 
 		{	
@@ -152,6 +154,33 @@ private void Player_Edit_Update_table() {
 	}
 }
 
+private void Player_Delete_Update_table() {
+	
+	String insert = "select * from speletaji";
+	
+	try {
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		pst = conn.prepareStatement(insert);   
+		rs = pst.executeQuery();
+		Table_Players_Delete.setModel(DbUtils.resultSetToTableModel(rs));
+		Table_Players_Delete.getColumnModel().getColumn(0).setPreferredWidth(10);
+		Table_Players_Delete.getColumnModel().getColumn(3).setPreferredWidth(10);
+		Table_Players_Delete.getColumnModel().getColumn(4).setPreferredWidth(30);
+		Table_Players_Delete.getColumnModel().getColumn(5).setPreferredWidth(30);
+		Table_Players_Delete.getColumnModel().getColumn(7).setPreferredWidth(30);
+	}
+	
+	catch(Exception e) {
+		JOptionPane.showMessageDialog(null, e);
+	}
+	
+	finally {
+		try { rs.close(); } catch (Exception e) { /* ignored */ }
+		try { pst.close(); } catch (Exception e) { /* ignored */ }
+		try { conn.close(); } catch (Exception e) { /* ignored */ }
+	}
+}
+
 private void FillComboCountry() {
 	
 	String insert = "select * from valstis";
@@ -204,6 +233,32 @@ private void FillComboCountryEdit() {
 	}
 }
 
+private void FillComboCountryDelete() {
+	
+	String insert = "select * from valstis";
+	
+	try {
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		pst = conn.prepareStatement(insert);   
+		rs = pst.executeQuery();
+		
+		while (rs.next()) {
+			String valsts = rs.getString("country_name");
+			ComboBox_Valstis_delete.addItem(valsts);
+		}
+	}
+	
+	catch(Exception e) {
+		JOptionPane.showMessageDialog(null, e);
+	}
+	
+	finally {
+		try { rs.close(); } catch (Exception e) { /* ignored */ }
+		try { pst.close(); } catch (Exception e) { /* ignored */ }
+		try { conn.close(); } catch (Exception e) { /* ignored */ }
+	}
+}
+
 private void FillComboTeams() {
 	
 	String insert = "select * from komandas";
@@ -242,6 +297,32 @@ private void FillComboTeamsEdit() {
 		while (rs.next()) {
 			String komanda = rs.getString("Komanda");
 			ComboBox_Komandas_rediget.addItem(komanda);
+		}
+	}
+	
+	catch(Exception e) {
+		JOptionPane.showMessageDialog(null, e);
+	}
+	
+	finally {
+		try { rs.close(); } catch (Exception e) { /* ignored */ }
+		try { pst.close(); } catch (Exception e) { /* ignored */ }
+		try { conn.close(); } catch (Exception e) { /* ignored */ }
+	}
+}
+
+private void FillComboTeamsDelete() {
+	
+	String insert = "select * from komandas";
+	
+	try {
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		pst = conn.prepareStatement(insert);   
+		rs = pst.executeQuery();
+		
+		while (rs.next()) {
+			String komanda = rs.getString("Komanda");
+			ComboBox_Komandas_delete.addItem(komanda);
 		}
 	}
 	
@@ -312,6 +393,11 @@ private void FillComboTeamsEdit() {
         button_exit = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         SakumaEkrans_Panel = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        ProgrammasInfo_button = new javax.swing.JLabel();
+        KomandasInfo_button = new javax.swing.JLabel();
+        SpeluInfo_button = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         SpeletajuInfo_Panel = new javax.swing.JPanel();
         SpeletajuInfo_Pievienot_Panel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -372,6 +458,36 @@ private void FillComboTeamsEdit() {
         lbl_id_rediget = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         SpeletajuInfo_Dzest_Panel = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        Table_Players_Delete = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        lbl_bilde_delete = new javax.swing.JLabel();
+        lbl_garums_delete = new javax.swing.JLabel();
+        ind_uzvards_delete = new javax.swing.JLabel();
+        ComboBox_Komandas_delete = new javax.swing.JComboBox<>();
+        txt_gadi_delete = new javax.swing.JTextField();
+        cmd_deletePlayer_save = new javax.swing.JButton();
+        txt_uzvards_delete = new javax.swing.JTextField();
+        lbl_vards_delete = new javax.swing.JLabel();
+        cmd_deletePlayer_jersey = new javax.swing.JButton();
+        txt_svars_delete = new javax.swing.JTextField();
+        lbl_svars_delete = new javax.swing.JLabel();
+        ind_vards_delete = new javax.swing.JLabel();
+        ind_garums_delete = new javax.swing.JLabel();
+        lbl_komanda_delete = new javax.swing.JLabel();
+        lbl_uzvards_delete = new javax.swing.JLabel();
+        ind_svars_delete = new javax.swing.JLabel();
+        lbl_gadi_delete = new javax.swing.JLabel();
+        lbl_komandasKrekls_delete = new javax.swing.JLabel();
+        txt_garums_delete = new javax.swing.JTextField();
+        lbl_valsts_delete = new javax.swing.JLabel();
+        ind_gadi_delete = new javax.swing.JLabel();
+        txt_vards_delete = new javax.swing.JTextField();
+        ComboBox_Valstis_delete = new javax.swing.JComboBox<>();
+        txt_id_delete = new javax.swing.JTextField();
+        ind_id_delete = new javax.swing.JLabel();
+        lbl_id_delete = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         SpeluInfo_Panel = new javax.swing.JPanel();
         SpeluInfo_Pievienot_Panel = new javax.swing.JPanel();
         SpeluInfo_Rediget_Panel = new javax.swing.JPanel();
@@ -976,15 +1092,53 @@ private void FillComboTeamsEdit() {
 
         SakumaEkrans_Panel.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(null);
+
+        ProgrammasInfo_button.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\icons8-forward-button-72.png")); // NOI18N
+        ProgrammasInfo_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ProgrammasInfo_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ProgrammasInfo_buttonMousePressed(evt);
+            }
+        });
+        jPanel5.add(ProgrammasInfo_button);
+        ProgrammasInfo_button.setBounds(250, 800, 72, 70);
+
+        KomandasInfo_button.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\icons8-forward-button-72.png")); // NOI18N
+        KomandasInfo_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        KomandasInfo_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                KomandasInfo_buttonMousePressed(evt);
+            }
+        });
+        jPanel5.add(KomandasInfo_button);
+        KomandasInfo_button.setBounds(810, 800, 72, 70);
+
+        SpeluInfo_button.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\icons8-forward-button-72.png")); // NOI18N
+        SpeluInfo_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SpeluInfo_button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                SpeluInfo_buttonMousePressed(evt);
+            }
+        });
+        jPanel5.add(SpeluInfo_button);
+        SpeluInfo_button.setBounds(1350, 800, 72, 70);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\sakuma_ekrana_bilde.png")); // NOI18N
+        jLabel9.setPreferredSize(new java.awt.Dimension(1665, 1028));
+        jPanel5.add(jLabel9);
+        jLabel9.setBounds(0, 0, 1610, 1010);
+
         javax.swing.GroupLayout SakumaEkrans_PanelLayout = new javax.swing.GroupLayout(SakumaEkrans_Panel);
         SakumaEkrans_Panel.setLayout(SakumaEkrans_PanelLayout);
         SakumaEkrans_PanelLayout.setHorizontalGroup(
             SakumaEkrans_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2686, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 2686, Short.MAX_VALUE)
         );
         SakumaEkrans_PanelLayout.setVerticalGroup(
             SakumaEkrans_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1335, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         SpeletajuInfo_Panel.setBackground(new java.awt.Color(204, 204, 255));
@@ -1000,7 +1154,7 @@ private void FillComboTeamsEdit() {
             .addGap(0, 1335, Short.MAX_VALUE)
         );
 
-        SpeletajuInfo_Pievienot_Panel.setBackground(new java.awt.Color(189, 195, 199));
+        SpeletajuInfo_Pievienot_Panel.setBackground(new java.awt.Color(204, 204, 204));
         SpeletajuInfo_Pievienot_Panel.setPreferredSize(new java.awt.Dimension(2375, 1323));
 
         Table_Players_Add.setAutoCreateRowSorter(true);
@@ -1316,7 +1470,7 @@ private void FillComboTeamsEdit() {
                 .addContainerGap(404, Short.MAX_VALUE))
         );
 
-        SpeletajuInfo_Rediget_Panel.setBackground(new java.awt.Color(255, 255, 204));
+        SpeletajuInfo_Rediget_Panel.setBackground(new java.awt.Color(204, 204, 204));
         SpeletajuInfo_Rediget_Panel.setPreferredSize(new java.awt.Dimension(2375, 1323));
 
         Table_Players_Edit.setAutoCreateRowSorter(true);
@@ -1377,7 +1531,7 @@ private void FillComboTeamsEdit() {
         cmd_editPlayer_save.setBackground(new java.awt.Color(46, 204, 113));
         cmd_editPlayer_save.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         cmd_editPlayer_save.setForeground(new java.awt.Color(255, 255, 255));
-        cmd_editPlayer_save.setText("Saglabāt");
+        cmd_editPlayer_save.setText("Rediģēt");
         cmd_editPlayer_save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cmd_editPlayer_save.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -1580,8 +1734,7 @@ private void FillComboTeamsEdit() {
                                         .addGap(29, 29, 29)
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(cmd_editPlayer_jersey, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(ComboBox_Komandas_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(61, 61, 61))))
+                                            .addComponent(ComboBox_Komandas_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1589,7 +1742,7 @@ private void FillComboTeamsEdit() {
                                 .addGap(161, 161, 161)
                                 .addComponent(cmd_editPlayer_save, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lbl_bilde_rediget, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -1669,7 +1822,7 @@ private void FillComboTeamsEdit() {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(756, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SpeletajuInfo_Rediget_PanelLayout.setVerticalGroup(
             SpeletajuInfo_Rediget_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1684,15 +1837,365 @@ private void FillComboTeamsEdit() {
         SpeletajuInfo_Dzest_Panel.setBackground(new java.awt.Color(153, 153, 255));
         SpeletajuInfo_Dzest_Panel.setPreferredSize(new java.awt.Dimension(2375, 1323));
 
+        Table_Players_Delete.setAutoCreateRowSorter(true);
+        Table_Players_Delete.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Table_Players_Delete.setForeground(new java.awt.Color(44, 62, 80));
+        Table_Players_Delete.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        Table_Players_Delete.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        Table_Players_Delete.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        Table_Players_Delete.setRowHeight(25);
+        Table_Players_Delete.setSelectionBackground(new java.awt.Color(46, 204, 113));
+        Table_Players_Delete.setSelectionForeground(new java.awt.Color(44, 62, 80));
+        Table_Players_Delete.setShowHorizontalLines(false);
+        Table_Players_Delete.getTableHeader().setReorderingAllowed(false);
+        Table_Players_Delete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Table_Players_DeleteMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(Table_Players_Delete);
+
+        jPanel4.setBackground(new java.awt.Color(127, 140, 141));
+        jPanel4.setForeground(new java.awt.Color(60, 63, 65));
+
+        lbl_bilde_delete.setIcon(new javax.swing.ImageIcon("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Jerseys\\PSD\\default_jersey.png")); // NOI18N
+
+        lbl_garums_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_garums_delete.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_garums_delete.setText("Garums (cm):");
+
+        ind_uzvards_delete.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        ComboBox_Komandas_delete.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        ComboBox_Komandas_delete.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
+        ComboBox_Komandas_delete.setNextFocusableComponent(cmd_addPlayer_jersey);
+
+        txt_gadi_delete.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_gadi_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_gadi_delete.setForeground(new java.awt.Color(204, 255, 255));
+        txt_gadi_delete.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_gadi_delete.setBorder(null);
+        txt_gadi_delete.setOpaque(false);
+        txt_gadi_delete.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_gadi_deleteKeyTyped(evt);
+            }
+        });
+
+        cmd_deletePlayer_save.setBackground(new java.awt.Color(231, 76, 60));
+        cmd_deletePlayer_save.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        cmd_deletePlayer_save.setForeground(new java.awt.Color(255, 255, 255));
+        cmd_deletePlayer_save.setText("Dzēst");
+        cmd_deletePlayer_save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmd_deletePlayer_save.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cmd_deletePlayer_saveMousePressed(evt);
+            }
+        });
+        cmd_deletePlayer_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmd_deletePlayer_saveActionPerformed(evt);
+            }
+        });
+
+        txt_uzvards_delete.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_uzvards_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_uzvards_delete.setForeground(new java.awt.Color(204, 255, 255));
+        txt_uzvards_delete.setBorder(null);
+        txt_uzvards_delete.setNextFocusableComponent(txt_garums);
+        txt_uzvards_delete.setOpaque(false);
+        txt_uzvards_delete.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_uzvards_deleteKeyTyped(evt);
+            }
+        });
+
+        lbl_vards_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_vards_delete.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_vards_delete.setText("Vārds:");
+
+        cmd_deletePlayer_jersey.setBackground(new java.awt.Color(255, 255, 255));
+        cmd_deletePlayer_jersey.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        cmd_deletePlayer_jersey.setForeground(new java.awt.Color(0, 0, 0));
+        cmd_deletePlayer_jersey.setText("Izvēlies failu");
+        cmd_deletePlayer_jersey.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cmd_deletePlayer_jersey.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmd_deletePlayer_jerseyActionPerformed(evt);
+            }
+        });
+
+        txt_svars_delete.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_svars_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_svars_delete.setForeground(new java.awt.Color(204, 255, 255));
+        txt_svars_delete.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_svars_delete.setBorder(null);
+        txt_svars_delete.setNextFocusableComponent(txt_gadi);
+        txt_svars_delete.setOpaque(false);
+        txt_svars_delete.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_svars_deleteKeyTyped(evt);
+            }
+        });
+
+        lbl_svars_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_svars_delete.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_svars_delete.setText("Svars (kg):");
+
+        ind_vards_delete.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        ind_garums_delete.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        lbl_komanda_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_komanda_delete.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_komanda_delete.setText("Komanda:");
+
+        lbl_uzvards_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_uzvards_delete.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_uzvards_delete.setText("Uzvārds:");
+
+        ind_svars_delete.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        lbl_gadi_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_gadi_delete.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_gadi_delete.setText("Gadi:");
+
+        lbl_komandasKrekls_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_komandasKrekls_delete.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_komandasKrekls_delete.setText("Komandas krekls:");
+
+        txt_garums_delete.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_garums_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_garums_delete.setForeground(new java.awt.Color(204, 255, 255));
+        txt_garums_delete.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_garums_delete.setBorder(null);
+        txt_garums_delete.setNextFocusableComponent(txt_svars);
+        txt_garums_delete.setOpaque(false);
+        txt_garums_delete.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_garums_deleteKeyTyped(evt);
+            }
+        });
+
+        lbl_valsts_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_valsts_delete.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_valsts_delete.setText("Valsts:");
+
+        ind_gadi_delete.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        txt_vards_delete.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_vards_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_vards_delete.setForeground(new java.awt.Color(204, 255, 255));
+        txt_vards_delete.setBorder(null);
+        txt_vards_delete.setNextFocusableComponent(txt_uzvards);
+        txt_vards_delete.setOpaque(false);
+        txt_vards_delete.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_vards_deleteKeyTyped(evt);
+            }
+        });
+
+        ComboBox_Valstis_delete.setFont(new java.awt.Font("Segoe UI Semibold", 1, 16)); // NOI18N
+        ComboBox_Valstis_delete.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
+        ComboBox_Valstis_delete.setNextFocusableComponent(cmd_addPlayer_jersey);
+
+        txt_id_delete.setBackground(new java.awt.Color(255, 255, 255, 0));
+        txt_id_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        txt_id_delete.setForeground(new java.awt.Color(204, 255, 255));
+        txt_id_delete.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_id_delete.setBorder(null);
+        txt_id_delete.setNextFocusableComponent(txt_uzvards);
+        txt_id_delete.setOpaque(false);
+        txt_id_delete.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_id_deleteKeyTyped(evt);
+            }
+        });
+
+        ind_id_delete.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
+
+        lbl_id_delete.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        lbl_id_delete.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_id_delete.setText("ID:");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel3.setText("Jaizvēlās velreiz krekls!");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(508, 508, 508)
+                                .addComponent(lbl_gadi_delete)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ind_gadi_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txt_gadi_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(lbl_uzvards_delete)
+                                                .addGap(18, 18, 18)
+                                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txt_uzvards_delete)
+                                                    .addComponent(ind_uzvards_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                                .addComponent(lbl_vards_delete)
+                                                .addGap(18, 18, 18)
+                                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txt_vards_delete)
+                                                    .addComponent(ind_vards_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(36, 36, 36))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(lbl_valsts_delete)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ComboBox_Valstis_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(8, 8, 8))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                        .addGap(45, 45, 45)
+                                        .addComponent(lbl_id_delete)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_id_delete, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                                            .addComponent(ind_id_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addComponent(lbl_svars_delete)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(ind_svars_delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txt_svars_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(lbl_garums_delete)
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txt_garums_delete)
+                                            .addComponent(ind_garums_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lbl_komanda_delete)
+                                            .addComponent(lbl_komandasKrekls_delete))
+                                        .addGap(29, 29, 29)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cmd_deletePlayer_jersey, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(ComboBox_Komandas_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(161, 161, 161)
+                                .addComponent(cmd_deletePlayer_save, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lbl_bilde_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(29, 29, 29))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txt_vards_delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_vards_delete))
+                                .addGap(1, 1, 1)
+                                .addComponent(ind_vards_delete))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txt_gadi_delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_gadi_delete))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(ind_gadi_delete)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_uzvards_delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_uzvards_delete))
+                        .addGap(1, 1, 1)
+                        .addComponent(ind_uzvards_delete))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_garums_delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_garums_delete))
+                        .addGap(1, 1, 1)
+                        .addComponent(ind_garums_delete)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_svars_delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_svars_delete))
+                        .addGap(1, 1, 1)
+                        .addComponent(ind_svars_delete)))
+                .addGap(42, 42, 42)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbl_komanda_delete)
+                        .addComponent(ComboBox_Komandas_delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbl_valsts_delete)
+                        .addComponent(ComboBox_Valstis_delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_id_delete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_id_delete))
+                        .addGap(1, 1, 1)
+                        .addComponent(ind_id_delete))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbl_komandasKrekls_delete)
+                        .addComponent(cmd_deletePlayer_jersey, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(1, 1, 1)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_bilde_delete)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmd_deletePlayer_save)
+                .addGap(16, 16, 16))
+        );
+
         javax.swing.GroupLayout SpeletajuInfo_Dzest_PanelLayout = new javax.swing.GroupLayout(SpeletajuInfo_Dzest_Panel);
         SpeletajuInfo_Dzest_Panel.setLayout(SpeletajuInfo_Dzest_PanelLayout);
         SpeletajuInfo_Dzest_PanelLayout.setHorizontalGroup(
             SpeletajuInfo_Dzest_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2686, Short.MAX_VALUE)
+            .addGroup(SpeletajuInfo_Dzest_PanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(756, Short.MAX_VALUE))
         );
         SpeletajuInfo_Dzest_PanelLayout.setVerticalGroup(
             SpeletajuInfo_Dzest_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1335, Short.MAX_VALUE)
+            .addGroup(SpeletajuInfo_Dzest_PanelLayout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addGroup(SpeletajuInfo_Dzest_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(395, Short.MAX_VALUE))
         );
 
         SpeluInfo_Panel.setBackground(new java.awt.Color(255, 153, 204));
@@ -2222,6 +2725,10 @@ private void FillComboTeamsEdit() {
 	ind_SpeluInfo.setOpaque(false);
 	ind_ProgrammasInfo.setOpaque(false);
          ind_Drizuma.setOpaque(false);
+		 
+	Player_Delete_Update_table();
+	FillComboCountryDelete();
+	FillComboTeamsDelete();
     }//GEN-LAST:event_button_DzestSpeletajusMousePressed
 
     private void button_SpeluInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_SpeluInfoMousePressed
@@ -2748,6 +3255,245 @@ private void FillComboTeamsEdit() {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_id_redigetKeyTyped
 
+    private void txt_gadi_deleteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_gadi_deleteKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_gadi_deleteKeyTyped
+
+    private void cmd_deletePlayer_saveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmd_deletePlayer_saveMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmd_deletePlayer_saveMousePressed
+
+    private void cmd_deletePlayer_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_deletePlayer_saveActionPerformed
+	String ID = txt_id_delete.getText();
+	String Vards = txt_vards_delete.getText();
+	String Uzvards = txt_uzvards_delete.getText();	
+	String Gadi = txt_gadi_delete.getText();
+	String Garums = txt_garums_delete.getText();
+	String Svars = txt_svars_delete.getText();
+	String Valsts = ComboBox_Valstis_delete.getSelectedItem().toString();
+	String Komanda = ComboBox_Komandas_delete.getSelectedItem().toString();
+	
+	int p = JOptionPane.showConfirmDialog(null, "Vai tiešām velaties dzēst arā " + Vards + " " + Uzvards + " no datubāzes?", "Delete",JOptionPane.YES_NO_OPTION);
+	
+	if(p == 0) {
+		
+		String sql = "delete from dfa.speletaji where ID='"+ID+"'";
+		
+		try {
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			pst = conn.prepareStatement(sql);
+			pst.executeUpdate();
+
+			txt_id_delete.setText("");
+			txt_vards_delete.setText("");
+			txt_uzvards_delete.setText("");
+			txt_gadi_delete.setText("");
+			txt_garums_delete.setText("");
+			txt_svars_delete.setText("");
+			ComboBox_Valstis_delete.setSelectedIndex(0);
+			ComboBox_Komandas_delete.setSelectedIndex(0);
+			lbl_bilde_delete.setIcon(ResizeImage("D:\\Users\\User\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Jerseys\\PSD\\default_jersey.png"));
+			
+			JOptionPane.showMessageDialog(null, "Spēlētājs " + Vards + " " + Uzvards + " ir dzēsts!");
+			Player_Delete_Update_table();
+			
+		}
+
+		catch(Exception ex) {
+			JOptionPane.showMessageDialog(null, "Kautkas nav pareizi sql syntaxe");
+			System.out.println("SQLException: " + ex.getMessage());
+		}
+		
+		finally {
+			try { rs.close(); } catch (Exception e) { /* ignored */ }
+			try { pst.close(); } catch (Exception e) { /* ignored */ }
+			try { conn.close(); } catch (Exception e) { /* ignored */ }
+		}
+	}
+    }//GEN-LAST:event_cmd_deletePlayer_saveActionPerformed
+
+    private void txt_uzvards_deleteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_uzvards_deleteKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_uzvards_deleteKeyTyped
+
+    private void cmd_deletePlayer_jerseyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_deletePlayer_jerseyActionPerformed
+         
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setCurrentDirectory(new File("D:\\Users\\user\\Documents\\NetBeansProjects\\JavaApplication1\\images for project\\Jerseys"));
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("*.IMAGE", "jpg","gif","png");
+		fileChooser.addChoosableFileFilter(filter);
+		int result = fileChooser.showSaveDialog(null);
+			
+		if(result == JFileChooser.APPROVE_OPTION)
+		{
+			File selectedFile = fileChooser.getSelectedFile();
+			String path = selectedFile.getAbsolutePath();
+			lbl_bilde_delete.setIcon(ResizeImage(path));
+			k = path;
+		}
+			
+		else if(result == JFileChooser.CANCEL_OPTION)
+		{
+			System.out.println("No Data");
+		}
+    }//GEN-LAST:event_cmd_deletePlayer_jerseyActionPerformed
+
+    private void txt_svars_deleteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_svars_deleteKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_svars_deleteKeyTyped
+
+    private void txt_garums_deleteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_garums_deleteKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_garums_deleteKeyTyped
+
+    private void txt_vards_deleteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_vards_deleteKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_vards_deleteKeyTyped
+
+    private void txt_id_deleteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_id_deleteKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_id_deleteKeyTyped
+
+    private void Table_Players_DeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_Players_DeleteMouseClicked
+         try {
+		int row = Table_Players_Delete.getSelectedRow();
+		String Table_click = Table_Players_Delete.getModel().getValueAt(row, 0).toString();
+		
+		String insert = "select * from speletaji where ID = " + Table_click;
+		
+		conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		pst = conn.prepareStatement(insert);   
+		rs = pst.executeQuery();
+		
+		if(rs.next()) {
+
+			byte[] img = rs.getBytes("Komandas_krekls");
+			ImageIcon image = new ImageIcon(img);
+			Image im = image.getImage();
+			Image myImg = im.getScaledInstance(lbl_bilde_delete.getWidth(), lbl_bilde_delete.getHeight(),Image.SCALE_SMOOTH);
+			ImageIcon newImage = new ImageIcon(myImg);
+			lbl_bilde_delete.setIcon(newImage);
+			
+			txt_id_delete.setText(rs.getString("ID"));
+			txt_vards_delete.setText(rs.getString("Vards"));
+			txt_uzvards_delete.setText(rs.getString("Uzvards"));
+			txt_gadi_delete.setText(rs.getString("Gadi"));
+			txt_garums_delete.setText(rs.getString("Garums_cm"));
+			txt_svars_delete.setText(rs.getString("Svars_kg"));
+			ComboBox_Valstis_delete.setSelectedItem(rs.getString("Valsts_nosaukums")); 
+			ComboBox_Komandas_delete.setSelectedItem(rs.getString("Komanda")); 
+			
+		}
+	}
+	
+	catch(Exception e) {
+		JOptionPane.showMessageDialog(null, e);
+	}
+    }//GEN-LAST:event_Table_Players_DeleteMouseClicked
+
+    private void ProgrammasInfo_buttonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProgrammasInfo_buttonMousePressed
+         SakumaEkrans_Panel.hide();
+         SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
+	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
+         Drizuma_Panel.hide();
+         ProgrammasInfo_Panel.show();
+	
+	resetColor(button_SakumaEkrans);
+         resetColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
+         resetColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
+         resetColor(button_Drizuma);
+         setColor(button_ProgrammasInfo);
+
+         // Indicators
+
+         ind_SakumaEkrans.setOpaque(false);
+         ind_SpeletajuInfo.setOpaque(false);
+	ind_SpeluInfo.setOpaque(false);
+	ind_ProgrammasInfo.setOpaque(true);
+         ind_Drizuma.setOpaque(false);
+		
+    }//GEN-LAST:event_ProgrammasInfo_buttonMousePressed
+
+    private void KomandasInfo_buttonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_KomandasInfo_buttonMousePressed
+         SakumaEkrans_Panel.hide();
+         SpeletajuInfo_Panel.show();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
+	SpeluInfo_Panel.hide();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
+         Drizuma_Panel.hide();
+         ProgrammasInfo_Panel.hide();
+	
+	resetColor(button_SakumaEkrans);
+         setColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
+         resetColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
+         resetColor(button_Drizuma);
+         resetColor(button_ProgrammasInfo);
+
+         // Indicators
+
+         ind_SakumaEkrans.setOpaque(false);
+         ind_SpeletajuInfo.setOpaque(true);
+	ind_SpeluInfo.setOpaque(false);
+	ind_ProgrammasInfo.setOpaque(false);
+         ind_Drizuma.setOpaque(false);
+    }//GEN-LAST:event_KomandasInfo_buttonMousePressed
+
+    private void SpeluInfo_buttonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SpeluInfo_buttonMousePressed
+         SakumaEkrans_Panel.hide();
+         SpeletajuInfo_Panel.hide();
+		SpeletajuInfo_Pievienot_Panel.hide();
+		SpeletajuInfo_Rediget_Panel.hide();
+		SpeletajuInfo_Dzest_Panel.hide();
+	SpeluInfo_Panel.show();
+		SpeluInfo_Pievienot_Panel.hide();
+		SpeluInfo_Rediget_Panel.hide();
+		SpeluInfo_Dzest_Panel.hide();
+         Drizuma_Panel.hide();
+         ProgrammasInfo_Panel.hide();
+	
+	resetColor(button_SakumaEkrans);
+         resetColor(button_SpeletajuInfo);
+		resetColor(button_PievienotSpeletajus);
+		resetColor(button_RedigetSpeletajus);
+		resetColor(button_DzestSpeletajus);
+         setColor(button_SpeluInfo);
+		resetColor(button_PievienotSpeles);
+		resetColor(button_RedigetSpeles);
+		resetColor(button_DzestSpeles);
+         resetColor(button_Drizuma);
+         resetColor(button_ProgrammasInfo);
+
+         // Indicators
+
+         ind_SakumaEkrans.setOpaque(false);
+         ind_SpeletajuInfo.setOpaque(false);
+	ind_SpeluInfo.setOpaque(true);
+	ind_ProgrammasInfo.setOpaque(false);
+         ind_Drizuma.setOpaque(false);
+    }//GEN-LAST:event_SpeluInfo_buttonMousePressed
+
 	public ImageIcon ResizeImage(String imgPath){
 			ImageIcon MyImage = new ImageIcon(imgPath);
 			Image img = MyImage.getImage();
@@ -2802,17 +3548,21 @@ private void FillComboTeamsEdit() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background_Panel;
     public javax.swing.JComboBox<String> ComboBox_Komandas;
+    public javax.swing.JComboBox<String> ComboBox_Komandas_delete;
     public javax.swing.JComboBox<String> ComboBox_Komandas_rediget;
     public javax.swing.JComboBox<String> ComboBox_Valstis;
+    public javax.swing.JComboBox<String> ComboBox_Valstis_delete;
     public javax.swing.JComboBox<String> ComboBox_Valstis_rediget;
     private javax.swing.JLabel DFA_Logo;
     public javax.swing.JPanel Drizuma_Panel;
     private javax.swing.JLabel Facebook_icon;
     private javax.swing.JLabel GitHub_icon;
     private javax.swing.JLabel Instagram_icon;
+    private javax.swing.JLabel KomandasInfo_button;
     private javax.swing.JLabel NP_picture;
     private javax.swing.JLabel Programm_Info;
     public javax.swing.JPanel ProgrammasInfo_Panel;
+    private javax.swing.JLabel ProgrammasInfo_button;
     public javax.swing.JPanel SakumaEkrans_Panel;
     private javax.swing.JPanel Side_Panel;
     public javax.swing.JPanel SpeletajuInfo_Dzest_Panel;
@@ -2823,7 +3573,9 @@ private void FillComboTeamsEdit() {
     public javax.swing.JPanel SpeluInfo_Panel;
     public javax.swing.JPanel SpeluInfo_Pievienot_Panel;
     public javax.swing.JPanel SpeluInfo_Rediget_Panel;
+    private javax.swing.JLabel SpeluInfo_button;
     public javax.swing.JTable Table_Players_Add;
+    public javax.swing.JTable Table_Players_Delete;
     public javax.swing.JTable Table_Players_Edit;
     private javax.swing.JPanel WhiteBar_Panel;
     private javax.swing.JPanel button_Drizuma;
@@ -2840,6 +3592,8 @@ private void FillComboTeamsEdit() {
     private javax.swing.JButton button_exit;
     public javax.swing.JButton cmd_addPlayer_jersey;
     public javax.swing.JButton cmd_addPlayer_save;
+    public javax.swing.JButton cmd_deletePlayer_jersey;
+    public javax.swing.JButton cmd_deletePlayer_save;
     public javax.swing.JButton cmd_editPlayer_jersey;
     public javax.swing.JButton cmd_editPlayer_save;
     private javax.swing.JPanel ind_Drizuma;
@@ -2848,15 +3602,21 @@ private void FillComboTeamsEdit() {
     private javax.swing.JPanel ind_SpeletajuInfo;
     private javax.swing.JPanel ind_SpeluInfo;
     private javax.swing.JLabel ind_gadi;
+    private javax.swing.JLabel ind_gadi_delete;
     private javax.swing.JLabel ind_gadi_rediget;
     private javax.swing.JLabel ind_garums;
+    private javax.swing.JLabel ind_garums_delete;
     private javax.swing.JLabel ind_garums_rediget;
+    private javax.swing.JLabel ind_id_delete;
     private javax.swing.JLabel ind_id_rediget;
     private javax.swing.JLabel ind_svars;
+    private javax.swing.JLabel ind_svars_delete;
     private javax.swing.JLabel ind_svars_rediget;
     private javax.swing.JLabel ind_uzvards;
+    private javax.swing.JLabel ind_uzvards_delete;
     private javax.swing.JLabel ind_uzvards_rediget;
     private javax.swing.JLabel ind_vards;
+    private javax.swing.JLabel ind_vards_delete;
     private javax.swing.JLabel ind_vards_rediget;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -2878,45 +3638,66 @@ private void FillComboTeamsEdit() {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     public javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
+    public javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     public javax.swing.JScrollPane jScrollPane3;
     public javax.swing.JScrollPane jScrollPane4;
+    public javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel lbl_bilde;
+    private javax.swing.JLabel lbl_bilde_delete;
     private javax.swing.JLabel lbl_bilde_rediget;
     private javax.swing.JLabel lbl_gadi;
+    private javax.swing.JLabel lbl_gadi_delete;
     private javax.swing.JLabel lbl_gadi_rediget;
     private javax.swing.JLabel lbl_garums;
+    private javax.swing.JLabel lbl_garums_delete;
     private javax.swing.JLabel lbl_garums_rediget;
+    private javax.swing.JLabel lbl_id_delete;
     private javax.swing.JLabel lbl_id_rediget;
     private javax.swing.JLabel lbl_komanda;
+    private javax.swing.JLabel lbl_komanda_delete;
     private javax.swing.JLabel lbl_komanda_rediget;
     private javax.swing.JLabel lbl_komandasKrekls;
+    private javax.swing.JLabel lbl_komandasKrekls_delete;
     private javax.swing.JLabel lbl_komandasKrekls_rediget;
     private javax.swing.JLabel lbl_svars;
+    private javax.swing.JLabel lbl_svars_delete;
     private javax.swing.JLabel lbl_svars_rediget;
     private javax.swing.JLabel lbl_uzvards;
+    private javax.swing.JLabel lbl_uzvards_delete;
     private javax.swing.JLabel lbl_uzvards_rediget;
     private javax.swing.JLabel lbl_valsts;
+    private javax.swing.JLabel lbl_valsts_delete;
     private javax.swing.JLabel lbl_valsts_rediget;
     private javax.swing.JLabel lbl_vards;
+    private javax.swing.JLabel lbl_vards_delete;
     private javax.swing.JLabel lbl_vards_rediget;
     public javax.swing.JTextField txt_gadi;
+    public javax.swing.JTextField txt_gadi_delete;
     public javax.swing.JTextField txt_gadi_rediget;
     public javax.swing.JTextField txt_garums;
+    public javax.swing.JTextField txt_garums_delete;
     public javax.swing.JTextField txt_garums_rediget;
-    private javax.swing.JTextField txt_id_rediget;
+    public javax.swing.JTextField txt_id_delete;
+    public javax.swing.JTextField txt_id_rediget;
     public javax.swing.JTextField txt_svars;
+    public javax.swing.JTextField txt_svars_delete;
     public javax.swing.JTextField txt_svars_rediget;
     public javax.swing.JTextField txt_uzvards;
+    public javax.swing.JTextField txt_uzvards_delete;
     public javax.swing.JTextField txt_uzvards_rediget;
     public javax.swing.JTextField txt_vards;
+    public javax.swing.JTextField txt_vards_delete;
     public javax.swing.JTextField txt_vards_rediget;
     // End of variables declaration//GEN-END:variables
 }
